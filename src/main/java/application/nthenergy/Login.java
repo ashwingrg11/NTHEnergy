@@ -12,7 +12,7 @@ public class Login extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Dashboard.class.getResource("views/login-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 700, 400);
-        stage.setTitle("Login!");
+        stage.setTitle("NTH Energy - Customer Data Platform - Login");
         stage.setScene(scene);
         stage.show();
     }
