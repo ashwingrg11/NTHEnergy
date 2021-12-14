@@ -65,26 +65,31 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Label>
-      <Button fx:id="loginBtn" layoutX="365.0" layoutY="293.0" mnemonicParsing="false" onAction="#loginBtnClicked" prefHeight="33.0" prefWidth="209.0" stylesheets="@../assets/css/style.css" text="Login">
+      <Button id="login-btn" fx:id="loginBtn" layoutX="365.0" layoutY="293.0" mnemonicParsing="false" onAction="#loginBtnClicked" prefHeight="33.0" prefWidth="209.0" stylesheets="@../assets/css/style.css" text="Login">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <Label layoutX="82.0" layoutY="123.0" prefHeight="123.0" prefWidth="179.0" text="Welcome to the login page of our&#10;customer data platform software.&#10;&#10;Please use your login credentials &#10;to access this platform. &#9;" textAlignment="CENTER" textFill="#5e5e5e">
+      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="138.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/icons/company-logo.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="82.0" layoutY="139.0" prefHeight="123.0" prefWidth="179.0" text="Welcome to the login page of our&#10;customer data platform software.&#10;&#10;Please use your login credentials &#10;to access this platform. &#9;" textAlignment="CENTER" textFill="#5e5e5e">
          <font>
             <Font size="12.0" />
          </font>
       </Label>
-      <Label layoutX="101.0" layoutY="93.0" text="NTH Energy Supplier" textFill="#404040">
+      <Label layoutX="101.0" layoutY="117.0" text="NTH Energy Supplier" textFill="#404040">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="70.0" layoutY="247.0" text="For any technical support please contact: " textFill="#5e5e5e">
+      <Label layoutX="70.0" layoutY="263.0" text="For any technical support please contact: " textFill="#5e5e5e">
          <font>
             <Font size="12.0" />
          </font>
       </Label>
-      <Label layoutX="101.0" layoutY="273.0" text="admin@nthenergy.co.uk&#10;074366 00000" textAlignment="CENTER" textFill="#5e5e5e" underline="true">
+      <Label layoutX="101.0" layoutY="289.0" text="admin@nthenergy.co.uk&#10;074366 00000" textAlignment="CENTER" textFill="#5e5e5e" underline="true">
          <font>
             <Font size="12.0" />
          </font>
