@@ -1,3 +1,10 @@
+/*
+ * LoginController.java
+ * Controller class to access properties and methods from model class,
+ * handles user requests from login views.
+ * @author: Ashwin Gurung
+ */
+
 package application.nthenergy.controllers;
 
 import application.nthenergy.Dashboard;

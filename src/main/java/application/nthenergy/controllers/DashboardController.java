@@ -1,3 +1,10 @@
+/*
+ * DashboardController.java
+ * Controller class to access properties and methods from model class,
+ * handles user requests from dashboard.
+ * @author: Ashwin Gurung
+ */
+
 package application.nthenergy.controllers;
 
 import application.nthenergy.Dashboard;
@@ -9,7 +16,6 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 
 public class DashboardController {
