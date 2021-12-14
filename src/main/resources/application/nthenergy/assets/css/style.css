@@ -57,6 +57,21 @@
     -fx-font-size: 12px;
     -fx-text-fill: #303030;
 }
+.sm-font {
+    -fx-font-size: 10px;
+}
+.md-font {
+    -fx-font-size: 12px;
+}
+.normal-font {
+    -fx-font-size: 13px;
+}
+.lg-font {
+    -fx-font-size: 15px;
+}
+.primary-input:focused{
+    -fx-border-color: #0aae87;
+}
 .input-red-border {
     -fx-border-color: red;
 }
