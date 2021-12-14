@@ -10,54 +10,54 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.nthenergy.controllers.LoginController">
+<AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.nthenergy.controllers.LoginController">
    <children>
-      <ImageView fitHeight="400.0" fitWidth="700.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="512.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/images/login-bg.jpg" />
          </image>
       </ImageView>
-      <Label fx:id="loginTitle" layoutX="329.0" layoutY="73.0" stylesheets="@../assets/css/style.css" text="Login" textFill="#26ae80">
+      <Label fx:id="loginTitle" layoutX="392.0" layoutY="107.0" stylesheets="@../assets/css/style.css" text="Login" textFill="#26ae80">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Label fx:id="loginText" layoutX="329.0" layoutY="99.0" stylesheets="@../assets/css/style.css" text="Enter your details below to continue." textFill="#5e5e5e">
+      <Label fx:id="loginText" layoutX="392.0" layoutY="135.0" stylesheets="@../assets/css/style.css" text="Enter your details below to continue." textFill="#5e5e5e">
          <font>
             <Font size="11.0" />
          </font>
       </Label>
-      <Label fx:id="emailInputLabel" layoutX="329.0" layoutY="124.0" stylesheets="@../assets/css/style.css" text="Username or Email ">
+      <Label fx:id="emailInputLabel" layoutX="392.0" layoutY="185.0" stylesheets="@../assets/css/style.css" text="Username or Email ">
          <font>
             <Font size="12.0" />
          </font>
       </Label>
-      <Label fx:id="emailErrorLabel" layoutX="430.0" layoutY="125.0" text="This field is required." textFill="RED">
+      <Label fx:id="emailErrorLabel" layoutX="493.0" layoutY="186.0" text="This field is required." textFill="RED">
          <font>
             <Font size="11.0" />
          </font>
       </Label>
-      <TextField fx:id="emailInput" layoutX="329.0" layoutY="147.0" prefHeight="28.0" prefWidth="285.0" promptText="Enter your username or email">
+      <TextField fx:id="emailInput" layoutX="392.0" layoutY="208.0" prefHeight="28.0" prefWidth="285.0" promptText="Enter your username or email">
          <font>
             <Font size="12.0" />
          </font>
       </TextField>
-      <Label fx:id="pswInputLabel" layoutX="329.0" layoutY="199.0" stylesheets="@../assets/css/style.css" text="Password ">
+      <Label fx:id="pswInputLabel" layoutX="392.0" layoutY="260.0" stylesheets="@../assets/css/style.css" text="Password ">
          <font>
             <Font size="12.0" />
          </font>
       </Label>
-      <Label fx:id="pswErrorLabel" layoutX="387.0" layoutY="200.0" text="This field is required." textFill="RED">
+      <Label fx:id="pswErrorLabel" layoutX="450.0" layoutY="261.0" text="This field is required." textFill="RED">
          <font>
             <Font size="11.0" />
          </font>
       </Label>
-      <PasswordField fx:id="pswInput" layoutX="329.0" layoutY="223.0" prefHeight="28.0" prefWidth="285.0" promptText="*************">
+      <PasswordField fx:id="pswInput" layoutX="392.0" layoutY="284.0" prefHeight="28.0" prefWidth="285.0" promptText="*************">
          <font>
             <Font size="8.0" />
          </font>
       </PasswordField>
-      <Label layoutX="531.0" layoutY="257.0" text="Forgot Password?" textFill="#5e5e5e" underline="true">
+      <Label layoutX="594.0" layoutY="318.0" text="Forgot Password?" textFill="#5e5e5e" underline="true">
          <font>
             <Font size="11.0" />
          </font>
@@ -65,31 +65,31 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Label>
-      <Button id="login-btn" fx:id="loginBtn" layoutX="365.0" layoutY="293.0" mnemonicParsing="false" onAction="#loginBtnClicked" prefHeight="33.0" prefWidth="209.0" stylesheets="@../assets/css/style.css" text="Login">
+      <Button id="login-btn" fx:id="loginBtn" layoutX="428.0" layoutY="354.0" mnemonicParsing="false" onAction="#loginBtnClicked" prefHeight="33.0" prefWidth="209.0" stylesheets="@../assets/css/style.css" text="Login">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="138.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="162.0" layoutY="123.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../assets/icons/company-logo.png" />
          </image>
       </ImageView>
-      <Label layoutX="82.0" layoutY="139.0" prefHeight="123.0" prefWidth="179.0" text="Welcome to the login page of our&#10;customer data platform software.&#10;&#10;Please use your login credentials &#10;to access this platform. &#9;" textAlignment="CENTER" textFill="#5e5e5e">
+      <Label layoutX="106.0" layoutY="193.0" prefHeight="123.0" prefWidth="179.0" text="Welcome to the login page of our&#10;customer data platform software.&#10;&#10;Please use your login credentials &#10;to access this platform. &#9;" textAlignment="CENTER" textFill="#5e5e5e">
          <font>
             <Font size="12.0" />
          </font>
       </Label>
-      <Label layoutX="101.0" layoutY="117.0" text="NTH Energy Supplier" textFill="#404040">
+      <Label layoutX="125.0" layoutY="171.0" text="NTH Energy Supplier" textFill="#404040">
          <font>
             <Font size="16.0" />
          </font>
       </Label>
-      <Label layoutX="70.0" layoutY="263.0" text="For any technical support please contact: " textFill="#5e5e5e">
+      <Label layoutX="94.0" layoutY="317.0" text="For any technical support please contact: " textFill="#5e5e5e">
          <font>
             <Font size="12.0" />
          </font>
       </Label>
-      <Label layoutX="101.0" layoutY="289.0" text="admin@nthenergy.co.uk&#10;074366 00000" textAlignment="CENTER" textFill="#5e5e5e" underline="true">
+      <Label layoutX="125.0" layoutY="343.0" text="admin@nthenergy.co.uk&#10;074366 00000" textAlignment="CENTER" textFill="#5e5e5e" underline="true">
          <font>
             <Font size="12.0" />
          </font>
