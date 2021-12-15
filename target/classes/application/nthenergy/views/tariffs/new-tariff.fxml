@@ -106,10 +106,10 @@
                                 <AnchorPane prefHeight="500.0" prefWidth="858.0">
                                     <children>
                                         <TextField layoutX="89.0" layoutY="1.0" prefHeight="29.0" prefWidth="194.0" promptText="Tariff Name" styleClass="primary-input" />
-                                        <Label layoutY="7.0" styleClass="form-label" text="Name" />
+                                        <Label layoutY="7.0" styleClass="form-label" text="Name *" />
                               <Label layoutY="47.0" styleClass="form-label" text="Description" />
-                              <Label layoutX="-1.0" layoutY="136.0" styleClass="form-label" text="Tariff Type" />
-                              <Label layoutY="185.0" styleClass="form-label" text="Meter Type" />
+                              <Label layoutX="-1.0" layoutY="136.0" styleClass="form-label" text="Tariff Type *" />
+                              <Label layoutY="185.0" styleClass="form-label" text="Meter Type *" />
                               <Label layoutY="231.0" styleClass="form-label" text="Standing Fee" />
                               <Label layoutX="1.0" layoutY="275.0" styleClass="form-label" text="Exit Fee" />
                               <Label layoutX="405.0" layoutY="11.0" styleClass="form-label" text="Electricity Fix Rate" />
