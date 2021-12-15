@@ -105,7 +105,6 @@
                             <children>
                                 <AnchorPane prefHeight="500.0" prefWidth="858.0">
                                     <children>
-                                        <TextField layoutX="89.0" layoutY="1.0" prefHeight="29.0" prefWidth="194.0" promptText="Tariff Name" styleClass="primary-input" />
                                         <Label layoutY="7.0" styleClass="form-label" text="Name *" />
                               <Label layoutY="47.0" styleClass="form-label" text="Description" />
                               <Label layoutX="-1.0" layoutY="136.0" styleClass="form-label" text="Tariff Type *" />
@@ -117,16 +116,17 @@
                               <Label layoutX="406.0" layoutY="139.0" styleClass="form-label" text="Electricity Day Rate" />
                               <Label layoutX="405.0" layoutY="52.0" styleClass="form-label" text="Gas Fix Rate" />
                               <Label layoutX="406.0" layoutY="181.0" styleClass="form-label" text="Gas Variable Rate" />
-                              <TextField layoutX="541.0" layoutY="4.0" prefHeight="21.0" prefWidth="176.0" promptText="Electricity Fix Rate" styleClass="primary-input" />
-                              <TextField layoutX="89.0" layoutY="227.0" prefHeight="29.0" prefWidth="193.0" promptText="Standing Fee" styleClass="primary-input" />
-                              <TextField layoutX="89.0" layoutY="270.0" prefHeight="21.0" prefWidth="192.0" promptText="Exit Fee " styleClass="primary-input" />
-                              <TextArea layoutX="89.0" layoutY="44.0" prefHeight="72.0" prefWidth="193.0" styleClass="primary-input" />
+                                        <TextField layoutX="89.0" layoutY="1.0" prefHeight="29.0" prefWidth="194.0" promptText="Tariff Name" styleClass="primary-input" />
                               <ComboBox layoutX="89.0" layoutY="125.0" prefHeight="29.0" prefWidth="193.0" styleClass="primary-input" />
                               <ComboBox layoutX="89.0" layoutY="176.0" prefHeight="29.0" prefWidth="193.0" styleClass="primary-input" />
+                              <TextField layoutX="89.0" layoutY="227.0" prefHeight="29.0" prefWidth="193.0" promptText="Standing Fee" styleClass="primary-input" />
+                              <TextField layoutX="89.0" layoutY="270.0" prefHeight="21.0" prefWidth="192.0" promptText="Exit Fee " styleClass="primary-input" />
+                              <TextField layoutX="541.0" layoutY="4.0" prefHeight="21.0" prefWidth="176.0" promptText="Electricity Fix Rate" styleClass="primary-input" />
                               <TextField layoutX="541.0" layoutY="47.0" prefHeight="21.0" prefWidth="176.0" promptText="Gas Fix Rate" styleClass="primary-input" />
                               <TextField layoutX="541.0" layoutY="89.0" prefHeight="21.0" prefWidth="176.0" promptText="Electricity Night Rate" styleClass="primary-input" />
                               <TextField layoutX="541.0" layoutY="133.0" prefHeight="21.0" prefWidth="176.0" promptText="Electricity Day Rate" styleClass="primary-input" />
-                              <TextField layoutX="541.0" layoutY="176.0" prefHeight="21.0" prefWidth="176.0" promptText="Gax Variable Unit Rate" styleClass="primary-input" />
+                              <TextField layoutX="541.0" layoutY="176.0" prefHeight="21.0" prefWidth="176.0" promptText="Gas Variable Unit Rate" styleClass="primary-input" />
+                              <TextArea layoutX="89.0" layoutY="44.0" prefHeight="72.0" prefWidth="193.0" styleClass="primary-input" />
                               <Button fx:id="submitNewTariffBtn" layoutY="331.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" text="ADD">
                                  <styleClass>
                                     <String fx:value="btn-primary" />
