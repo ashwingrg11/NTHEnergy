@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.nthenergy.controllers.LoginController">
+<AnchorPane prefHeight="500.0" prefWidth="800.0" stylesheets="@../assets/css/style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.nthenergy.controllers.LoginController">
    <children>
       <ImageView fitHeight="512.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -33,7 +33,7 @@
             <Font size="12.0" />
          </font>
       </Label>
-      <Label fx:id="emailErrorLabel" layoutX="493.0" layoutY="182.0" text="This field is required." textFill="RED">
+      <Label fx:id="emailInputError" layoutX="493.0" layoutY="182.0" text="This field is required." textFill="RED">
          <font>
             <Font size="11.0" />
          </font>
@@ -43,11 +43,12 @@
             <Font size="12.0" />
          </font>
       </Label>
-      <Label fx:id="pswErrorLabel" layoutX="450.0" layoutY="257.0" text="This field is required." textFill="RED">
+      <Label fx:id="pswInputError" layoutX="450.0" layoutY="257.0" text="This field is required." textFill="RED">
          <font>
             <Font size="11.0" />
          </font>
       </Label>
+      <Label fx:id="loginFormMsg" layoutX="392.0" layoutY="153.0" styleClass="sm-second-font" />
       <TextField fx:id="emailInput" layoutX="392.0" layoutY="204.0" prefHeight="28.0" prefWidth="285.0" promptText="Enter your username or email" styleClass="primary-input" stylesheets="@../assets/css/style.css">
          <font>
             <Font size="12.0" />

@@ -14,6 +14,7 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
@@ -99,6 +100,40 @@ public class Helper {
         }
     }
 
+    /**
+     * This method validates required fields in login form, username/email and password
+     * @param usernameEmail TextField
+     * @param psw PasswordField
+     * @return boolean
+     */
+    public static boolean validateLoginFields(TextField usernameEmail, PasswordField psw) {
+        Label usernameEmailLabel = (Label) usernameEmail.getScene().lookup("#emailInputError");
+        Label pswLabel = (Label) usernameEmail.getScene().lookup("#pswInputError");
+        Label loginFormLabel = (Label) usernameEmail.getScene().lookup("#loginFormMsg");
+        boolean validateFlag = true;
+        // username or email input field
+        if(usernameEmail.getText().equals("")) {
+            usernameEmailLabel.setVisible(true);
+            validateFlag = false;
+        }
+        else {
+            usernameEmailLabel.setVisible(false);
+        }
+        // password input field
+        if(psw.getText().equals("")) {
+            pswLabel.setVisible(true);
+            validateFlag = false;
+        }
+        else {
+            pswLabel.setVisible(false);
+        }
+        // display message to the login form label
+        if(!validateFlag) {
+            loginFormLabel.getStyleClass().add("red-text");
+            loginFormLabel.setText("Please provide the required information.");
+        }
+        return validateFlag;
+    }
 
 
 }

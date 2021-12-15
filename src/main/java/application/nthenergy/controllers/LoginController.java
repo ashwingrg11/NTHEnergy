@@ -29,7 +29,7 @@ import javafx.scene.control.TextField;
 public class LoginController {
 
     @FXML
-    private Label emailErrorLabel;
+    private Label emailInputError;
 
     @FXML
     private TextField emailInput;
@@ -47,7 +47,7 @@ public class LoginController {
     private Label loginTitle;
 
     @FXML
-    private Label pswErrorLabel;
+    private Label pswInputError;
 
     @FXML
     private PasswordField pswInput;
@@ -56,15 +56,19 @@ public class LoginController {
     private Label pswInputLabel;
 
     @FXML
-    void onClickLoginBtn(MouseEvent event) throws IOException {
-        Helper.setScene(event, "views/dashboard-view.fxml");
-    }
+    private Label loginFormMsg;
 
     public void initialize() {
 //        emailInput.setFocusTraversable(false);
 //        pswInput.setFocusTraversable(false);
-        emailErrorLabel.setVisible(false);
-        pswErrorLabel.setVisible(false);
+        emailInputError.setVisible(false);
+        pswInputError.setVisible(false);
     }
 
+    @FXML
+    void onClickLoginBtn(MouseEvent event) throws IOException {
+        if(Helper.validateLoginFields(emailInput, pswInput)) {
+            Helper.setScene(event, "views/dashboard-view.fxml");
+        }
+    }
 }
