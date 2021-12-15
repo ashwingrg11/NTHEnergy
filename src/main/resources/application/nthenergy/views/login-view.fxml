@@ -28,32 +28,33 @@
             <Font size="11.0" />
          </font>
       </Label>
-      <Label fx:id="emailInputLabel" layoutX="392.0" layoutY="185.0" stylesheets="@../assets/css/style.css" text="Username or Email ">
+      <Label fx:id="emailInputLabel" layoutX="392.0" layoutY="181.0" stylesheets="@../assets/css/style.css" text="Username or Email ">
          <font>
             <Font size="12.0" />
          </font>
       </Label>
-      <Label fx:id="emailErrorLabel" layoutX="493.0" layoutY="186.0" text="This field is required." textFill="RED">
+      <Label fx:id="emailInputError" layoutX="493.0" layoutY="182.0" text="This field is required." textFill="RED">
          <font>
             <Font size="11.0" />
          </font>
       </Label>
-      <TextField fx:id="emailInput" layoutX="392.0" layoutY="208.0" prefHeight="28.0" prefWidth="285.0" promptText="Enter your username or email" styleClass="primary-input">
+      <Label fx:id="pswInputLabel" layoutX="392.0" layoutY="256.0" stylesheets="@../assets/css/style.css" text="Password ">
+         <font>
+            <Font size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="pswInputError" layoutX="450.0" layoutY="257.0" text="This field is required." textFill="RED">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Label>
+      <Label fx:id="loginFormMsg" layoutX="392.0" layoutY="153.0" styleClass="sm-second-font" />
+      <TextField fx:id="emailInput" layoutX="392.0" layoutY="204.0" prefHeight="28.0" prefWidth="285.0" promptText="Enter your username or email" styleClass="primary-input" stylesheets="@../assets/css/style.css">
          <font>
             <Font size="12.0" />
          </font>
       </TextField>
-      <Label fx:id="pswInputLabel" layoutX="392.0" layoutY="260.0" stylesheets="@../assets/css/style.css" text="Password ">
-         <font>
-            <Font size="12.0" />
-         </font>
-      </Label>
-      <Label fx:id="pswErrorLabel" layoutX="450.0" layoutY="261.0" text="This field is required." textFill="RED">
-         <font>
-            <Font size="11.0" />
-         </font>
-      </Label>
-      <PasswordField fx:id="pswInput" layoutX="392.0" layoutY="284.0" prefHeight="28.0" prefWidth="285.0" promptText="*************">
+      <PasswordField fx:id="pswInput" layoutX="392.0" layoutY="280.0" prefHeight="28.0" prefWidth="285.0" promptText="*************" stylesheets="@../assets/css/style.css">
          <font>
             <Font size="8.0" />
          </font>
@@ -70,7 +71,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Label>
-      <Button id="login-btn" fx:id="loginBtn" layoutX="428.0" layoutY="354.0" mnemonicParsing="false" onAction="#loginBtnClicked" prefHeight="33.0" prefWidth="209.0" stylesheets="@../assets/css/style.css" text="Login">
+      <Button id="login-btn" fx:id="loginBtn" layoutX="428.0" layoutY="354.0" mnemonicParsing="false" onMouseClicked="#onClickLoginBtn" prefHeight="33.0" prefWidth="209.0" stylesheets="@../assets/css/style.css" text="Login">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>

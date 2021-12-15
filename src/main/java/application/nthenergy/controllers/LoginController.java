@@ -1,6 +1,14 @@
+/*
+ * LoginController.java
+ * Controller class to access properties and methods from model class,
+ * handles user requests from login views.
+ * @author: Ashwin Gurung
+ */
+
 package application.nthenergy.controllers;
 
 import application.nthenergy.Dashboard;
+import application.nthenergy.core.Helper;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,10 +16,9 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-
 import java.io.IOException;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -22,7 +29,7 @@ import javafx.scene.control.TextField;
 public class LoginController {
 
     @FXML
-    private Label emailErrorLabel;
+    private Label emailInputError;
 
     @FXML
     private TextField emailInput;
@@ -40,7 +47,7 @@ public class LoginController {
     private Label loginTitle;
 
     @FXML
-    private Label pswErrorLabel;
+    private Label pswInputError;
 
     @FXML
     private PasswordField pswInput;
@@ -49,19 +56,19 @@ public class LoginController {
     private Label pswInputLabel;
 
     @FXML
-    void loginBtnClicked(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Dashboard.class.getResource("views/dashboard-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setTitle("NTH Energy - Customer Data Platform - Login");
-        stage.setScene(scene);
-        stage.show();
-    }
+    private Label loginFormMsg;
 
     public void initialize() {
 //        emailInput.setFocusTraversable(false);
-        emailErrorLabel.setVisible(false);
-        pswErrorLabel.setVisible(false);
+//        pswInput.setFocusTraversable(false);
+        emailInputError.setVisible(false);
+        pswInputError.setVisible(false);
     }
 
+    @FXML
+    void onClickLoginBtn(MouseEvent event) throws IOException {
+        if(Helper.validateLoginFields(emailInput, pswInput)) {
+            Helper.setScene(event, "views/dashboard-view.fxml");
+        }
+    }
 }

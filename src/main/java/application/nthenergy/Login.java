@@ -1,20 +1,16 @@
 package application.nthenergy;
 
+import application.nthenergy.core.Helper;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 
 public class Login extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Dashboard.class.getResource("views/login-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 800, 500);
-        stage.setTitle("NTH Energy - Customer Data Platform - Login");
-        stage.setScene(scene);
-        stage.show();
+        Helper.setScene(stage, "views/login-view.fxml");
     }
 
     public static void main(String[] args) {

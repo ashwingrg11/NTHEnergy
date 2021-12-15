@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox prefHeight="50.0" prefWidth="1000.0" BorderPane.alignment="CENTER" xmlns:fx="http://javafx.com/fxml">
+<HBox prefHeight="50.0" prefWidth="1000.0" BorderPane.alignment="CENTER" xmlns:fx="http://javafx.com/fxml" fx:controller="application.nthenergy.controllers.DashboardController">
     <children>
         <HBox prefHeight="100.0" prefWidth="200.0">
             <children>
