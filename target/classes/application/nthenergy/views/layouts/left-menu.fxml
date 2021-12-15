@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -16,12 +11,12 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="650.0" prefWidth="200.0" stylesheets="@../../assets/css/style.css" BorderPane.alignment="CENTER" xmlns:fx="http://javafx.com/fxml">
+<AnchorPane prefHeight="650.0" prefWidth="200.0" stylesheets="@../../assets/css/style.css" BorderPane.alignment="CENTER" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.nthenergy.controllers.DashboardController">
     <children>
         <VBox fx:id="dashboardMainMenu" prefHeight="60.0" prefWidth="200.0">
             <children>
                 <Label text="Main" textFill="#404040" />
-                <HBox fx:id="dashboardMenuItem" prefHeight="30.0" prefWidth="200.0" styleClass="menu-active">
+                <HBox fx:id="dashboardMenuItem" onMouseClicked="#onClickDashboardMenu" prefHeight="30.0" prefWidth="200.0" styleClass="menu-active">
                     <padding>
                         <Insets bottom="5.0" left="10.0" top="5.0" />
                     </padding>
@@ -52,7 +47,7 @@
         <VBox fx:id="dataMainMenu" layoutY="72.0" prefHeight="60.0" prefWidth="200.0">
             <children>
                 <Label text="Data Mgmt." textFill="#404040" />
-                <HBox fx:id="tariffsMenuItem" prefHeight="25.0" prefWidth="200.0">
+                <HBox fx:id="tariffsMenuItem" onMouseClicked="#onClickTariffsMenu" prefHeight="25.0" prefWidth="200.0">
                     <padding>
                         <Insets bottom="5.0" left="10.0" top="5.0" />
                     </padding>
@@ -75,7 +70,7 @@
                         <Cursor fx:constant="HAND" />
                     </cursor>
                 </HBox>
-                <HBox fx:id="customersMenuItem" prefHeight="25.0" prefWidth="200.0">
+                <HBox fx:id="customersMenuItem" onMouseClicked="#onClickCustomersMenu" prefHeight="25.0" prefWidth="200.0">
                     <padding>
                         <Insets bottom="5.0" left="10.0" top="5.0" />
                     </padding>
@@ -98,7 +93,7 @@
                         <Cursor fx:constant="HAND" />
                     </cursor>
                 </HBox>
-                <HBox fx:id="meterReadingsMenuItem" prefHeight="25.0" prefWidth="200.0">
+                <HBox fx:id="meterReadingsMenuItem" onMouseClicked="#onClickMeterReadingsMenu" prefHeight="25.0" prefWidth="200.0">
                     <padding>
                         <Insets bottom="5.0" left="10.0" top="5.0" />
                     </padding>
@@ -121,7 +116,7 @@
                         <Cursor fx:constant="HAND" />
                     </cursor>
                 </HBox>
-                <HBox fx:id="invoicesMenuItem" prefHeight="25.0" prefWidth="200.0">
+                <HBox fx:id="invoicesMenuItem" onMouseClicked="#onClickInvoicesMenu" prefHeight="25.0" prefWidth="200.0">
                     <padding>
                         <Insets bottom="5.0" left="10.0" top="5.0" />
                     </padding>
@@ -144,7 +139,7 @@
                         <Cursor fx:constant="HAND" />
                     </cursor>
                 </HBox>
-                <HBox fx:id="paymentsMenuItem" prefHeight="25.0" prefWidth="200.0">
+                <HBox fx:id="paymentsMenuItem" onMouseClicked="#onClickPaymentsMenu" prefHeight="25.0" prefWidth="200.0">
                     <padding>
                         <Insets bottom="5.0" left="10.0" top="5.0" />
                     </padding>
@@ -167,7 +162,7 @@
                         <Cursor fx:constant="HAND" />
                     </cursor>
                 </HBox>
-                <HBox fx:id="adminsMenuItem" prefHeight="25.0" prefWidth="200.0">
+                <HBox fx:id="adminsMenuItem" onMouseClicked="#onClickAdminsMenu" prefHeight="25.0" prefWidth="200.0">
                     <padding>
                         <Insets bottom="5.0" left="10.0" top="5.0" />
                     </padding>
@@ -198,7 +193,7 @@
         <VBox fx:id="reportMainMenu" layoutY="309.0" prefHeight="60.0" prefWidth="200.0">
             <children>
                 <Label text="Reports" textFill="#404040" />
-                <HBox fx:id="customersReportMenuItem" prefHeight="30.0" prefWidth="200.0">
+                <HBox fx:id="customersReportMenuItem" onMouseClicked="#onClickCustomersReportMenu" prefHeight="30.0" prefWidth="200.0">
                     <padding>
                         <Insets bottom="5.0" left="10.0" top="5.0" />
                     </padding>
@@ -221,7 +216,7 @@
                         <Cursor fx:constant="HAND" />
                     </cursor>
                 </HBox>
-                <HBox fx:id="paymentsReportMenuItem" prefHeight="30.0" prefWidth="200.0">
+                <HBox fx:id="paymentsReportMenuItem" onMouseClicked="#onClickPaymentsReportMenu" prefHeight="30.0" prefWidth="200.0">
                     <padding>
                         <Insets bottom="5.0" left="10.0" top="5.0" />
                     </padding>

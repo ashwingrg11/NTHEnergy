@@ -76,6 +76,9 @@
                                  <font>
                                     <Font size="12.0" />
                                  </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
                               </Button>
                               <Button layoutX="695.0" layoutY="5.0" mnemonicParsing="false" text="Edit Customer">
                                  <styleClass>
@@ -85,6 +88,9 @@
                                  <font>
                                     <Font size="12.0" />
                                  </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
                               </Button>
                               <Button layoutX="801.0" layoutY="5.0" mnemonicParsing="false" text="Delete">
                                  <styleClass>
@@ -94,6 +100,9 @@
                                  <font>
                                     <Font size="12.0" />
                                  </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
                               </Button>
                            </children>
                            <HBox.margin>
@@ -111,7 +120,7 @@
                   </HBox>
                   <TableView editable="true" layoutX="10.0" layoutY="74.0" prefHeight="179.0" prefWidth="880.0">
                      <placeholder>
-                        <Label text="There are no records to display."/>
+                        <Label text="There are no records to display." />
                      </placeholder>
                     <columns>
                       <TableColumn prefWidth="75.0" text="ID" />

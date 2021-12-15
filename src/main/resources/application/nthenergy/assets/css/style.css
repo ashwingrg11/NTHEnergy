@@ -53,12 +53,15 @@
     -fx-border-color: #525252;
     -fx-border-width: 1 ;
     -fx-border-style: solid;
-    -fx-padding: 2 5 2 5;
+    -fx-padding: 8 5 8 5;
     -fx-font-size: 12px;
     -fx-text-fill: #303030;
 }
 .sm-font {
     -fx-font-size: 10px;
+}
+.sm-second-font {
+    -fx-font-size: 11px;
 }
 .md-font {
     -fx-font-size: 12px;
