@@ -38,11 +38,6 @@
             <Font size="11.0" />
          </font>
       </Label>
-      <TextField fx:id="emailInput" layoutX="392.0" layoutY="204.0" prefHeight="28.0" prefWidth="285.0" promptText="Enter your username or email" styleClass="primary-input" stylesheets="@../assets/css/style.css">
-         <font>
-            <Font size="12.0" />
-         </font>
-      </TextField>
       <Label fx:id="pswInputLabel" layoutX="392.0" layoutY="256.0" stylesheets="@../assets/css/style.css" text="Password ">
          <font>
             <Font size="12.0" />
@@ -53,6 +48,11 @@
             <Font size="11.0" />
          </font>
       </Label>
+      <TextField fx:id="emailInput" layoutX="392.0" layoutY="204.0" prefHeight="28.0" prefWidth="285.0" promptText="Enter your username or email" styleClass="primary-input" stylesheets="@../assets/css/style.css">
+         <font>
+            <Font size="12.0" />
+         </font>
+      </TextField>
       <PasswordField fx:id="pswInput" layoutX="392.0" layoutY="280.0" prefHeight="28.0" prefWidth="285.0" promptText="*************" stylesheets="@../assets/css/style.css">
          <font>
             <Font size="8.0" />
