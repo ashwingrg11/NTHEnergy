@@ -61,7 +61,7 @@ public class Helper {
      * @param btn
      * @param fields
      */
-    public static void validateRequiredTextFields(Button btn, TextField[] fields) {
+    public static boolean validateRequiredTextFields(Button btn, TextField[] fields) {
         boolean flag = false;
         // loop through all required text fields
         for(TextField field : fields) {
@@ -71,8 +71,18 @@ public class Helper {
             }
         }
         // label to show validation error message
-        Label formErr = (Label) btn.getScene().lookup("#formError");
-        if (flag) formErr.setText("*  Please provide the required information.");
+        Label formMsg = (Label) btn.getScene().lookup("#formMsg");
+        if (flag){
+            formMsg.getStyleClass().removeAll("green-text");
+            formMsg.getStyleClass().add("red-text");
+            formMsg.setText("*  Please provide the required information.");
+            return false;
+        }
+        else {
+            formMsg.setText("");
+            formMsg.getStyleClass().removeAll("red-text");
+            return true;
+        }
     }
 
     /**
@@ -86,7 +96,6 @@ public class Helper {
         }
         else {
             field.getStyleClass().removeAll("input-red-border");
-
         }
     }
 

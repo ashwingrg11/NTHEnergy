@@ -58,7 +58,7 @@ public class TariffController {
     private ComboBox<String> meterTypeCbx;
 
     @FXML
-    private Label formError;
+    private Label formMsg;
 
     private ObservableList<String> tariffTypeList = FXCollections.observableArrayList("FIXED", "VARIABLE");
 
@@ -92,7 +92,12 @@ public class TariffController {
     @FXML
     void onClickSubmitNewTariff(MouseEvent event) {
         TextField[] fields = {newTariffNameInput};
-        Helper.validateRequiredTextFields(submitNewTariffBtn, fields);
+        if(Helper.validateRequiredTextFields(submitNewTariffBtn, fields)) {
+            Label formMsg = (Label) submitNewTariffBtn.getScene().lookup("#formMsg");
+            formMsg.getStyleClass().removeAll("red-text");
+            formMsg.getStyleClass().add("green-text");
+            formMsg.setText("-  New tariff has been added successfully.");
+        }
     }
 
     @FXML

@@ -80,7 +80,7 @@
                                                 <Cursor fx:constant="HAND" />
                                             </cursor>
                                         </Button>
-                              <Label fx:id="formError" layoutX="99.0" layoutY="9.0">
+                              <Label fx:id="formMsg" layoutX="99.0" layoutY="9.0">
                                  <styleClass>
                                     <String fx:value="md-font" />
                                     <String fx:value="red-text" />
