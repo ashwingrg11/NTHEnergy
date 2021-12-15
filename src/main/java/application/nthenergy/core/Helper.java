@@ -12,8 +12,14 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import org.w3c.dom.Text;
+
 import java.io.IOException;
 
 public class Helper {
@@ -30,7 +36,7 @@ public class Helper {
         FXMLLoader fxmlLoader = new FXMLLoader(Dashboard.class.getResource(view));
         Scene scene = new Scene(fxmlLoader.load());
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setTitle("NTH Energy - Customer Data Platform - Login");
+        stage.setTitle("NTH Energy - Customer Data Platform");
         stage.setScene(scene);
         stage.show();
     }
@@ -43,11 +49,47 @@ public class Helper {
      * @throws IOException
      */
     public static void setScene(Stage stage, String view) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Dashboard.class.getResource("views/login-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 800, 500);
+        FXMLLoader fxmlLoader = new FXMLLoader(Dashboard.class.getResource(view));
+        Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("NTH Energy - Customer Data Platform - Login");
         stage.setScene(scene);
         stage.show();
     }
+
+    /**
+     * This method is used to validate multiple required input fields.
+     * @param btn
+     * @param fields
+     */
+    public static void validateRequiredTextFields(Button btn, TextField[] fields) {
+        boolean flag = false;
+        // loop through all required text fields
+        for(TextField field : fields) {
+            if(field.getText().equals("")) {
+                field.getStyleClass().add("input-red-border");
+                flag = true;
+            }
+        }
+        // label to show validation error message
+        Label formErr = (Label) btn.getScene().lookup("#formError");
+        if (flag) formErr.setText("*  Please provide the required information.");
+    }
+
+    /**
+     * This method is used to validated single required text field.
+     * @param event
+     */
+    public static void validateRequiredTextField(KeyEvent event) {
+        TextField field = (TextField) event.getSource();
+        if(field.getText().equals("")) {
+            field.getStyleClass().add("input-red-border");
+        }
+        else {
+            field.getStyleClass().removeAll("input-red-border");
+
+        }
+    }
+
+
 
 }

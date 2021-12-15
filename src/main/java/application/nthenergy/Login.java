@@ -10,7 +10,7 @@ import java.io.IOException;
 public class Login extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        Helper.setScene(stage, "vies/login-view.fxml");
+        Helper.setScene(stage, "views/login-view.fxml");
     }
 
     public static void main(String[] args) {
