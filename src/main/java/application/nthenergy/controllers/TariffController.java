@@ -49,6 +49,12 @@ public class TariffController {
     private TextField newTariffNameInput;
 
     @FXML
+    private TextField newTariffStandingFeeInput;
+
+    @FXML
+    private TextField newTariffExitFeeInput;
+
+    @FXML
     private Button viewAllTariffsBtn;
 
     @FXML
@@ -91,7 +97,7 @@ public class TariffController {
 
     @FXML
     void onClickSubmitNewTariff(MouseEvent event) {
-        TextField[] fields = {newTariffNameInput};
+        TextField[] fields = {newTariffNameInput, newTariffStandingFeeInput, newTariffExitFeeInput };
         if(Helper.validateRequiredTextFields(submitNewTariffBtn, fields)) {
             Label formMsg = (Label) submitNewTariffBtn.getScene().lookup("#formMsg");
             formMsg.getStyleClass().removeAll("red-text");
