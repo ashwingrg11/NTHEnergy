@@ -8,22 +8,48 @@
 package application.nthenergy.core;
 
 import application.nthenergy.Dashboard;
+import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import org.w3c.dom.Text;
 
 import java.io.IOException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Helper {
+    // regex pattern to validate email inputs
+    public static final Pattern VALID_EMAIL_ADDRESS_REGEX = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
+
+    /**
+     * This method is used to validate input email against defined regex pattern.
+     * @param email, btn
+     * @return
+     */
+    public static boolean emailValidate(TextField email, Button btn) {
+        Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(email.getText());
+        Label formMsg = (Label) btn.getScene().lookup("#formMsg");
+        if (!matcher.find()){
+            email.getStyleClass().add("input-red-border");
+            formMsg.getStyleClass().removeAll("green-text");
+            formMsg.getStyleClass().add("red-text");
+            formMsg.setText("*  Please enter a valid email address.");
+            return false;
+        }
+        else {
+            formMsg.setText("");
+            formMsg.getStyleClass().removeAll("red-text");
+            email.getStyleClass().removeAll("input-red-border");
+            return true;
+        }
+    }
 
     /**
      * This method is used to set scene based on the received view.
@@ -70,6 +96,9 @@ public class Helper {
                 field.getStyleClass().add("input-red-border");
                 flag = true;
             }
+            else {
+                field.getStyleClass().removeAll("input-red-border");
+            }
         }
         // label to show validation error message
         Label formMsg = (Label) btn.getScene().lookup("#formMsg");
@@ -86,6 +115,8 @@ public class Helper {
         }
     }
 
+
+
     /**
      * This method is used to validated single required text field.
      * @param event
@@ -93,6 +124,20 @@ public class Helper {
     public static void validateRequiredTextField(KeyEvent event) {
         TextField field = (TextField) event.getSource();
         if(field.getText().equals("")) {
+            field.getStyleClass().add("input-red-border");
+        }
+        else {
+            field.getStyleClass().removeAll("input-red-border");
+        }
+    }
+
+    /**
+     * This method is used to validated single required date field.
+     * @param event
+     */
+    public static void validateRequiredDateField(Event event) {
+        DatePicker field = (DatePicker) event.getSource();
+        if(field.getValue() == null) {
             field.getStyleClass().add("input-red-border");
         }
         else {
@@ -134,6 +179,8 @@ public class Helper {
         }
         return validateFlag;
     }
+
+
 
 
 }

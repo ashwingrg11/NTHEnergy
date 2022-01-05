@@ -67,8 +67,8 @@ public class DashboardController {
     }
 
     @FXML
-    void onClickCustomersMenu(MouseEvent event) {
-
+    void onClickCustomersMenu(MouseEvent event) throws IOException {
+        Helper.setScene(event, "views/customers/all-customers.fxml");
     }
 
     @FXML
