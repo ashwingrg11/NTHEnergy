@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1100.0" stylesheets="@../../assets/css/style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.nthenergy.controllers.CustomerController">
+    <children>
+        <ImageView fitHeight="700.0" fitWidth="1100.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../assets/images/dashboard-bg.jpg" />
+            </image>
+        </ImageView>
+        <BorderPane focusTraversable="true" prefHeight="700.0" prefWidth="1100.0">
+            <top>
+                <fx:include source="../layouts/top.fxml" />
+            </top>
+            <left>
+                <fx:include source="../layouts/left-menu.fxml" />
+            </left>
+            <center>
+                <AnchorPane prefHeight="650.0" prefWidth="900.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <HBox prefHeight="30.0" prefWidth="900.0">
+                            <children>
+                                <Label text="Data Mgmt.">
+                                    <font>
+                                        <Font size="15.0" />
+                                    </font>
+                                    <padding>
+                                        <Insets right="2.0" />
+                                    </padding>
+                                </Label>
+                                <ImageView fitHeight="11.0" fitWidth="11.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../assets/icons/chevron-right-icon.png" />
+                                    </image>
+                                    <HBox.margin>
+                                        <Insets top="5.0" />
+                                    </HBox.margin>
+                                </ImageView>
+                                <Label text="Customers">
+                                    <font>
+                                        <Font size="15.0" />
+                                    </font>
+                                    <padding>
+                                        <Insets left="2.0" />
+                                    </padding>
+                                </Label>
+                            </children>
+                            <padding>
+                                <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                            </padding>
+                        </HBox>
+                        <HBox layoutY="30.0" prefHeight="35.0" prefWidth="900.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="30.0">
+                            <children>
+                                <AnchorPane prefHeight="35.0" prefWidth="880.0">
+                                    <children>
+                                        <Label prefHeight="35.0" text="Add New Customer" />
+                                        <Button fx:id="viewAllCustomersBtn" layoutX="736.0" layoutY="5.0" mnemonicParsing="false" onMouseClicked="#onClickViewAllCustomers" text="View All Customers">
+                                            <styleClass>
+                                                <String fx:value="btn-secondary" />
+                                                <String fx:value="light-white-text" />
+                                            </styleClass>
+                                            <font>
+                                                <Font size="12.0" />
+                                            </font>
+                                            <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                            </cursor>
+                                        </Button>
+                                        <Label fx:id="formMsg" layoutX="114.0" layoutY="9.0">
+                                            <styleClass>
+                                                <String fx:value="md-font" />
+                                                <String fx:value="red-text" />
+                                            </styleClass>
+                                        </Label>
+                                    </children>
+                                    <HBox.margin>
+                                        <Insets />
+                                    </HBox.margin>
+                                </AnchorPane>
+                            </children>
+                            <padding>
+                                <Insets left="10.0" right="10.0" />
+                            </padding>
+                            <styleClass>
+                                <String fx:value="bg-white" />
+                                <String fx:value="gray-border" />
+                            </styleClass>
+                        </HBox>
+                        <HBox layoutX="11.0" layoutY="74.0" prefHeight="540.0" prefWidth="880.0">
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </padding>
+                            <styleClass>
+                                <String fx:value="bg-white" />
+                                <String fx:value="gray-border" />
+                            </styleClass>
+                            <children>
+                                <AnchorPane prefHeight="500.0" prefWidth="858.0">
+                                    <children>
+                                        <Label layoutY="7.0" styleClass="form-label" text="First Name *" />
+                                        <Label layoutX="287.0" layoutY="7.0" styleClass="form-label" text="Middle Name " />
+                                        <TextField fx:id="newCustomerFirstName" layoutX="76.0" layoutY="-2.0" onKeyReleased="#onTextChanged" prefHeight="33.0" prefWidth="162.0" promptText="First name" styleClass="primary-input" />
+                                        <TextField fx:id="newCustomerMiddleName" layoutX="372.0" layoutY="-2.0" prefHeight="21.0" prefWidth="176.0" promptText="Middle name" styleClass="primary-input" />
+                              <Label layoutX="596.0" layoutY="7.0" styleClass="form-label" text="Last Name *" />
+                              <TextField fx:id="newCustomerLastName" layoutX="681.0" layoutY="-2.0" onKeyReleased="#onTextChanged" prefHeight="21.0" prefWidth="176.0" promptText="Last name" styleClass="primary-input" />
+                              <Label layoutY="54.0" styleClass="form-label" text="Email *" />
+                              <TextField fx:id="newCustomerEmail" layoutX="76.0" layoutY="45.0" onKeyReleased="#onTextChanged" prefHeight="33.0" prefWidth="162.0" promptText="Customer email" styleClass="primary-input" />
+                              <Label layoutX="287.0" layoutY="54.0" styleClass="form-label" text="Username" />
+                              <TextField fx:id="newCustomerUsername" layoutX="372.0" layoutY="45.0" prefHeight="33.0" prefWidth="176.0" promptText="Login username" styleClass="primary-input" />
+                              <Label layoutX="596.0" layoutY="54.0" styleClass="form-label" text="Login Psw *" />
+                              <TextField fx:id="newCustomerPassword" layoutX="681.0" layoutY="45.0" onKeyReleased="#onTextChanged" prefHeight="33.0" prefWidth="176.0" promptText="Login password" styleClass="primary-input" />
+                              <Label layoutY="100.0" styleClass="form-label" text="Mob No *" />
+                              <TextField fx:id="newCustomerMobNo" layoutX="76.0" layoutY="91.0" onKeyReleased="#onTextChanged" prefHeight="33.0" prefWidth="162.0" promptText="Primary mobile number" styleClass="primary-input" />
+                              <Label layoutX="287.0" layoutY="101.0" styleClass="form-label" text="Post Code *" />
+                              <TextField fx:id="newCustomerPostCode" layoutX="372.0" layoutY="92.0" onKeyReleased="#onTextChanged" prefHeight="33.0" prefWidth="176.0" promptText="Post code" styleClass="primary-input" />
+                              <Label layoutX="596.0" layoutY="101.0" styleClass="form-label" text="Town/City *" />
+                              <TextField fx:id="newCustomerTownCity" layoutX="681.0" layoutY="92.0" onKeyReleased="#onTextChanged" prefHeight="33.0" prefWidth="176.0" promptText="Town or city" styleClass="primary-input" />
+                              <Label layoutY="144.0" styleClass="form-label" text="Meter&#10;Number *" />
+                              <TextField fx:id="newCustomerMeterNumber" layoutX="76.0" layoutY="142.0" onKeyReleased="#onTextChanged" prefHeight="33.0" prefWidth="162.0" promptText="Meter number" styleClass="primary-input" />
+                              <Label layoutX="287.0" layoutY="145.0" styleClass="form-label" text="Address&#10;Line One *" />
+                              <TextField fx:id="newCustomerAddressLineOne" layoutX="372.0" layoutY="143.0" onKeyReleased="#onTextChanged" prefHeight="33.0" prefWidth="176.0" promptText="Address line one" styleClass="primary-input" />
+                              <Label layoutX="597.0" layoutY="145.0" styleClass="form-label" text="Alternate &#10;Contact No" />
+                              <TextField fx:id="newCustomerAlternateContactNo" layoutX="681.0" layoutY="143.0" prefHeight="33.0" prefWidth="176.0" promptText="Secondary contact number" styleClass="primary-input" />
+                              <Label layoutY="202.0" styleClass="form-label" text="Bank Name *" />
+                              <TextField fx:id="newCustomerBankName" layoutX="76.0" layoutY="193.0" onKeyReleased="#onTextChanged" prefHeight="33.0" prefWidth="162.0" promptText="Bank name" styleClass="primary-input" />
+                              <Label layoutX="289.0" layoutY="196.0" styleClass="form-label" text="Account &#10;Number *" />
+                              <TextField fx:id="newCustomerAccountNumber" layoutX="372.0" layoutY="194.0" onKeyReleased="#onTextChanged" prefHeight="33.0" prefWidth="176.0" promptText="Account number" styleClass="primary-input" />
+                              <Label layoutX="596.0" layoutY="203.0" styleClass="form-label" text="Card Number *" />
+                              <TextField fx:id="newCustomerCardNumber" layoutX="681.0" layoutY="194.0" onKeyReleased="#onTextChanged" prefHeight="33.0" prefWidth="176.0" promptText="Card number" styleClass="primary-input" />
+                              <Label layoutY="248.0" styleClass="form-label" text="Name&#10;on Card *" />
+                              <TextField fx:id="newCustomerNameOnCard" layoutX="76.0" layoutY="246.0" onKeyReleased="#onTextChanged" prefHeight="33.0" prefWidth="162.0" promptText="Name on card" styleClass="primary-input" />
+                              <Label layoutX="287.0" layoutY="256.0" styleClass="form-label" text="CVV *" />
+                              <TextField fx:id="newCustomerCvv" layoutX="372.0" layoutY="247.0" onKeyReleased="#onTextChanged" prefHeight="33.0" prefWidth="176.0" promptText="CVV" styleClass="primary-input" />
+                              <Label layoutX="596.0" layoutY="256.0" styleClass="form-label" text="Expiry Date *" />
+                              <DatePicker fx:id="newCustomerCardExpiryDate" layoutX="681.0" layoutY="242.0" onHidden="#onDateChanged" prefHeight="41.0" prefWidth="176.0" promptText="Expiry Date" styleClass="primary-input" />
+                              <Label layoutY="312.0" styleClass="form-label" text="Tariff *" />
+                              <ComboBox fx:id="newCustomerTariff" layoutX="76.0" layoutY="299.0" prefHeight="41.0" prefWidth="161.0" styleClass="primary-input" />
+                              <Label layoutX="286.0" layoutY="312.0" styleClass="form-label" text="Join Date *" />
+                              <DatePicker fx:id="newCustomerJoinDate" layoutX="370.0" layoutY="299.0" onHidden="#onDateChanged" prefHeight="41.0" prefWidth="178.0" promptText="Join Date" styleClass="primary-input" />
+                              <Label layoutY="365.0" styleClass="form-label" text="Tariff &#10;Start Date *" />
+                              <DatePicker fx:id="newCustomerTariffStartDate" layoutX="76.0" layoutY="360.0" onHidden="#onDateChanged" prefHeight="41.0" prefWidth="161.0" promptText="Start Date" styleClass="primary-input" />
+                              <Label layoutX="286.0" layoutY="366.0" styleClass="form-label" text="Tariff &#10;End Date *" />
+                              <DatePicker fx:id="newCustomerTariffEndDate" layoutX="370.0" layoutY="360.0" onHidden="#onDateChanged" prefHeight="41.0" prefWidth="179.0" promptText="End Date" styleClass="primary-input" />
+                                        <Button fx:id="submitNewCustomerBtn" layoutY="460.0" mnemonicParsing="false" onMouseClicked="#onClickSubmitNewCustomer" prefHeight="25.0" prefWidth="103.0" text="ADD">
+                                            <styleClass>
+                                                <String fx:value="btn-primary" />
+                                                <String fx:value="light-white-text" />
+                                            </styleClass>
+                                            <font>
+                                                <Font size="12.0" />
+                                            </font>
+                                            <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                            </cursor>
+                                        </Button>
+                                        <Button fx:id="cancelNewTariffBtn" layoutX="111.0" layoutY="460.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" text="CANCEL">
+                                            <styleClass>
+                                                <String fx:value="btn-danger" />
+                                                <String fx:value="light-white-text" />
+                                            </styleClass>
+                                            <font>
+                                                <Font size="12.0" />
+                                            </font>
+                                            <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                            </cursor>
+                                        </Button>
+                                    </children>
+                                </AnchorPane>
+                            </children>
+                        </HBox>
+                    </children>
+                    <BorderPane.margin>
+                        <Insets />
+                    </BorderPane.margin>
+                </AnchorPane>
+            </center>
+            <bottom>
+                <fx:include source="../layouts/bottom.fxml" />
+            </bottom>
+        </BorderPane>
+    </children>
+</AnchorPane>
