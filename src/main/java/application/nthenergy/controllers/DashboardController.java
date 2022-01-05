@@ -62,8 +62,8 @@ public class DashboardController {
     private HBox tariffsMenuItem;
 
     @FXML
-    void onClickAdminsMenu(MouseEvent event) {
-
+    void onClickAdminsMenu(MouseEvent event) throws IOException {
+        Helper.setScene(event, "views/admins/all-admins.fxml");
     }
 
     @FXML
