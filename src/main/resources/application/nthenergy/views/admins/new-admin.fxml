@@ -116,7 +116,7 @@
                                         <Label layoutX="596.0" layoutY="7.0" styleClass="form-label" text="Last Name *" />
                                         <TextField fx:id="newAdminLastName" layoutX="681.0" layoutY="-2.0" onKeyReleased="#onTextChanged" prefHeight="21.0" prefWidth="176.0" promptText="Last name" styleClass="primary-input" />
                                         <Label layoutY="54.0" styleClass="form-label" text="Email *" />
-                                        <TextField fx:id="newAdminEmail" layoutX="76.0" layoutY="45.0" onKeyReleased="#onTextChanged" prefHeight="33.0" prefWidth="162.0" promptText="Customer email" styleClass="primary-input" />
+                                        <TextField fx:id="newAdminEmail" layoutX="76.0" layoutY="45.0" onKeyReleased="#onTextChanged" prefHeight="33.0" prefWidth="162.0" promptText="Admin email" styleClass="primary-input" />
                                         <Label layoutX="287.0" layoutY="54.0" styleClass="form-label" text="Username" />
                                         <TextField fx:id="newAdminUsername" layoutX="372.0" layoutY="45.0" prefHeight="33.0" prefWidth="176.0" promptText="Login username" styleClass="primary-input" />
                                         <Label layoutX="596.0" layoutY="54.0" styleClass="form-label" text="Login Psw *" />

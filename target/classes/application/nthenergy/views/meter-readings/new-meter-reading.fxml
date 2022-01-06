@@ -4,6 +4,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -13,7 +14,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1100.0" stylesheets="@../../assets/css/style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.nthenergy.controllers.AdminController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1100.0" stylesheets="@../../assets/css/style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.nthenergy.controllers.MeterReadingController">
     <children>
         <ImageView fitHeight="700.0" fitWidth="1100.0" pickOnBounds="true" preserveRatio="true">
             <image>
@@ -48,7 +49,7 @@
                                         <Insets top="5.0" />
                                     </HBox.margin>
                                 </ImageView>
-                                <Label text="Admins">
+                                <Label text="Meter Readings">
                                     <font>
                                         <Font size="15.0" />
                                     </font>
@@ -65,8 +66,8 @@
                             <children>
                                 <AnchorPane prefHeight="35.0" prefWidth="880.0">
                                     <children>
-                                        <Label prefHeight="35.0" text="Add New Admin" />
-                                        <Button fx:id="viewAllCustomersBtn" layoutX="751.0" layoutY="5.0" mnemonicParsing="false" onMouseClicked="#onClickViewAllAdmins" text="View All Admins">
+                                        <Label prefHeight="35.0" text="Add New Meter Reading" />
+                                        <Button fx:id="viewAllMeterReadingsBtn" layoutX="712.0" layoutY="4.0" mnemonicParsing="false" onMouseClicked="#onClickViewAllMeterReadings" text="View All Meter Readings">
                                             <styleClass>
                                                 <String fx:value="btn-secondary" />
                                                 <String fx:value="light-white-text" />
@@ -78,7 +79,7 @@
                                                 <Cursor fx:constant="HAND" />
                                             </cursor>
                                         </Button>
-                                        <Label fx:id="formMsg" layoutX="114.0" layoutY="9.0">
+                                        <Label fx:id="formMsg" layoutX="146.0" layoutY="10.0" prefHeight="15.0" prefWidth="407.0">
                                             <styleClass>
                                                 <String fx:value="md-font" />
                                                 <String fx:value="red-text" />
@@ -109,21 +110,27 @@
                             <children>
                                 <AnchorPane prefHeight="500.0" prefWidth="858.0">
                                     <children>
-                                        <Label layoutY="7.0" styleClass="form-label" text="First Name *" />
-                                        <Label layoutX="287.0" layoutY="7.0" styleClass="form-label" text="Middle Name " />
-                                        <TextField fx:id="newAdminFirstName" layoutX="76.0" layoutY="-2.0" onKeyReleased="#onTextChanged" prefHeight="33.0" prefWidth="162.0" promptText="First name" styleClass="primary-input" />
-                                        <TextField fx:id="newAdminMiddleName" layoutX="372.0" layoutY="-2.0" prefHeight="21.0" prefWidth="176.0" promptText="Middle name" styleClass="primary-input" />
-                                        <Label layoutX="596.0" layoutY="7.0" styleClass="form-label" text="Last Name *" />
-                                        <TextField fx:id="newAdminLastName" layoutX="681.0" layoutY="-2.0" onKeyReleased="#onTextChanged" prefHeight="21.0" prefWidth="176.0" promptText="Last name" styleClass="primary-input" />
-                                        <Label layoutY="54.0" styleClass="form-label" text="Email *" />
-                                        <TextField fx:id="newAdminEmail" layoutX="76.0" layoutY="45.0" onKeyReleased="#onTextChanged" prefHeight="33.0" prefWidth="162.0" promptText="Admin email" styleClass="primary-input" />
-                                        <Label layoutX="287.0" layoutY="54.0" styleClass="form-label" text="Username" />
-                                        <TextField fx:id="newAdminUsername" layoutX="372.0" layoutY="45.0" prefHeight="33.0" prefWidth="176.0" promptText="Login username" styleClass="primary-input" />
-                                        <Label layoutX="596.0" layoutY="54.0" styleClass="form-label" text="Login Psw *" />
-                                        <TextField fx:id="newAdminPassword" layoutX="681.0" layoutY="45.0" onKeyReleased="#onTextChanged" prefHeight="33.0" prefWidth="176.0" promptText="Login password" styleClass="primary-input" />
-                                        <Label layoutY="100.0" styleClass="form-label" text="Mob No *" />
-                                        <TextField fx:id="newAdminMobNo" layoutX="76.0" layoutY="91.0" onKeyReleased="#onTextChanged" prefHeight="33.0" prefWidth="162.0" promptText="Primary mobile number" styleClass="primary-input" />
-                                        <Button fx:id="submitNewAdminBtn" layoutY="216.0" mnemonicParsing="false" onMouseClicked="#onClickSubmitNewAdmin" prefHeight="25.0" prefWidth="103.0" text="ADD">
+                                        <Label layoutY="7.0" styleClass="form-label" text="Gas Opening *" />
+                                        <Label layoutX="360.0" styleClass="form-label" text="Gas Closing *" />
+                                        <TextField fx:id="newMeterReadingGasOpening" layoutX="105.0" layoutY="-2.0" onKeyReleased="#onTextChanged" prefHeight="33.0" prefWidth="162.0" promptText="Gas opening" styleClass="primary-input" />
+                                        <TextField fx:id="newMeterReadingGasClosing" layoutX="459.0" layoutY="-9.0" onKeyReleased="#onTextChanged" prefHeight="21.0" prefWidth="176.0" promptText="Gas closing" styleClass="primary-input" />
+                                        <Label layoutY="47.0" styleClass="form-label" text="Electricity&#10;Opening" />
+                                        <TextField fx:id="newMeterReadingElecOpening" layoutX="105.0" layoutY="45.0" prefHeight="33.0" prefWidth="162.0" promptText="Electricity opening" styleClass="primary-input" />
+                                        <Label layoutX="359.0" layoutY="40.0" styleClass="form-label" text="Electricity&#10;Closing" />
+                                        <TextField fx:id="newMeterReadingElecClosing" layoutX="459.0" layoutY="38.0" prefHeight="33.0" prefWidth="176.0" promptText="Electricity closing" styleClass="primary-input" />
+                                        <Label layoutY="93.0" styleClass="form-label" text="Electricity&#10;Night Opening" />
+                                        <TextField fx:id="newMeterReadingElecNightOpening" layoutX="105.0" layoutY="91.0" prefHeight="33.0" prefWidth="162.0" promptText="Electricity night opening" styleClass="primary-input" />
+                                        <Label layoutX="360.0" layoutY="86.0" styleClass="form-label" text="Electricity&#10;Night Closing" />
+                                        <TextField fx:id="newMeterReadingNightClosing" layoutX="459.0" layoutY="85.0" prefHeight="33.0" prefWidth="176.0" promptText="Electricity night closing" styleClass="primary-input" />
+                                        <Label layoutY="144.0" styleClass="form-label" text="Electricity &#10;Day Opening" />
+                                        <TextField fx:id="newMeterReadingDayOpening" layoutX="105.0" layoutY="142.0" prefHeight="33.0" prefWidth="162.0" promptText="Electricity day opening" styleClass="primary-input" />
+                                        <Label layoutX="360.0" layoutY="138.0" styleClass="form-label" text="Electricity &#10;Day Closing" />
+                                        <TextField fx:id="newMeterReadingDayClosing" layoutX="459.0" layoutY="136.0" prefHeight="33.0" prefWidth="176.0" promptText="Electricity day closing" styleClass="primary-input" />
+                                        <Label layoutY="197.0" styleClass="form-label" text="Opening&#10;Date *" />
+                                        <DatePicker fx:id="newMeterReadingOpeningDate" layoutX="105.0" layoutY="192.0" onHidden="#onDateChanged" prefHeight="41.0" prefWidth="161.0" promptText="Opening date" styleClass="primary-input" />
+                                        <Label layoutX="359.0" layoutY="190.0" styleClass="form-label" text="Closing&#10;Date *" />
+                                        <DatePicker fx:id="newMeterReadingClosingDate" layoutX="457.0" layoutY="185.0" onHidden="#onDateChanged" prefHeight="41.0" prefWidth="179.0" promptText="Closing date" styleClass="primary-input" />
+                                        <Button fx:id="submitNewMerterReadingBtn" layoutY="292.0" mnemonicParsing="false" onMouseClicked="#onClickSubmitNewMeterReading" prefHeight="25.0" prefWidth="103.0" text="ADD">
                                             <styleClass>
                                                 <String fx:value="btn-primary" />
                                                 <String fx:value="light-white-text" />
@@ -135,7 +142,7 @@
                                                 <Cursor fx:constant="HAND" />
                                             </cursor>
                                         </Button>
-                                        <Button fx:id="cancelNewTariffBtn" layoutX="111.0" layoutY="216.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" text="CANCEL">
+                                        <Button fx:id="cancelNewTariffBtn" layoutX="111.0" layoutY="292.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="103.0" text="CANCEL">
                                             <styleClass>
                                                 <String fx:value="btn-danger" />
                                                 <String fx:value="light-white-text" />
