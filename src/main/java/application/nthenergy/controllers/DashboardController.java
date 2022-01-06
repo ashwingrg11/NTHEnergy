@@ -82,8 +82,8 @@ public class DashboardController {
     }
 
     @FXML
-    void onClickInvoicesMenu(MouseEvent event) {
-
+    void onClickInvoicesMenu(MouseEvent event) throws IOException {
+        Helper.setScene(event, "views/invoices/all-invoices.fxml");
     }
 
     @FXML
@@ -92,8 +92,8 @@ public class DashboardController {
     }
 
     @FXML
-    void onClickPaymentsMenu(MouseEvent event) {
-
+    void onClickPaymentsMenu(MouseEvent event) throws IOException {
+        Helper.setScene(event, "views/payments/all-payments.fxml");
     }
 
     @FXML
