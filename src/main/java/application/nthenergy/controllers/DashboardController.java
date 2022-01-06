@@ -87,8 +87,8 @@ public class DashboardController {
     }
 
     @FXML
-    void onClickMeterReadingsMenu(MouseEvent event) {
-
+    void onClickMeterReadingsMenu(MouseEvent event) throws IOException {
+        Helper.setScene(event, "views/meter-readings/all-meter-readings.fxml");
     }
 
     @FXML
