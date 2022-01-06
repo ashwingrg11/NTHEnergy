@@ -111,8 +111,16 @@ public class CustomerController {
     private Button viewAllCustomersBtn;
 
     @FXML
+    private Button viewCustomerDetails;
+
+    @FXML
     void onClickAddCustomer(MouseEvent event) throws IOException {
         Helper.setScene(event, "views/customers/new-customer.fxml");
+    }
+
+    @FXML
+    void onClickViewCustomerDetails(MouseEvent event) {
+
     }
 
     /**

@@ -85,11 +85,12 @@
                                 <Label text="There are no records to display." />
                             </placeholder>
                             <columns>
-                                <TableColumn prefWidth="276.0" text="Customer Name" />
-                                <TableColumn prefWidth="126.0" text="Invoice ID" />
-                                <TableColumn minWidth="0.0" prefWidth="147.0" text="Paid By" />
-                                <TableColumn prefWidth="147.0" text="Payment Date" />
-                                <TableColumn minWidth="0.0" prefWidth="183.0" text="Remarks" />
+                                <TableColumn prefWidth="68.0" text="ID" />
+                                <TableColumn prefWidth="236.0" text="Customer Name" />
+                                <TableColumn minWidth="0.0" prefWidth="126.0" text="Invoice ID" />
+                                <TableColumn prefWidth="127.0" text="Payment Date" />
+                                <TableColumn minWidth="0.0" prefWidth="138.0" text="Paid By" />
+                        <TableColumn prefWidth="183.0" text="Remarks" />
                             </columns>
                             <cursor>
                                 <Cursor fx:constant="HAND" />

@@ -13,6 +13,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
@@ -60,6 +61,38 @@ public class DashboardController {
 
     @FXML
     private HBox tariffsMenuItem;
+
+    @FXML
+    private Button addCustomer;
+
+    @FXML
+    private Button viewCustomers;
+
+    @FXML
+    private Button viewInvoices;
+
+    @FXML
+    private Button viewPayments;
+
+    @FXML
+    void onClickAddCustomer(MouseEvent event) {
+
+    }
+
+    @FXML
+    void onClickViewCustomers(MouseEvent event) {
+
+    }
+
+    @FXML
+    void onClickViewInvoices(MouseEvent event) {
+
+    }
+
+    @FXML
+    void onClickViewPayments(MouseEvent event) {
+
+    }
 
     @FXML
     void onClickAdminsMenu(MouseEvent event) throws IOException {
