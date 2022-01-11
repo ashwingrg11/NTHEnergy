@@ -181,6 +181,18 @@ public class Helper {
     }
 
 
+    public static void showHideLabelElement(Label[] fields, boolean action) {
+        for (Label field: fields) {
+            field.setVisible(action);
+        }
+    }
+
+    public static void showHideTextFieldElement(TextField[] fields, boolean action) {
+        for (TextField field: fields) {
+            field.setVisible(action);
+        }
+    }
+
 
 
 }

@@ -321,4 +321,23 @@ public class Tariff implements Serializable {
         this.updatedAt = updatedAt;
     }
 
+    @Override
+    public String toString() {
+        return "Tariff{" +
+                "tariffId=" + tariffId +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", tariffType=" + tariffType +
+                ", meterType=" + meterType +
+                ", elecFixRate=" + elecFixRate +
+                ", gasFixRate=" + gasFixRate +
+                ", exitFee=" + exitFee +
+                ", standingFee=" + standingFee +
+                ", elecNightRate=" + elecNightRate +
+                ", elecDayRate=" + elecDayRate +
+                ", gasUnitRate=" + gasUnitRate +
+                ", createdAt=" + createdAt +
+                ", updatedAt=" + updatedAt +
+                '}';
+    }
 }

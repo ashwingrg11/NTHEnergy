@@ -117,22 +117,22 @@
                               <Label layoutY="185.0" styleClass="form-label" text="Meter Type *" />
                               <Label layoutY="231.0" styleClass="form-label" text="Standing Fee *" />
                               <Label layoutX="1.0" layoutY="275.0" styleClass="form-label" text="Exit Fee *" />
-                              <Label layoutX="405.0" layoutY="11.0" styleClass="form-label" text="Electricity Fix Rate" />
-                              <Label layoutX="405.0" layoutY="96.0" styleClass="form-label" text="Electricity Night Rate" />
-                              <Label layoutX="406.0" layoutY="139.0" styleClass="form-label" text="Electricity Day Rate" />
-                              <Label layoutX="405.0" layoutY="52.0" styleClass="form-label" text="Gas Fix Rate" />
-                              <Label layoutX="406.0" layoutY="181.0" styleClass="form-label" text="Gas Variable Rate" />
+                              <Label fx:id="newTariffElecFixRateLabel" layoutX="405.0" layoutY="11.0" styleClass="form-label" text="Electricity Fix Rate" />
+                              <Label fx:id="newTariffElecNightRateLabel" layoutX="405.0" layoutY="96.0" styleClass="form-label" text="Electricity Night Rate" />
+                              <Label fx:id="newTariffElecDayRateLabel" layoutX="406.0" layoutY="139.0" styleClass="form-label" text="Electricity Day Rate" />
+                              <Label fx:id="newTariffGasFixRateLabel" layoutX="405.0" layoutY="52.0" styleClass="form-label" text="Gas Fix Rate" />
+                              <Label fx:id="newTariffGasVariableRateLabel" layoutX="406.0" layoutY="181.0" styleClass="form-label" text="Gas Variable Rate" />
                                         <TextField fx:id="newTariffNameInput" layoutX="89.0" layoutY="1.0" onKeyReleased="#onTextChanged" prefHeight="29.0" prefWidth="194.0" promptText="Tariff Name" styleClass="primary-input" />
-                              <ComboBox fx:id="tariffTypeCbx" layoutX="89.0" layoutY="125.0" prefHeight="29.0" prefWidth="193.0" styleClass="primary-input" />
+                              <ComboBox fx:id="tariffTypeCbx" layoutX="89.0" layoutY="125.0" onHidden="#onTariffTypeHidden" prefHeight="29.0" prefWidth="193.0" styleClass="primary-input" />
                               <ComboBox fx:id="meterTypeCbx" layoutX="89.0" layoutY="176.0" prefHeight="29.0" prefWidth="193.0" styleClass="primary-input" />
                               <TextField fx:id="newTariffStandingFeeInput" layoutX="89.0" layoutY="227.0" onKeyReleased="#onTextChanged" prefHeight="29.0" prefWidth="193.0" promptText="Standing Fee" styleClass="primary-input" />
                               <TextField fx:id="newTariffExitFeeInput" layoutX="89.0" layoutY="270.0" onKeyReleased="#onTextChanged" prefHeight="21.0" prefWidth="192.0" promptText="Exit Fee " styleClass="primary-input" />
-                              <TextField layoutX="541.0" layoutY="4.0" prefHeight="21.0" prefWidth="176.0" promptText="Electricity Fix Rate" styleClass="primary-input" />
-                              <TextField layoutX="541.0" layoutY="47.0" prefHeight="21.0" prefWidth="176.0" promptText="Gas Fix Rate" styleClass="primary-input" />
-                              <TextField layoutX="541.0" layoutY="89.0" prefHeight="21.0" prefWidth="176.0" promptText="Electricity Night Rate" styleClass="primary-input" />
-                              <TextField layoutX="541.0" layoutY="133.0" prefHeight="21.0" prefWidth="176.0" promptText="Electricity Day Rate" styleClass="primary-input" />
-                              <TextField layoutX="541.0" layoutY="176.0" prefHeight="21.0" prefWidth="176.0" promptText="Gas Variable Unit Rate" styleClass="primary-input" />
-                              <TextArea layoutX="89.0" layoutY="44.0" prefHeight="72.0" prefWidth="193.0" styleClass="primary-input" />
+                              <TextField fx:id="newTariffElecFixRateInput" layoutX="541.0" layoutY="4.0" prefHeight="21.0" prefWidth="176.0" promptText="Electricity Fix Rate" styleClass="primary-input" />
+                              <TextField fx:id="newTariffGasFixRateInput" layoutX="541.0" layoutY="47.0" prefHeight="21.0" prefWidth="176.0" promptText="Gas Fix Rate" styleClass="primary-input" />
+                              <TextField fx:id="newTariffElecNightRateInput" layoutX="541.0" layoutY="89.0" prefHeight="21.0" prefWidth="176.0" promptText="Electricity Night Rate" styleClass="primary-input" />
+                              <TextField fx:id="newTariffElecDayRateInput" layoutX="541.0" layoutY="133.0" prefHeight="21.0" prefWidth="176.0" promptText="Electricity Day Rate" styleClass="primary-input" />
+                              <TextField fx:id="newTariffGasVariableRateInput" layoutX="541.0" layoutY="176.0" prefHeight="21.0" prefWidth="176.0" promptText="Gas Variable Unit Rate" styleClass="primary-input" />
+                              <TextArea fx:id="newTariffDescriptionInput" layoutX="89.0" layoutY="44.0" prefHeight="72.0" prefWidth="193.0" styleClass="primary-input" />
                               <Button fx:id="submitNewTariffBtn" layoutY="331.0" mnemonicParsing="false" onMouseClicked="#onClickSubmitNewTariff" prefHeight="25.0" prefWidth="103.0" text="ADD">
                                  <styleClass>
                                     <String fx:value="btn-primary" />
