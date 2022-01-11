@@ -15,7 +15,7 @@ public class Payment {
     private int paymentId;
     private int invoiceId;
     private PaidBy paidBy;
-    private Timestamp createdAt;
+    private long createdAt;
 
     // getters and setters for the attributes
     /**
@@ -75,18 +75,37 @@ public class Payment {
     /**
      * This method is used to return created at timestamp.
      * @param none
-     * @return Timestamp createdAt
+     * @return long createdAt
      */
-    public Timestamp getCreatedAt() {
+    public long getCreatedAt() {
         return createdAt;
     }
 
     /**
      * This method is used to set created at timestamp.
-     * @param Timestamp createdAt
+     * @param long createdAt
      * @return void
      */
-    public void setCreatedAt(Timestamp createdAt) {
+    public void setCreatedAt(long createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public Payment() {
+
+    }
+
+    /**
+     * Constructor with parameters
+     *
+     * @param paymentId
+     * @param invoiceId
+     * @param paidBy
+     * @param createdAt
+     */
+    public Payment(int paymentId, int invoiceId, PaidBy paidBy, long createdAt) {
+        this.paymentId = paymentId;
+        this.invoiceId = invoiceId;
+        this.paidBy = paidBy;
         this.createdAt = createdAt;
     }
 }

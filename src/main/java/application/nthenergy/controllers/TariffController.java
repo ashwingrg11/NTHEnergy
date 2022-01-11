@@ -9,6 +9,8 @@ package application.nthenergy.controllers;
 
 import application.nthenergy.Dashboard;
 import application.nthenergy.core.Helper;
+import application.nthenergy.core.Serialization;
+import application.nthenergy.models.Tariff;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -28,6 +30,7 @@ import javafx.stage.Stage;
 import org.w3c.dom.Text;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class TariffController {
     @FXML
@@ -99,6 +102,10 @@ public class TariffController {
     void onClickSubmitNewTariff(MouseEvent event) {
         TextField[] fields = {newTariffNameInput, newTariffStandingFeeInput, newTariffExitFeeInput };
         if(Helper.validateRequiredTextFields(submitNewTariffBtn, fields)) {
+            Serialization serializationHelper = new Serialization();
+            serializationHelper.serializeTariff();
+            ArrayList<Tariff> allTariffs = serializationHelper.deserializeTariffs();
+            System.out.println(allTariffs.size()+"this is size.");
             Label formMsg = (Label) submitNewTariffBtn.getScene().lookup("#formMsg");
             formMsg.getStyleClass().removeAll("red-text");
             formMsg.getStyleClass().add("green-text");

@@ -22,8 +22,8 @@ public class Customer {
     private Date joinDate;
     private String meterNumber;
     private String alternateContactNo;
-    private Timestamp createdAt;
-    private Timestamp updatedAt;
+    private long createdAt;
+    private long updatedAt;
 
     // getters and setters of the customer's class attributes
     /**
@@ -227,36 +227,73 @@ public class Customer {
     /**
      * This method is used to return created at timestamp.
      * @param none
-     * @return Timestamp createdAt
+     * @return long createdAt
      */
-    public Timestamp getCreatedAt() {
+    public long getCreatedAt() {
         return createdAt;
     }
 
     /**
      * This method is used to set created at timestamp.
-     * @param Timestamp createdAt
+     * @param long createdAt
      * @return void
      */
-    public void setCreatedAt(Timestamp createdAt) {
+    public void setCreatedAt(long createdAt) {
         this.createdAt = createdAt;
     }
 
     /**
      * This method is used to return updated at timestamp.
      * @param none
-     * @return Timestamp updatedAt
+     * @return long updatedAt
      */
-    public Timestamp getUpdatedAt() {
+    public long getUpdatedAt() {
         return updatedAt;
     }
 
     /**
      * This method is used to set updated at timestamp.
-     * @param Timestamp updatedAt
+     * @param long updatedAt
      * @return void
      */
-    public void setUpdatedAt(Timestamp updatedAt) {
+    public void setUpdatedAt(long updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    public Customer() {
+
+    }
+
+    /**
+     * Constructor with parameters.
+     *
+     * @param customerId
+     * @param userId
+     * @param tariffId
+     * @param postCode
+     * @param addressOne
+     * @param addressTwo
+     * @param townCity
+     * @param county
+     * @param joinDate
+     * @param meterNumber
+     * @param alternateContactNo
+     * @param createdAt
+     * @param updatedAt
+     */
+    public Customer(int customerId, int userId, int tariffId, String postCode, String addressOne, String addressTwo, String townCity, String county, Date joinDate, String meterNumber, String alternateContactNo, long createdAt, long updatedAt) {
+        this.customerId = customerId;
+        this.userId = userId;
+        this.tariffId = tariffId;
+        this.postCode = postCode;
+        this.addressOne = addressOne;
+        this.addressTwo = addressTwo;
+        this.townCity = townCity;
+        this.county = county;
+        this.joinDate = joinDate;
+        this.meterNumber = meterNumber;
+        this.alternateContactNo = alternateContactNo;
+        this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
 }

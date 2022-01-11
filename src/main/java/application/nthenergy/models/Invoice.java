@@ -17,11 +17,11 @@ public class Invoice {
     private int customerId;
     private Date dateFrom;
     private Date dateUntil;
-    private float initialAmount;
-    private float vatAmount;
-    private float finalAmount;
+    private double initialAmount;
+    private double vatAmount;
+    private double finalAmount;
     private PaymentStatus paymentStatus;
-    private Timestamp createdAt;
+    private long createdAt;
 
     // getters and setters for the attributes
     /**
@@ -99,54 +99,54 @@ public class Invoice {
     /**
      * This method is used to return initial amount.
      * @param none
-     * @return float initialAmount
+     * @return double initialAmount
      */
-    public float getInitialAmount() {
+    public double getInitialAmount() {
         return initialAmount;
     }
 
     /**
      * This method is used to set initial amount.
-     * @param float initialAmount
+     * @param double initialAmount
      * @return void
      */
-    public void setInitialAmount(float initialAmount) {
+    public void setInitialAmount(double initialAmount) {
         this.initialAmount = initialAmount;
     }
 
     /**
      * This method is used to return vat amount.
      * @param none
-     * @return float vatAmount
+     * @return double vatAmount
      */
-    public float getVatAmount() {
+    public double getVatAmount() {
         return vatAmount;
     }
 
     /**
      * This method is used to set vat amount.
-     * @param float vatAmount
+     * @param double vatAmount
      * @return void
      */
-    public void setVatAmount(float vatAmount) {
+    public void setVatAmount(double vatAmount) {
         this.vatAmount = vatAmount;
     }
 
     /**
      * This method is used to return final amount.
      * @param none
-     * @return float finalAmount
+     * @return double finalAmount
      */
-    public float getFinalAmount() {
+    public double getFinalAmount() {
         return finalAmount;
     }
 
     /**
      * This method is used to set final amount.
-     * @param float finalAmount
+     * @param double finalAmount
      * @return void
      */
-    public void setFinalAmount(float finalAmount) {
+    public void setFinalAmount(double finalAmount) {
         this.finalAmount = finalAmount;
     }
 
@@ -171,18 +171,47 @@ public class Invoice {
     /**
      * This method is used to return created at timestamp.
      * @param none
-     * @return float createdAt
+     * @return long createdAt
      */
-    public Timestamp getCreatedAt() {
+    public long getCreatedAt() {
         return createdAt;
     }
 
     /**
      * This method is used to set created at.
-     * @param Timestamp createdAt
+     * @param long createdAt
      * @return void
      */
-    public void setCreatedAt(Timestamp createdAt) {
+    public void setCreatedAt(long createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public Invoice() {
+
+    }
+
+    /**
+     * Constructor with parameters.
+     *
+     * @param invoiceId
+     * @param customerId
+     * @param dateFrom
+     * @param dateUntil
+     * @param initialAmount
+     * @param vatAmount
+     * @param finalAmount
+     * @param paymentStatus
+     * @param createdAt
+     */
+    public Invoice(int invoiceId, int customerId, Date dateFrom, Date dateUntil, double initialAmount, double vatAmount, double finalAmount, PaymentStatus paymentStatus, long createdAt) {
+        this.invoiceId = invoiceId;
+        this.customerId = customerId;
+        this.dateFrom = dateFrom;
+        this.dateUntil = dateUntil;
+        this.initialAmount = initialAmount;
+        this.vatAmount = vatAmount;
+        this.finalAmount = finalAmount;
+        this.paymentStatus = paymentStatus;
         this.createdAt = createdAt;
     }
 }

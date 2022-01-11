@@ -19,8 +19,8 @@ public class CustomerCard {
     private String nameOnCard;
     private Date expiryDate;
     private String cvv;
-    private Timestamp createdAt;
-    private Timestamp updatedAt;
+    private long createdAt;
+    private long updatedAt;
 
     // getters and setters for the attributes
     /**
@@ -170,18 +170,18 @@ public class CustomerCard {
     /**
      * This method is used to return customer card's created at timestamp.
      * @param none
-     * @return Timestamp createdAt
+     * @return long createdAt
      */
-    public Timestamp getCreatedAt() {
+    public long getCreatedAt() {
         return createdAt;
     }
 
     /**
      * This method is used to set created at timestamp.
-     * @param Timestamp createdAt
+     * @param long createdAt
      * @return void
      */
-    public void setCreatedAt(Timestamp createdAt) {
+    public void setCreatedAt(long createdAt) {
         this.createdAt = createdAt;
     }
 
@@ -190,16 +190,32 @@ public class CustomerCard {
      * @param none
      * @return String updatedAt
      */
-    public Timestamp getUpdatedAt() {
+    public long getUpdatedAt() {
         return updatedAt;
     }
 
     /**
      * This method is used to set updated at.
-     * @param Timestamp updatedAt
+     * @param long updatedAt
      * @return void
      */
-    public void setUpdatedAt(Timestamp updatedAt) {
+    public void setUpdatedAt(long updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    public CustomerCard() {
+
+    }
+    public CustomerCard(int customerCardId, int customerId, String bankName, String accountNumber, String cardNumber, String nameOnCard, Date expiryDate, String cvv, long createdAt, long updatedAt) {
+        this.customerCardId = customerCardId;
+        this.customerId = customerId;
+        this.bankName = bankName;
+        this.accountNumber = accountNumber;
+        this.cardNumber = cardNumber;
+        this.nameOnCard = nameOnCard;
+        this.expiryDate = expiryDate;
+        this.cvv = cvv;
+        this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
 }
