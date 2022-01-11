@@ -171,7 +171,6 @@ public class TariffController {
         if(f.isFile()) {
             Serialization serializationHelper = new Serialization();
             ArrayList<Tariff> allTariffs = serializationHelper.deserializeTariffs();
-            System.out.println(allTariffs.size()+"this is size.");
             tariffId = allTariffs.size() + 1;
             serializationHelper = null;
         }
@@ -202,7 +201,6 @@ public class TariffController {
             gasFixRate = 0.00;
         }
         Tariff newTariffObj = new Tariff(tariffId, name, description, tariffType, meterType, elecFixRate, gasFixRate, exitFee, standingFee, elecNightRate, elecDayRate, gasUnitRate, createdAt, updatedAt);
-//        System.out.println(newTariffObj.toString());
         return newTariffObj;
     }
 
@@ -213,8 +211,6 @@ public class TariffController {
 
     @FXML
     void onTariffTypeHidden(Event event) {
-        System.out.println(event.getSource());
-        System.out.println(tariffTypeCbx.getValue());
         // labels and inputs for fixed tariff type
         Label[] fixedShowLabels = {newTariffGasFixRateLabel, newTariffElecFixRateLabel};
         TextField[] fixedShowTextFields = {newTariffElecFixRateInput, newTariffGasFixRateInput};
