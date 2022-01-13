@@ -40,6 +40,27 @@ public class Serialization implements Serializable {
     }
 
     /**
+     * This method is used to serialize all received tariffs.
+     *
+     * return void
+     */
+    public void serializeAllTariffs(ArrayList<Tariff> allTariffs) {
+        try {
+            FileOutputStream fileOut = new FileOutputStream("./data/tariffs.txt");
+            ObjectOutputStream out = new ObjectOutputStream(fileOut);
+            out.writeObject(allTariffs);
+            out.close();
+            fileOut.close();
+            System.out.println("\nSerialization Successful all tariffs...\n");
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
      * This method is used to deserialize tariffs data.
      *
      * @return ArrayList<Tariff> tariffs
@@ -87,6 +108,27 @@ public class Serialization implements Serializable {
             out.close();
             fileOut.close();
             System.out.println("\nSerialization Successful user...\n");
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * This method is used to serialize all received users.
+     *
+     * return void
+     */
+    public void serializeAllUsers(ArrayList<User> allUsers) {
+        try {
+            FileOutputStream fileOut = new FileOutputStream("./data/users.txt");
+            ObjectOutputStream out = new ObjectOutputStream(fileOut);
+            out.writeObject(allUsers);
+            out.close();
+            fileOut.close();
+            System.out.println("\nSerialization Successful all users...\n");
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -152,6 +194,27 @@ public class Serialization implements Serializable {
     }
 
     /**
+     * This method is used to serialize all received customers.
+     *
+     * return void
+     */
+    public void serializeAllCustomers(ArrayList<Customer> allCustomers) {
+        try {
+            FileOutputStream fileOut = new FileOutputStream("./data/customers.txt");
+            ObjectOutputStream out = new ObjectOutputStream(fileOut);
+            out.writeObject(allCustomers);
+            out.close();
+            fileOut.close();
+            System.out.println("\nSerialization Successful all customers...\n");
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
      * This method is used to deserialize customers data.
      *
      * @return ArrayList<Customer> customers
@@ -199,6 +262,27 @@ public class Serialization implements Serializable {
             out.close();
             fileOut.close();
             System.out.println("\nSerialization Successful customer card...\n");
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * This method is used to serialize all received customer cards.
+     *
+     * return void
+     */
+    public void serializeAllCustomerCards(ArrayList<CustomerCard> allCustomerCards) {
+        try {
+            FileOutputStream fileOut = new FileOutputStream("./data/customer-cards.txt");
+            ObjectOutputStream out = new ObjectOutputStream(fileOut);
+            out.writeObject(allCustomerCards);
+            out.close();
+            fileOut.close();
+            System.out.println("\nSerialization Successful all customerCards...\n");
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();

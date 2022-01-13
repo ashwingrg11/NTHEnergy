@@ -91,7 +91,7 @@
                                                 <Cursor fx:constant="HAND" />
                                             </cursor>
                                         </Button>
-                                        <Button fx:id="deleteCustomerBtn" layoutX="801.0" layoutY="5.0" mnemonicParsing="false" text="Delete">
+                                        <Button fx:id="deleteCustomerBtn" layoutX="801.0" layoutY="5.0" mnemonicParsing="false" onMouseClicked="#onClickDeleteCustomerBtn" text="Delete">
                                             <styleClass>
                                                 <String fx:value="btn-danger" />
                                                 <String fx:value="light-white-text" />
@@ -129,20 +129,20 @@
                                 <String fx:value="gray-border" />
                             </styleClass>
                         </HBox>
-                        <TableView layoutX="10.0" layoutY="74.0" prefHeight="179.0" prefWidth="880.0" styleClass="md-font">
+                        <TableView fx:id="allCustomerTable" layoutX="10.0" layoutY="74.0" prefHeight="179.0" prefWidth="880.0" styleClass="md-font">
                             <placeholder>
                                 <Label text="There are no records to display." />
                             </placeholder>
                             <columns>
-                                <TableColumn prefWidth="33.0" text="ID" />
-                                <TableColumn prefWidth="117.0" text="Name" />
-                                <TableColumn prefWidth="93.0" text="Email" />
-                                <TableColumn prefWidth="94.0" text="Tariff" />
-                                <TableColumn prefWidth="79.0" text="Meter" />
-                                <TableColumn prefWidth="88.0" text="Join Date" />
-                        <TableColumn prefWidth="94.0" text="Mobile No" />
-                        <TableColumn prefWidth="94.0" text="Post Code" />
-                        <TableColumn prefWidth="186.0" text="Address" />
+                                <TableColumn fx:id="colCustomerId" prefWidth="33.0" text="ID" />
+                                <TableColumn fx:id="colCustomerName" prefWidth="117.0" text="Name" />
+                                <TableColumn fx:id="colCustomerEmail" prefWidth="93.0" text="Email" />
+                                <TableColumn fx:id="colCustomerTariff" prefWidth="94.0" text="Tariff" />
+                                <TableColumn fx:id="colCustomerMeter" prefWidth="79.0" text="Meter" />
+                                <TableColumn fx:id="colCustomerJoinDate" prefWidth="88.0" text="Join Date" />
+                        <TableColumn fx:id="colCustomerMobNo" prefWidth="94.0" text="Mobile No" />
+                        <TableColumn fx:id="colCustomerPostCode" prefWidth="94.0" text="Post Code" />
+                        <TableColumn fx:id="colCustomerAddressOne" prefWidth="186.0" text="Address" />
                             </columns>
                             <cursor>
                                 <Cursor fx:constant="HAND" />

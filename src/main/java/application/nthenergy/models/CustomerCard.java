@@ -6,10 +6,12 @@
  */
 package application.nthenergy.models;
 
+import java.io.Serializable;
 import java.security.Timestamp;
+import java.time.LocalDate;
 import java.util.Date;
 
-public class CustomerCard {
+public class CustomerCard implements Serializable {
     // private properties of the customer card class
     private int customerCardId;
     private int customerId;
@@ -17,7 +19,7 @@ public class CustomerCard {
     private String accountNumber;
     private String cardNumber;
     private String nameOnCard;
-    private Date expiryDate;
+    private LocalDate expiryDate;
     private String cvv;
     private long createdAt;
     private long updatedAt;
@@ -134,18 +136,18 @@ public class CustomerCard {
     /**
      * This method is used to return customer card's expiry date.
      * @param none
-     * @return Date expiryDate
+     * @return LocalDate expiryDate
      */
-    public Date getExpiryDate() {
+    public LocalDate getExpiryDate() {
         return expiryDate;
     }
 
     /**
      * This method is used to set customer card's expiry date.
-     * @param Date expiryDate
+     * @param LocalDate expiryDate
      * @return void
      */
-    public void setExpiryDate(Date expiryDate) {
+    public void setExpiryDate(LocalDate expiryDate) {
         this.expiryDate = expiryDate;
     }
 
@@ -206,7 +208,7 @@ public class CustomerCard {
     public CustomerCard() {
 
     }
-    public CustomerCard(int customerCardId, int customerId, String bankName, String accountNumber, String cardNumber, String nameOnCard, Date expiryDate, String cvv, long createdAt, long updatedAt) {
+    public CustomerCard(int customerCardId, int customerId, String bankName, String accountNumber, String cardNumber, String nameOnCard, LocalDate expiryDate, String cvv, long createdAt, long updatedAt) {
         this.customerCardId = customerCardId;
         this.customerId = customerId;
         this.bankName = bankName;

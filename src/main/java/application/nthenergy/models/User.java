@@ -8,9 +8,11 @@ package application.nthenergy.models;
 
 import application.nthenergy.core.enums.AccountStatus;
 import application.nthenergy.core.enums.UserType;
+
+import java.io.Serializable;
 import java.security.Timestamp;
 
-public class User {
+public class User implements Serializable {
     // private attributes of the user class
     private int userId;
     private String firstName;
@@ -41,7 +43,7 @@ public class User {
      * @param int userId
      * @return void
      */
-    public void setId(int userId) {
+    public void setUserId(int userId) {
         this.userId = userId;
     }
 
