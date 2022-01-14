@@ -6,11 +6,14 @@
  */
 package application.nthenergy.models;
 
+import application.nthenergy.core.Serialization;
 import application.nthenergy.core.enums.MeterType;
 import application.nthenergy.core.enums.TariffType;
 
+import java.io.File;
 import java.io.Serializable;
 import java.security.Timestamp;
+import java.util.ArrayList;
 
 public class Tariff implements Serializable {
     // private properties of the tariff class
@@ -28,7 +31,7 @@ public class Tariff implements Serializable {
     private double gasUnitRate;
     private long createdAt;
     private long updatedAt;
-
+    private  static  final  long  serialVersionUID = 11168219141444160L;
     // getters and setters for the attributes
     /**
      * This method is used to return tariff id.
@@ -319,6 +322,27 @@ public class Tariff implements Serializable {
         this.gasUnitRate = gasUnitRate;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
+    }
+
+    /**
+     * This method is used to fetch tariff inifo by tariff id.
+     * @param id
+     * @return <Tariff>
+     */
+    public Tariff getById(int id) {
+        File f = new File("./data/tariffs.txt");
+        Tariff singleTariff = new Tariff();
+        ArrayList<Tariff> tariffs = new ArrayList<>();
+        if(f.isFile()) {
+            Serialization serializationHelper = new Serialization();
+            tariffs = serializationHelper.deserializeTariffs();
+            for (Tariff tariff: tariffs) {
+                if (tariff.getTariffId() == id) {
+                    return tariff;
+                }
+            }
+        }
+        return singleTariff;
     }
 
     @Override

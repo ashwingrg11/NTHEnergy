@@ -67,9 +67,9 @@
                                 <AnchorPane prefHeight="35.0" prefWidth="880.0">
                                     <children>
                                         <Label prefHeight="35.0" text="All Available Invoices" />
-                                        <Button fx:id="viewInvoiceDetailsBtn" layoutX="733.0" layoutY="5.0" mnemonicParsing="false" onMouseClicked="#onClickViewInvoiceDetails" text="View Invoice Details">
+                                        <Button fx:id="viewInvoiceDetailsBtn" layoutX="602.0" layoutY="5.0" mnemonicParsing="false" onMouseClicked="#onClickViewInvoiceDetails" text="View Invoice Details">
                                             <styleClass>
-                                                <String fx:value="btn-primary" />
+                                                <String fx:value="btn-secondary" />
                                                 <String fx:value="light-white-text" />
                                             </styleClass>
                                             <font>
@@ -79,6 +79,30 @@
                                                 <Cursor fx:constant="HAND" />
                                             </cursor>
                                         </Button>
+                              <Button fx:id="makePaymentBtn" layoutX="491.0" layoutY="5.0" mnemonicParsing="false" onMouseClicked="#onClickMakePayment" text="Make Payment">
+                                 <styleClass>
+                                    <String fx:value="btn-primary" />
+                                    <String fx:value="light-white-text" />
+                                 </styleClass>
+                                 <font>
+                                    <Font size="12.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <Button fx:id="sendInvoiceEmailBtn" layoutX="738.0" layoutY="5.0" mnemonicParsing="false" onMouseClicked="#onClickSendInvoiceEmailBtn" text="Send Invoice Email">
+                                 <styleClass>
+                                    <String fx:value="btn-secondary" />
+                                    <String fx:value="light-white-text" />
+                                 </styleClass>
+                                 <font>
+                                    <Font size="12.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
                                     </children>
                                     <HBox.margin>
                                         <Insets />
@@ -93,17 +117,17 @@
                                 <String fx:value="gray-border" />
                             </styleClass>
                         </HBox>
-                        <TableView layoutX="10.0" layoutY="74.0" prefHeight="179.0" prefWidth="880.0" styleClass="md-font">
+                        <TableView fx:id="allInvoicesTable" layoutX="10.0" layoutY="74.0" prefHeight="179.0" prefWidth="880.0" styleClass="md-font">
                             <placeholder>
                                 <Label text="There are no records to display." />
                             </placeholder>
                             <columns>
-                                <TableColumn prefWidth="69.0" text="ID" />
-                                <TableColumn prefWidth="263.0" text="Customer Name" />
-                                <TableColumn minWidth="0.0" prefWidth="115.0" text="Date From" />
-                                <TableColumn minWidth="0.0" prefWidth="141.0" text="Date Until" />
-                                <TableColumn minWidth="0.0" prefWidth="138.0" text="Amount" />
-                        <TableColumn prefWidth="162.0" text="Payment Status" />
+                                <TableColumn fx:id="colInvoiceId" prefWidth="69.0" text="ID" />
+                                <TableColumn fx:id="colCustomerName" prefWidth="263.0" text="Customer Name" />
+                                <TableColumn fx:id="colDateFrom" minWidth="0.0" prefWidth="115.0" text="Date From" />
+                                <TableColumn fx:id="colDateUntil" minWidth="0.0" prefWidth="141.0" text="Date Until" />
+                                <TableColumn fx:id="colFinalAmount" minWidth="0.0" prefWidth="138.0" text="Amount" />
+                        <TableColumn fx:id="colPaymentStatus" prefWidth="162.0" text="Payment Status" />
                             </columns>
                             <cursor>
                                 <Cursor fx:constant="HAND" />

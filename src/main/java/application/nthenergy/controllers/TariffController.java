@@ -233,7 +233,12 @@ public class TariffController {
         if(f.isFile()) {
             Serialization serializationHelper = new Serialization();
             ArrayList<Tariff> allTariffs = serializationHelper.deserializeTariffs();
-            tariffId = allTariffs.get(allTariffs.size() - 1).getTariffId() + 1;
+            if (allTariffs.size() > 0) {
+                tariffId = allTariffs.get(allTariffs.size() - 1).getTariffId() + 1;
+            }
+            else {
+                tariffId = 1;
+            }
         }
         else {
             tariffId = 1;

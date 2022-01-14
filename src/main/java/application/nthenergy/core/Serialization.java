@@ -348,6 +348,27 @@ public class Serialization implements Serializable {
     }
 
     /**
+     * This method is used to serialize all received invoices.
+     *
+     * return void
+     */
+    public void serializeAllInvoices(ArrayList<Invoice> allInvoices) {
+        try {
+            FileOutputStream fileOut = new FileOutputStream("./data/invoices.txt");
+            ObjectOutputStream out = new ObjectOutputStream(fileOut);
+            out.writeObject(allInvoices);
+            out.close();
+            fileOut.close();
+            System.out.println("\nSerialization Successful all invoices...\n");
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
      * This method is used to deserialize invoices data.
      *
      * @return ArrayList<Invoice> invoices

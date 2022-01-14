@@ -170,25 +170,21 @@ public class CustomerController {
      */
     public void initialize() {
         Serialization serializationHelper = new Serialization();
-        if (editCustomerBtn != null) editCustomerBtn.setDisable(true);
         if (newCustomerEmail == null) {
             ArrayList<Customer> allCustomers = serializationHelper.deserializeCustomers();
             ArrayList<Tariff> availableTariffs = serializationHelper.deserializeTariffs();
             for (Customer customer: allCustomers) {
                 obAllCustomers.add(customer);
             }
-
             colCustomerId.setCellValueFactory(data -> new ReadOnlyObjectWrapper(data.getValue().getCustomerId()));
             colCustomerName.setCellValueFactory(data -> new ReadOnlyObjectWrapper(data.getValue().getName()));
             colCustomerEmail.setCellValueFactory(data -> new ReadOnlyObjectWrapper(data.getValue().getName()));
-//            colCustomerTariff.setCellValueFactory(data -> new ReadOnlyObjectWrapper(availableTariffs.get(data.getValue().getTariffId()-1).getName()));
             colCustomerTariff.setCellValueFactory(data -> new ReadOnlyObjectWrapper(data.getValue().getCustomerTariff(data.getValue().getTariffId()).getName()));
             colCustomerMeter.setCellValueFactory(data -> new ReadOnlyObjectWrapper(data.getValue().getMeterNumber()));
             colCustomerJoinDate.setCellValueFactory(data -> new ReadOnlyObjectWrapper(data.getValue().getJoinDate()));
             colCustomerMobNo.setCellValueFactory(data -> new ReadOnlyObjectWrapper(data.getValue().getMobNo()));
             colCustomerPostCode.setCellValueFactory(data -> new ReadOnlyObjectWrapper(data.getValue().getPostCode()));
             colCustomerAddressOne.setCellValueFactory(data -> new ReadOnlyObjectWrapper(data.getValue().getAddressOne()));
-
             allCustomerTable.setItems(obAllCustomers);
         }
         else {
@@ -270,7 +266,12 @@ public class CustomerController {
         if(f.isFile()) {
             Serialization serializationHelper = new Serialization();
             ArrayList<User> allUsers = serializationHelper.deserializeUsers();
-            userId = allUsers.get(allUsers.size() - 1).getUserId() + 1;
+            if (allUsers.size() > 0) {
+                userId = allUsers.get(allUsers.size() - 1).getUserId() + 1;
+            }
+            else {
+                userId = 1;
+            }
         }
         else {
             userId = 1;
@@ -305,7 +306,12 @@ public class CustomerController {
         Serialization serializationHelper = new Serialization();
         if(f.isFile()) {
             ArrayList<Customer> allCustomers = serializationHelper.deserializeCustomers();
-            customerId = allCustomers.get(allCustomers.size() - 1).getCustomerId() + 1;
+            if (allCustomers.size() > 0) {
+                customerId = allCustomers.get(allCustomers.size() - 1).getCustomerId() + 1;
+            }
+            else {
+                customerId = 1;
+            }
         }
         else {
             customerId = 1;
@@ -351,7 +357,12 @@ public class CustomerController {
         if(f.isFile()) {
             Serialization serializationHelper = new Serialization();
             ArrayList<CustomerCard> allCustomerCards = serializationHelper.deserializeCustomerCards();
-            customerCardId = allCustomerCards.get(allCustomerCards.size() - 1).getCustomerCardId() + 1;
+            if (allCustomerCards.size() > 0) {
+                customerCardId = allCustomerCards.get(allCustomerCards.size() - 1).getCustomerCardId() + 1;
+            }
+            else {
+                customerCardId = 1;
+            }
         }
         else {
             customerCardId = 1;

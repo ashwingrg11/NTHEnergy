@@ -6,16 +6,23 @@
  */
 package application.nthenergy.models;
 
+import application.nthenergy.core.Serialization;
 import application.nthenergy.core.enums.AdminStatus;
+
+import java.io.File;
+import java.io.Serializable;
 import java.security.Timestamp;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
 
-public class MeterReading {
+public class MeterReading implements Serializable {
     // private properties of the class
     private int meterReadingId;
     private int customerId;
-    private Date openingDate;
-    private Date closingDate;
+    private LocalDate openingDate;
+    private  static  final  long  serialVersionUID = 7885852170815506762L;
+    private LocalDate closingDate;
     private double gasOpening;
     private double gasClosing;
     private double gasKwh;
@@ -73,36 +80,36 @@ public class MeterReading {
     /**
      * This method is used to return opening date.
      * @param none
-     * @return Date openingDate
+     * @return LocalDate openingDate
      */
-    public Date getOpeningDate() {
+    public LocalDate getOpeningDate() {
         return openingDate;
     }
 
     /**
      * This method is used to set opening date.
-     * @param Date openingDate
+     * @param openingDate
      * @return void
      */
-    public void setOpeningDate(Date openingDate) {
+    public void setOpeningDate(LocalDate openingDate) {
         this.openingDate = openingDate;
     }
 
     /**
      * This method is used to return closing date.
-     * @param none
+     * @param
      * @return Date closingDate
      */
-    public Date getClosingDate() {
+    public LocalDate getClosingDate() {
         return closingDate;
     }
 
     /**
      * This method is used to set closing date.
-     * @param Date closingDate
+     * @param closingDate
      * @return void
      */
-    public void setClosingDate(Date closingDate) {
+    public void setClosingDate(LocalDate closingDate) {
         this.closingDate = closingDate;
     }
 
@@ -422,7 +429,7 @@ public class MeterReading {
      * @param createdAt
      * @param updatedAt
      */
-    public MeterReading(int meterReadingId, int customerId, Date openingDate, Date closingDate, double gasOpening, double gasClosing, double gasKwh, double elecOpening, double elecClosing, double elecKwh, double elecNightOpening, double elecNightClosing, double elecNightKwh, double elecDayOpening, double elecDayClosing, double elecDayKwh, String remarks, AdminStatus adminStatus, long createdAt, long updatedAt) {
+    public MeterReading(int meterReadingId, int customerId, LocalDate openingDate, LocalDate closingDate, double gasOpening, double gasClosing, double gasKwh, double elecOpening, double elecClosing, double elecKwh, double elecNightOpening, double elecNightClosing, double elecNightKwh, double elecDayOpening, double elecDayClosing, double elecDayKwh, String remarks, AdminStatus adminStatus, long createdAt, long updatedAt) {
         this.meterReadingId = meterReadingId;
         this.customerId = customerId;
         this.openingDate = openingDate;
@@ -443,5 +450,52 @@ public class MeterReading {
         this.adminStatus = adminStatus;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
+    }
+
+    /**
+     *
+     * @param id
+     * @return
+     */
+    public Customer getCustomerById(int id) {
+        File f = new File("./data/customers.txt");
+        Customer singleCustomer = new Customer();
+        ArrayList<Customer> customers = new ArrayList<>();
+        if(f.isFile()) {
+            Serialization serializationHelper = new Serialization();
+            customers = serializationHelper.deserializeCustomers();
+            for (Customer customer: customers) {
+                if (customer.getCustomerId() == id) {
+                    return customer;
+                }
+            }
+        }
+        return singleCustomer;
+    }
+
+    @Override
+    public String toString() {
+        return "MeterReading{" +
+                "meterReadingId=" + meterReadingId +
+                ", customerId=" + customerId +
+                ", openingDate=" + openingDate +
+                ", closingDate=" + closingDate +
+                ", gasOpening=" + gasOpening +
+                ", gasClosing=" + gasClosing +
+                ", gasKwh=" + gasKwh +
+                ", elecOpening=" + elecOpening +
+                ", elecClosing=" + elecClosing +
+                ", elecKwh=" + elecKwh +
+                ", elecNightOpening=" + elecNightOpening +
+                ", elecNightClosing=" + elecNightClosing +
+                ", elecNightKwh=" + elecNightKwh +
+                ", elecDayOpening=" + elecDayOpening +
+                ", elecDayClosing=" + elecDayClosing +
+                ", elecDayKwh=" + elecDayKwh +
+                ", remarks='" + remarks + '\'' +
+                ", adminStatus=" + adminStatus +
+                ", createdAt=" + createdAt +
+                ", updatedAt=" + updatedAt +
+                '}';
     }
 }

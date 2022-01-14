@@ -388,6 +388,48 @@ public class Customer implements Serializable {
         return singleTariff;
     }
 
+    /**
+     *
+     * @param name
+     * @return
+     */
+    public Customer getCustomerByName(String name) {
+        File f = new File("./data/customers.txt");
+        Customer singleCustomer = new Customer();
+        ArrayList<Customer> customers = new ArrayList<>();
+        if(f.isFile()) {
+            Serialization serializationHelper = new Serialization();
+            customers = serializationHelper.deserializeCustomers();
+            for (Customer customer: customers) {
+                if (customer.getName().equals(name)) {
+                    return customer;
+                }
+            }
+        }
+        return singleCustomer;
+    }
+
+    /**
+     *
+     * @param id
+     * @return
+     */
+    public Customer getCustomerById(int id) {
+        File f = new File("./data/customers.txt");
+        Customer singleCustomer = new Customer();
+        ArrayList<Customer> customers = new ArrayList<>();
+        if(f.isFile()) {
+            Serialization serializationHelper = new Serialization();
+            customers = serializationHelper.deserializeCustomers();
+            for (Customer customer: customers) {
+                if (customer.getCustomerId() == id) {
+                    return customer;
+                }
+            }
+        }
+        return singleCustomer;
+    }
+
     public Customer() {
 
     }
@@ -428,5 +470,29 @@ public class Customer implements Serializable {
         this.alternateContactNo = alternateContactNo;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "customerId=" + customerId +
+                ", userId=" + userId +
+                ", tariffId=" + tariffId +
+                ", name='" + name + '\'' +
+                ", mobNo='" + mobNo + '\'' +
+                ", email='" + email + '\'' +
+                ", postCode='" + postCode + '\'' +
+                ", addressOne='" + addressOne + '\'' +
+                ", addressTwo='" + addressTwo + '\'' +
+                ", townCity='" + townCity + '\'' +
+                ", county='" + county + '\'' +
+                ", joinDate=" + joinDate +
+                ", tariffStartDate=" + tariffStartDate +
+                ", tariffEndDate=" + tariffEndDate +
+                ", meterNumber='" + meterNumber + '\'' +
+                ", alternateContactNo='" + alternateContactNo + '\'' +
+                ", createdAt=" + createdAt +
+                ", updatedAt=" + updatedAt +
+                '}';
     }
 }

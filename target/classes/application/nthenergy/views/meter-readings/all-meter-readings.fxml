@@ -67,7 +67,7 @@
                                 <AnchorPane prefHeight="35.0" prefWidth="880.0">
                                     <children>
                                         <Label prefHeight="35.0" text="All Available Meter Readings" />
-                                        <Button fx:id="addMeterReadingBtn" layoutX="538.0" layoutY="5.0" mnemonicParsing="false" onMouseClicked="#onClickAddMeterReading" text="New Meter Reading">
+                                        <Button fx:id="addMeterReadingBtn" layoutX="601.0" layoutY="5.0" mnemonicParsing="false" onMouseClicked="#onClickAddMeterReading" text="New Meter Reading">
                                             <styleClass>
                                                 <String fx:value="btn-primary" />
                                                 <String fx:value="light-white-text" />
@@ -79,30 +79,18 @@
                                                 <Cursor fx:constant="HAND" />
                                             </cursor>
                                         </Button>
-                                        <Button fx:id="editMeterReadingBtn" layoutX="672.0" layoutY="5.0" mnemonicParsing="false" text="Edit Meter Reading">
-                                            <styleClass>
-                                                <String fx:value="btn-secondary" />
-                                                <String fx:value="light-white-text" />
-                                            </styleClass>
-                                            <font>
-                                                <Font size="12.0" />
-                                            </font>
-                                            <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                            </cursor>
-                                        </Button>
-                                        <Button fx:id="deleteMeterReadiingBtn" layoutX="801.0" layoutY="5.0" mnemonicParsing="false" text="Delete">
-                                            <styleClass>
-                                                <String fx:value="btn-danger" />
-                                                <String fx:value="light-white-text" />
-                                            </styleClass>
-                                            <font>
-                                                <Font size="12.0" />
-                                            </font>
-                                            <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                            </cursor>
-                                        </Button>
+                              <Button fx:id="editMeterReading" layoutX="736.0" layoutY="5.0" mnemonicParsing="false" text="Edit Meter Reading">
+                                 <styleClass>
+                                    <String fx:value="btn-secondary" />
+                                    <String fx:value="light-white-text" />
+                                 </styleClass>
+                                 <font>
+                                    <Font size="12.0" />
+                                 </font>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
                                     </children>
                                     <HBox.margin>
                                         <Insets />
@@ -117,18 +105,18 @@
                                 <String fx:value="gray-border" />
                             </styleClass>
                         </HBox>
-                        <TableView layoutX="10.0" layoutY="74.0" prefHeight="179.0" prefWidth="880.0" styleClass="md-font">
+                        <TableView fx:id="allMeterReadingsTable" layoutX="10.0" layoutY="74.0" prefHeight="179.0" prefWidth="880.0" styleClass="md-font">
                             <placeholder>
                                 <Label text="There are no records to display." />
                             </placeholder>
                             <columns>
-                                <TableColumn prefWidth="183.0" text="Customer Name" />
-                                <TableColumn prefWidth="117.0" text="Opening Date" />
-                                <TableColumn minWidth="0.0" prefWidth="127.0" text="Closing Date" />
-                                <TableColumn prefWidth="113.0" text="Gas Kwh" />
-                                <TableColumn minWidth="0.0" prefWidth="118.0" text="Elec Kwh" />
-                        <TableColumn prefWidth="123.0" text="Elec Night Kwh" />
-                        <TableColumn prefWidth="97.0" text="Elec Day Kwh" />
+                                <TableColumn fx:id="colMrCustomerName" prefWidth="183.0" text="Customer Name" />
+                                <TableColumn fx:id="colMrOpeningDate" prefWidth="117.0" text="Opening Date" />
+                                <TableColumn fx:id="colMrClosingDate" minWidth="0.0" prefWidth="127.0" text="Closing Date" />
+                                <TableColumn fx:id="colMrGasKwh" prefWidth="113.0" text="Gas Kwh" />
+                                <TableColumn fx:id="colMrElecKwh" minWidth="0.0" prefWidth="118.0" text="Elec Kwh" />
+                        <TableColumn fx:id="colMrElecNightKwh" prefWidth="123.0" text="Elec Night Kwh" />
+                        <TableColumn fx:id="colMrElecDayKwh" prefWidth="97.0" text="Elec Day Kwh" />
                             </columns>
                             <cursor>
                                 <Cursor fx:constant="HAND" />
