@@ -8,9 +8,11 @@ package application.nthenergy.models;
 
 import application.nthenergy.core.enums.AccountStatus;
 import application.nthenergy.core.enums.UserType;
+
+import java.io.Serializable;
 import java.security.Timestamp;
 
-public class User {
+public class User implements Serializable {
     // private attributes of the user class
     private int userId;
     private String firstName;
@@ -23,8 +25,8 @@ public class User {
     private String mobNo;
     private AccountStatus accountStatus;
     private String remarks;
-    private Timestamp createdAt;
-    private Timestamp updatedAt;
+    private long createdAt;
+    private long updatedAt;
 
     // getters and setters for the attributes
     /**
@@ -41,7 +43,7 @@ public class User {
      * @param int userId
      * @return void
      */
-    public void setId(int userId) {
+    public void setUserId(int userId) {
         this.userId = userId;
     }
 
@@ -228,36 +230,57 @@ public class User {
     /**
      * This method is used to return the timestamp of created at.
      * @param none
-     * @return Timestamp createdAt
+     * @return long createdAt
      */
-    public Timestamp getCreatedAt() {
+    public long getCreatedAt() {
         return createdAt;
     }
 
     /**
      * This method is used to set created at timestamp.
-     * @param Timestamp createdAt
+     * @param long createdAt
      * @return void
      */
-    public void setCreatedAt(Timestamp createdAt) {
+    public void setCreatedAt(long createdAt) {
         this.createdAt = createdAt;
     }
 
     /**
      * This method is used to return the timestamp of updated at.
      * @param none
-     * @return Timestamp updatedAt
+     * @return long updatedAt
      */
-    public Timestamp getUpdatedAt() {
+    public long getUpdatedAt() {
         return updatedAt;
+    }
+
+
+    public User() {
+
+    }
+
+    public User(int userId, String firstName, String middleName, String lastName, UserType userType, String email, String username, String password, String mobNo, AccountStatus accountStatus, String remarks, long createdAt, long updatedAt) {
+        this.userId = userId;
+        this.firstName = firstName;
+        this.middleName = middleName;
+        this.lastName = lastName;
+        this.userType = userType;
+        this.email = email;
+        this.username = username;
+        this.password = password;
+        this.mobNo = mobNo;
+        this.accountStatus = accountStatus;
+        this.remarks = remarks;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
     }
 
     /**
      * This method is used to set updated at.
-     * @param Timestamp updatedAt
+     * @param long updatedAt
      * @return void
      */
-    public void setUpdatedAt(Timestamp updatedAt) {
+    public void setUpdatedAt(long updatedAt) {
         this.updatedAt = updatedAt;
     }
 

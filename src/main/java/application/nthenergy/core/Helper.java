@@ -52,6 +52,26 @@ public class Helper {
     }
 
     /**
+     * This method is used to validate received text for evail regex
+     * @param email
+     * @return boolean
+     */
+    public static boolean checkLoginEmail(TextField email, Button btn) {
+        Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(email.getText());
+        Label loginFormLabel = (Label) email.getScene().lookup("#loginFormMsg");
+        if (!matcher.find()){
+            loginFormLabel.getStyleClass().add("red-text");
+            loginFormLabel.setText("Please enter a valid email.");
+            return false;
+        }
+        else {
+            loginFormLabel.getStyleClass().removeAll("red-text");
+            loginFormLabel.setText("");
+            return true;
+        }
+    }
+
+    /**
      * This method is used to set scene based on the received view.
      *
      * @param event
@@ -180,6 +200,66 @@ public class Helper {
         return validateFlag;
     }
 
+
+    public static void showHideLabelElement(Label[] fields, boolean action) {
+        for (Label field: fields) {
+            field.setVisible(action);
+        }
+    }
+
+    public static void showHideTextFieldElement(TextField[] fields, boolean action) {
+        for (TextField field: fields) {
+            field.setVisible(action);
+        }
+    }
+
+    /**
+     * This method is used to validate multiple combo box input fields.
+     * @param btn
+     * @param fields
+     */
+    public static boolean validateRequiredComboBoxFields(Button btn, ComboBox[] fields) {
+        boolean flag = false;
+        // loop through all required combobox fields
+        for(ComboBox field : fields) {
+            if(field.getValue() == null) {
+                field.getStyleClass().add("input-red-border");
+                flag = true;
+            }
+            else {
+                field.getStyleClass().removeAll("input-red-border");
+            }
+        }
+        // label to show validation error message
+        Label formMsg = (Label) btn.getScene().lookup("#formMsg");
+        if (flag){
+            formMsg.getStyleClass().removeAll("green-text");
+            formMsg.getStyleClass().add("red-text");
+            formMsg.setText("*  Please provide the required information.");
+            return false;
+        }
+        else {
+            formMsg.setText("");
+            formMsg.getStyleClass().removeAll("red-text");
+            return true;
+        }
+    }
+
+
+
+    /**
+     * This method is used to validated single required combo box field.
+     * @param event
+     */
+    public static void validateRequiredComboBoxField(KeyEvent event) {
+        ComboBox field = (ComboBox) event.getSource();
+        if(field.getValue() == null) {
+            field.getStyleClass().add("input-red-border");
+        }
+        else {
+            field.getStyleClass().removeAll("input-red-border");
+        }
+    }
 
 
 

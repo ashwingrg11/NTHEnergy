@@ -91,7 +91,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                                         </Button>
-                                        <Button fx:id="deleteTariffBtn" layoutX="801.0" layoutY="5.0" mnemonicParsing="false" text="Delete">
+                                        <Button fx:id="deleteTariffBtn" layoutX="801.0" layoutY="5.0" mnemonicParsing="false" onMouseClicked="#deleteTariffBtnClick" text="Delete">
                                             <styleClass>
                                                 <String fx:value="btn-danger" />
                                                 <String fx:value="light-white-text" />
@@ -117,30 +117,30 @@
                                 <String fx:value="gray-border" />
                             </styleClass>
                         </HBox>
-                        <TableView layoutX="10.0" layoutY="74.0" prefHeight="179.0" prefWidth="880.0" styleClass="md-font">
+                        <TableView fx:id="allTariffsTable" layoutX="10.0" layoutY="74.0" prefHeight="179.0" prefWidth="880.0" styleClass="md-font">
                             <placeholder>
                                 <Label text="There are no records to display." />
                             </placeholder>
                             <columns>
-                                <TableColumn prefWidth="33.0" text="ID" />
-                                <TableColumn prefWidth="117.0" text="Name" />
-                        <TableColumn prefWidth="93.0" text="Tariff Type" />
-                        <TableColumn prefWidth="94.0" text="Meter Type" />
+                                <TableColumn fx:id="colTariffId" prefWidth="33.0" text="ID" />
+                                <TableColumn fx:id="colTariffName" prefWidth="117.0" text="Name" />
+                        <TableColumn fx:id="colTariffType" prefWidth="93.0" text="Tariff Type" />
+                        <TableColumn fx:id="colMeterType" prefWidth="94.0" text="Meter Type" />
                         <TableColumn prefWidth="188.0" text="Electricity">
                            <columns>
-                              <TableColumn prefWidth="75.0" text="Fix Rate" />
-                              <TableColumn prefWidth="75.0" text="Night Rate" />
-                              <TableColumn prefWidth="75.0" text="Day Rate" />
+                              <TableColumn fx:id="colElecFixRate" prefWidth="75.0" text="Fix Rate" />
+                              <TableColumn fx:id="colElecNightRate" prefWidth="75.0" text="Night Rate" />
+                              <TableColumn fx:id="colElecDayRate" prefWidth="75.0" text="Day Rate" />
                            </columns>
                         </TableColumn>
                         <TableColumn prefWidth="177.0" text="Gas">
                            <columns>
-                              <TableColumn prefWidth="69.0" text="Fix Rate" />
-                              <TableColumn prefWidth="81.0" text="Variable Rate" />
+                              <TableColumn fx:id="colGasFixRate" prefWidth="69.0" text="Fix Rate" />
+                              <TableColumn fx:id="colGasVariableRate" prefWidth="81.0" text="Variable Rate" />
                            </columns>
                         </TableColumn>
-                        <TableColumn prefWidth="79.0" text="Standing Fee" />
-                        <TableColumn prefWidth="88.0" text="Exit Fee" />
+                        <TableColumn fx:id="colStandingFee" prefWidth="79.0" text="Standing Fee" />
+                        <TableColumn fx:id="colExitFee" prefWidth="88.0" text="Exit Fee" />
                             </columns>
                             <cursor>
                                 <Cursor fx:constant="HAND" />

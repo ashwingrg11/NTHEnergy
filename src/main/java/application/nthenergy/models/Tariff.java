@@ -6,28 +6,32 @@
  */
 package application.nthenergy.models;
 
+import application.nthenergy.core.Serialization;
 import application.nthenergy.core.enums.MeterType;
 import application.nthenergy.core.enums.TariffType;
 
+import java.io.File;
+import java.io.Serializable;
 import java.security.Timestamp;
+import java.util.ArrayList;
 
-public class Tariff {
+public class Tariff implements Serializable {
     // private properties of the tariff class
     private int tariffId;
     private String name;
     private String description;
     private TariffType tariffType;
     private MeterType meterType;
-    private float elecFixRate;
-    private float gasFixRate;
-    private float exitFee;
-    private float standingFee;
-    private float elecNightRate;
-    private float elecDayRate;
-    private float gasUnitRate;
-    private Timestamp createdAt;
-    private Timestamp updatedAt;
-
+    private double elecFixRate;
+    private double gasFixRate;
+    private double exitFee;
+    private double standingFee;
+    private double elecNightRate;
+    private double elecDayRate;
+    private double gasUnitRate;
+    private long createdAt;
+    private long updatedAt;
+    private  static  final  long  serialVersionUID = 11168219141444160L;
     // getters and setters for the attributes
     /**
      * This method is used to return tariff id.
@@ -122,144 +126,144 @@ public class Tariff {
     /**
      * This method is used to return electricity fixed rate.
      * @param none
-     * @return float elecFixRate
+     * @return double elecFixRate
      */
-    public float getElecFixRate() {
+    public double getElecFixRate() {
         return elecFixRate;
     }
 
     /**
      * This method is used to set electricity fix rate.
-     * @param float elecFixRate
+     * @param double elecFixRate
      * @return void
      */
-    public void setElecFixRate(float elecFixRate) {
+    public void setElecFixRate(double elecFixRate) {
         this.elecFixRate = elecFixRate;
     }
 
     /**
      * This method is used to return gas fixed rate.
      * @param none
-     * @return float gasFixRate
+     * @return double gasFixRate
      */
-    public float getGasFixRate() {
+    public double getGasFixRate() {
         return gasFixRate;
     }
 
     /**
      * This method is used to set gas fix rate.
-     * @param float gaxFixRate
+     * @param double gaxFixRate
      * @return void
      */
-    public void setGasFixRate(float gasFixRate) {
+    public void setGasFixRate(double gasFixRate) {
         this.gasFixRate = gasFixRate;
     }
 
     /**
      * This method is used to return exit fee.
      * @param none
-     * @return float exitFee
+     * @return double exitFee
      */
-    public float getExitFee() {
+    public double getExitFee() {
         return exitFee;
     }
 
     /**
      * This method is used to set exit fee.
-     * @param float exitFee
+     * @param double exitFee
      * @return void
      */
-    public void setExitFee(float exitFee) {
+    public void setExitFee(double exitFee) {
         this.exitFee = exitFee;
     }
 
     /**
      * This method is used to return standing fee.
      * @param none
-     * @return float standingFee
+     * @return double standingFee
      */
-    public float getStandingFee() {
+    public double getStandingFee() {
         return standingFee;
     }
 
     /**
      * This method is used to set standing fee.
-     * @param float standingFee
+     * @param double standingFee
      * @return void
      */
-    public void setStandingFee(float standingFee) {
+    public void setStandingFee(double standingFee) {
         this.standingFee = standingFee;
     }
 
     /**
      * This method is used to return electricity night rate.
      * @param none
-     * @return float elecNightRate
+     * @return double elecNightRate
      */
-    public float getElecNightRate() {
+    public double getElecNightRate() {
         return elecNightRate;
     }
 
     /**
      * This method is used to set electricity night rate.
-     * @param float elecNightRate
+     * @param double elecNightRate
      * @return void
      */
-    public void setElecNightRate(float elecNightRate) {
+    public void setElecNightRate(double elecNightRate) {
         this.elecNightRate = elecNightRate;
     }
 
     /**
      * This method is used to return electricity day rate.
      * @param none
-     * @return float elecDayRate
+     * @return double elecDayRate
      */
-    public float getElecDayRate() {
+    public double getElecDayRate() {
         return elecDayRate;
     }
 
     /**
      * This method is used to set elecricity day rate.
-     * @param float elecDayRate
+     * @param double elecDayRate
      * @return void
      */
-    public void setElecDayRate(float elecDayRate) {
+    public void setElecDayRate(double elecDayRate) {
         this.elecDayRate = elecDayRate;
     }
 
     /**
      * This method is used to return gas unit rate.
      * @param none
-     * @return float gasUnitRate
+     * @return double gasUnitRate
      */
-    public float getGasUnitRate() {
+    public double getGasUnitRate() {
         return gasUnitRate;
     }
 
     /**
      * This method is used to set gas unit rate.
-     * @param float gasUnitRate
+     * @param double gasUnitRate
      * @return void
      */
-    public void setGasUnitRate(float gasUnitRate) {
+    public void setGasUnitRate(double gasUnitRate) {
         this.gasUnitRate = gasUnitRate;
     }
 
     /**
      * This method is used to return timestamp of created at.
      * @param none
-     * @return Timestamp createdAt
+     * @return long createdAt
      */
-    public Timestamp getCreatedAt() {
+    public long getCreatedAt() {
         return createdAt;
     }
 
     /**
      * This method is used to set created at timestamp.
-     * @param float createdAt
+     * @param long createdAt
      * @return void
      */
-    public void setCreatedAt(Timestamp createdAt) {
+    public void setCreatedAt(long createdAt) {
         this.createdAt = createdAt;
     }
 
@@ -268,16 +272,97 @@ public class Tariff {
      * @param none
      * @return Timestamp updatedAt
      */
-    public Timestamp getUpdatedAt() {
+    public long getUpdatedAt() {
         return updatedAt;
     }
 
     /**
      * This method is used to set updated at timestamp.
-     * @param float updatedAt
+     * @param long updatedAt
      * @return void
      */
-    public void setUpdatedAt(Timestamp updatedAt) {
+    public void setUpdatedAt(long updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public Tariff() {
+
+    }
+
+    /**
+     * Constructor with parameters
+     *
+     * @param tariffId
+     * @param name
+     * @param description
+     * @param tariffType
+     * @param meterType
+     * @param elecFixRate
+     * @param gasFixRate
+     * @param exitFee
+     * @param standingFee
+     * @param elecNightRate
+     * @param elecDayRate
+     * @param gasUnitRate
+     * @param createdAt
+     * @param updatedAt
+     */
+    public Tariff(int tariffId, String name, String description, TariffType tariffType, MeterType meterType, double elecFixRate, double gasFixRate, double exitFee, double standingFee, double elecNightRate, double elecDayRate, double gasUnitRate, long createdAt, long updatedAt) {
+        this.tariffId = tariffId;
+        this.name = name;
+        this.description = description;
+        this.tariffType = tariffType;
+        this.meterType = meterType;
+        this.elecFixRate = elecFixRate;
+        this.gasFixRate = gasFixRate;
+        this.exitFee = exitFee;
+        this.standingFee = standingFee;
+        this.elecNightRate = elecNightRate;
+        this.elecDayRate = elecDayRate;
+        this.gasUnitRate = gasUnitRate;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+    }
+
+    /**
+     * This method is used to fetch tariff inifo by tariff id.
+     * @param id
+     * @return <Tariff>
+     */
+    public Tariff getById(int id) {
+        File f = new File("./data/tariffs.txt");
+        Tariff singleTariff = new Tariff();
+        ArrayList<Tariff> tariffs = new ArrayList<>();
+        if(f.isFile()) {
+            Serialization serializationHelper = new Serialization();
+            tariffs = serializationHelper.deserializeTariffs();
+            for (Tariff tariff: tariffs) {
+                if (tariff.getTariffId() == id) {
+                    return tariff;
+                }
+            }
+        }
+        return singleTariff;
+    }
+
+    @Override
+    public String toString() {
+        return this.getName();
+//        return "Tariff{" +
+//                "tariffId=" + tariffId +
+//                ", name='" + name + '\'' +
+//                ", description='" + description + '\'' +
+//                ", tariffType=" + tariffType +
+//                ", meterType=" + meterType +
+//                ", elecFixRate=" + elecFixRate +
+//                ", gasFixRate=" + gasFixRate +
+//                ", exitFee=" + exitFee +
+//                ", standingFee=" + standingFee +
+//                ", elecNightRate=" + elecNightRate +
+//                ", elecDayRate=" + elecDayRate +
+//                ", gasUnitRate=" + gasUnitRate +
+//                ", createdAt=" + createdAt +
+//                ", updatedAt=" + updatedAt +
+//                '}';
     }
 }
