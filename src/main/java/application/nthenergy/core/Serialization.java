@@ -89,6 +89,22 @@ public class Serialization implements Serializable {
     }
 
     /**
+     * This method is used to validate user login details.
+     * @return
+     */
+    public boolean validateLoginCredentials(String email, String psw) {
+        ArrayList<User> users = deserializeUsers();
+        boolean loginFlag = false;
+        for (User user: users) {
+            if (user.getEmail().equals(email) && user.getPassword().equals(psw)) {
+                return true;
+            }
+        }
+        return loginFlag;
+
+    }
+
+    /**
      * This method is used to serialize the objects based on the received parameters of user.
      *
      * return void

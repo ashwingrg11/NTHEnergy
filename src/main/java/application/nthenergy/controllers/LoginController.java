@@ -9,6 +9,7 @@ package application.nthenergy.controllers;
 
 import application.nthenergy.Dashboard;
 import application.nthenergy.core.Helper;
+import application.nthenergy.core.Serialization;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -67,8 +68,16 @@ public class LoginController {
 
     @FXML
     void onClickLoginBtn(MouseEvent event) throws IOException {
-        if(Helper.validateLoginFields(emailInput, pswInput)) {
-            Helper.setScene(event, "views/dashboard-view.fxml");
+        if(Helper.validateLoginFields(emailInput, pswInput) && Helper.checkLoginEmail(emailInput, loginBtn)) {
+            Serialization serializationHelper = new Serialization();
+            if (!serializationHelper.validateLoginCredentials(emailInput.getText(), pswInput.getText())) {
+                Label loginFormLabel = (Label) emailInput.getScene().lookup("#loginFormMsg");
+                loginFormLabel.getStyleClass().add("red-text");
+                loginFormLabel.setText("You have entered an invalid email or password. Please try again.");
+            }
+            else {
+                Helper.setScene(event, "views/dashboard-view.fxml");
+            }
         }
     }
 }

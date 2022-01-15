@@ -52,6 +52,26 @@ public class Helper {
     }
 
     /**
+     * This method is used to validate received text for evail regex
+     * @param email
+     * @return boolean
+     */
+    public static boolean checkLoginEmail(TextField email, Button btn) {
+        Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(email.getText());
+        Label loginFormLabel = (Label) email.getScene().lookup("#loginFormMsg");
+        if (!matcher.find()){
+            loginFormLabel.getStyleClass().add("red-text");
+            loginFormLabel.setText("Please enter a valid email.");
+            return false;
+        }
+        else {
+            loginFormLabel.getStyleClass().removeAll("red-text");
+            loginFormLabel.setText("");
+            return true;
+        }
+    }
+
+    /**
      * This method is used to set scene based on the received view.
      *
      * @param event
