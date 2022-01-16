@@ -14,7 +14,7 @@ This application **Customer Data Platform - NTH Energy Supplier** is the desktop
 ```
 
 ## Getting Started
-- Clone the repo and open the project in IntelliJ or any IDE.
+- Clone the repo and open the project in IntelliJ or any IDE. [Clone Repo](https://github.com/ashwingrg11/NTHEnergy)
 - Install JavaFX and Maven
 - Open Login.java file from the java/application/ directory.
 - Run
