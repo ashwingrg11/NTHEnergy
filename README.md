@@ -44,9 +44,9 @@ nthenergy/
 |-- extra/
 |-- invoices/
 |-- src/
-    |-- main
-        |-- java
-            |-- controllers
+    |-- main/
+        |-- java/
+            |-- controllers/
                 |-- AdminController.java
                 |-- CustomerCardController.java
                 |-- DashboardController.java
@@ -54,14 +54,14 @@ nthenergy/
                 |-- LoginController.java
                 |-- MeterReadingController.java
                 |-- TariffController.java
-            |-- core
-                |-- enums
-                |-- Exceptions
+            |-- core/
+                |-- enums/
+                |-- Exceptions/
                 |-- GeneratePdf.java
                 |-- Helper.java
                 |-- SendEmail.java
                 |-- Serialization.java
-            |-- models
+            |-- models/
                 |-- Customer.java
                 |-- CustomerCard.java
                 |-- Invoice.java
@@ -69,17 +69,17 @@ nthenergy/
                 |-- Tariff.java
                 |-- User.java
             |-- Login.java
-        |-- resources
-            |-- application
-                |-- assets
-                    |-- css
-                    |-- icons
-                    |-- images
-                |-- views
+        |-- resources/
+            |-- application/
+                |-- assets/
+                    |-- css/
+                    |-- icons/
+                    |-- images/
+                |-- views/
 |-- tests/
-    |-- customers
-    |-- tariffs
-    |-- resources
+    |-- customers/
+    |-- tariffs/
+    |-- resources/
 ```
 Each of these directories have special types of files and logics:
 
