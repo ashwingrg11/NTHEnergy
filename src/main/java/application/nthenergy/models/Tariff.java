@@ -35,7 +35,7 @@ public class Tariff implements Serializable {
     // getters and setters for the attributes
     /**
      * This method is used to return tariff id.
-     * @param none
+     * @param
      * @return int tariffId
      */
     public int getTariffId() {
@@ -44,7 +44,7 @@ public class Tariff implements Serializable {
 
     /**
      * This method is used to set tariff id.
-     * @param int tariffId
+     * @param tariffId
      * @return void
      */
     public void setTariffId(int tariffId) {
@@ -53,7 +53,7 @@ public class Tariff implements Serializable {
 
     /**
      * This method is used to return tariff name.
-     * @param none
+     * @param
      * @return String name
      */
     public String getName() {
@@ -62,7 +62,7 @@ public class Tariff implements Serializable {
 
     /**
      * This method is used to set tariff name.
-     * @param String name
+     * @param name
      * @return void
      */
     public void setName(String name) {
@@ -71,7 +71,7 @@ public class Tariff implements Serializable {
 
     /**
      * This method is used to return tariff description.
-     * @param none
+     * @param
      * @return String description
      */
     public String getDescription() {
@@ -80,7 +80,7 @@ public class Tariff implements Serializable {
 
     /**
      * This method is used to set tariff description.
-     * @param String description
+     * @param description
      * @return void
      */
     public void setDescription(String description) {
@@ -89,7 +89,7 @@ public class Tariff implements Serializable {
 
     /**
      * This method is used to return tariff type.
-     * @param none
+     * @param
      * @return TariffType tariffType
      */
     public TariffType getTariffType() {
@@ -98,7 +98,7 @@ public class Tariff implements Serializable {
 
     /**
      * This method is used to set tariff type.
-     * @param TariffType tariffType
+     * @param tariffType
      * @return void
      */
     public void setTariffType(TariffType tariffType) {
@@ -107,7 +107,7 @@ public class Tariff implements Serializable {
 
     /**
      * This method is used to return meter type.
-     * @param none
+     * @param
      * @return MeterType meterType
      */
     public MeterType getMeterType() {
@@ -116,7 +116,7 @@ public class Tariff implements Serializable {
 
     /**
      * This method is used to set meter type.
-     * @param MeterType meterType
+     * @param meterType
      * @return void
      */
     public void setMeterType(MeterType meterType) {
@@ -125,7 +125,7 @@ public class Tariff implements Serializable {
 
     /**
      * This method is used to return electricity fixed rate.
-     * @param none
+     * @param
      * @return double elecFixRate
      */
     public double getElecFixRate() {
@@ -134,7 +134,7 @@ public class Tariff implements Serializable {
 
     /**
      * This method is used to set electricity fix rate.
-     * @param double elecFixRate
+     * @param elecFixRate
      * @return void
      */
     public void setElecFixRate(double elecFixRate) {
@@ -143,7 +143,7 @@ public class Tariff implements Serializable {
 
     /**
      * This method is used to return gas fixed rate.
-     * @param none
+     * @param
      * @return double gasFixRate
      */
     public double getGasFixRate() {
@@ -152,7 +152,7 @@ public class Tariff implements Serializable {
 
     /**
      * This method is used to set gas fix rate.
-     * @param double gaxFixRate
+     * @param gasFixRate
      * @return void
      */
     public void setGasFixRate(double gasFixRate) {
@@ -161,7 +161,7 @@ public class Tariff implements Serializable {
 
     /**
      * This method is used to return exit fee.
-     * @param none
+     * @param
      * @return double exitFee
      */
     public double getExitFee() {
@@ -170,7 +170,7 @@ public class Tariff implements Serializable {
 
     /**
      * This method is used to set exit fee.
-     * @param double exitFee
+     * @param exitFee
      * @return void
      */
     public void setExitFee(double exitFee) {
@@ -179,7 +179,7 @@ public class Tariff implements Serializable {
 
     /**
      * This method is used to return standing fee.
-     * @param none
+     * @param
      * @return double standingFee
      */
     public double getStandingFee() {
@@ -188,7 +188,7 @@ public class Tariff implements Serializable {
 
     /**
      * This method is used to set standing fee.
-     * @param double standingFee
+     * @param standingFee
      * @return void
      */
     public void setStandingFee(double standingFee) {
@@ -197,7 +197,7 @@ public class Tariff implements Serializable {
 
     /**
      * This method is used to return electricity night rate.
-     * @param none
+     * @param
      * @return double elecNightRate
      */
     public double getElecNightRate() {
@@ -206,7 +206,7 @@ public class Tariff implements Serializable {
 
     /**
      * This method is used to set electricity night rate.
-     * @param double elecNightRate
+     * @param elecNightRate
      * @return void
      */
     public void setElecNightRate(double elecNightRate) {
@@ -215,7 +215,7 @@ public class Tariff implements Serializable {
 
     /**
      * This method is used to return electricity day rate.
-     * @param none
+     * @param
      * @return double elecDayRate
      */
     public double getElecDayRate() {
@@ -224,7 +224,7 @@ public class Tariff implements Serializable {
 
     /**
      * This method is used to set elecricity day rate.
-     * @param double elecDayRate
+     * @param elecDayRate
      * @return void
      */
     public void setElecDayRate(double elecDayRate) {
@@ -233,7 +233,7 @@ public class Tariff implements Serializable {
 
     /**
      * This method is used to return gas unit rate.
-     * @param none
+     * @param
      * @return double gasUnitRate
      */
     public double getGasUnitRate() {
@@ -242,7 +242,7 @@ public class Tariff implements Serializable {
 
     /**
      * This method is used to set gas unit rate.
-     * @param double gasUnitRate
+     * @param gasUnitRate
      * @return void
      */
     public void setGasUnitRate(double gasUnitRate) {
@@ -251,7 +251,7 @@ public class Tariff implements Serializable {
 
     /**
      * This method is used to return timestamp of created at.
-     * @param none
+     * @param
      * @return long createdAt
      */
     public long getCreatedAt() {
@@ -260,7 +260,7 @@ public class Tariff implements Serializable {
 
     /**
      * This method is used to set created at timestamp.
-     * @param long createdAt
+     * @param createdAt
      * @return void
      */
     public void setCreatedAt(long createdAt) {
@@ -269,7 +269,7 @@ public class Tariff implements Serializable {
 
     /**
      * This method is used to return timestamp of updated at.
-     * @param none
+     * @param
      * @return Timestamp updatedAt
      */
     public long getUpdatedAt() {
@@ -278,7 +278,7 @@ public class Tariff implements Serializable {
 
     /**
      * This method is used to set updated at timestamp.
-     * @param long updatedAt
+     * @param updatedAt
      * @return void
      */
     public void setUpdatedAt(long updatedAt) {

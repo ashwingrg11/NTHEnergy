@@ -1,18 +1,13 @@
 package customers;
 
-import application.nthenergy.models.Customer;
 import application.nthenergy.models.CustomerCard;
-import application.nthenergy.models.User;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Before;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.io.*;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Arrays;
 
 public class CustomerCardSerializationTest {
     private CustomerCard customerCard = new CustomerCard();

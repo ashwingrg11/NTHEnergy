@@ -34,7 +34,9 @@ public class Login extends Application {
         ArrayList<User> users = new ArrayList<>();
         File f = new File("./data/users.txt");
         if(!f.isFile()) {
-            users.add(new User(1, "Ashwin", "", "Gurung", UserType.ADMIN, "ashwin.grg11@gmail.com", "ashwingrg", "P@ssw0rd", "98880000", AccountStatus.ACTIVE, "", System.currentTimeMillis(), System.currentTimeMillis()));
+            users.add(new User(1, "Ashwin", "", "Gurung", UserType.ADMIN, "admin@admin.com", "ashwingrg", "P@ssw0rd", "98880000", AccountStatus.ACTIVE, "", System.currentTimeMillis(), System.currentTimeMillis()));
+            users.add(new User(2, "Howdy", "", "Admin", UserType.ADMIN, "howdy@admin.com", "ashwingrg", "P@ssw0rd", "98880000", AccountStatus.ACTIVE, "", System.currentTimeMillis(), System.currentTimeMillis()));
+            users.add(new User(3, "John", "", "Admin", UserType.ADMIN, "john@admin.com", "ashwingrg", "P@ssw0rd", "98880000", AccountStatus.ACTIVE, "", System.currentTimeMillis(), System.currentTimeMillis()));
             // Let's serialize an Object
             try {
                 FileOutputStream fileOut = new FileOutputStream("./data/users.txt");

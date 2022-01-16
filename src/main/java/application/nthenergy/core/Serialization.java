@@ -96,12 +96,11 @@ public class Serialization implements Serializable {
         ArrayList<User> users = deserializeUsers();
         boolean loginFlag = false;
         for (User user: users) {
-            if (user.getEmail().equals(email) && user.getPassword().equals(psw)) {
+            if (user.getEmail().equals(email) && user.getPassword().equals(psw) && user.getUserType().toString() == "ADMIN") {
                 return true;
             }
         }
         return loginFlag;
-
     }
 
     /**

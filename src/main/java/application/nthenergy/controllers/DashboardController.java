@@ -87,6 +87,9 @@ public class DashboardController {
     @FXML
     private Label countTariffsLabel;
 
+    @FXML
+    private Label welcomeUserLabel;
+
     public void initialize() {
         if (countAdminsLabel != null) {
             Serialization serializationHelper = new Serialization();
