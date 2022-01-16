@@ -7,13 +7,10 @@
 
 package application.nthenergy.controllers;
 
-import application.nthenergy.Dashboard;
 import application.nthenergy.core.Helper;
 import application.nthenergy.core.Serialization;
 import application.nthenergy.core.enums.AdminStatus;
-import application.nthenergy.core.enums.MeterType;
 import application.nthenergy.core.enums.PaymentStatus;
-import application.nthenergy.core.enums.TariffType;
 import application.nthenergy.models.Customer;
 import application.nthenergy.models.Invoice;
 import application.nthenergy.models.MeterReading;
@@ -21,20 +18,14 @@ import application.nthenergy.models.Tariff;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.time.LocalDate;
 import java.util.ArrayList;
 

@@ -6,23 +6,16 @@
  */
 package application.nthenergy.controllers;
 
-import application.nthenergy.Dashboard;
 import application.nthenergy.core.Helper;
 import application.nthenergy.core.Serialization;
-import application.nthenergy.models.Invoice;
 import application.nthenergy.models.User;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.text.DateFormat;
