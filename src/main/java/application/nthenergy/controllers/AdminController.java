@@ -8,19 +8,27 @@ package application.nthenergy.controllers;
 
 import application.nthenergy.Dashboard;
 import application.nthenergy.core.Helper;
+import application.nthenergy.core.Serialization;
+import application.nthenergy.models.Invoice;
+import application.nthenergy.models.User;
+import javafx.beans.property.ReadOnlyObjectWrapper;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class AdminController {
     @FXML
@@ -65,6 +73,28 @@ public class AdminController {
     @FXML
     private Button editAdminBtn;
 
+    @FXML
+    private TableView<User> allAdminsTable;
+
+    @FXML
+    private TableColumn<User, Integer> colAdminId;
+
+    @FXML
+    private TableColumn<User, LocalDate> colCreatedAt;
+
+    @FXML
+    private TableColumn<User, String> colEmail;
+
+    @FXML
+    private TableColumn<User, String> colMobileNo;
+
+    @FXML
+    private TableColumn<User, String> colName;
+
+    @FXML
+    private TableColumn<User, String> colRemarks;
+
+    ObservableList<User> obAllAdmins = FXCollections.observableArrayList();
 
     @FXML
     void onClickAddAdmin(MouseEvent event) throws IOException {
@@ -86,9 +116,9 @@ public class AdminController {
         TextField[] fields = {newAdminFirstName, newAdminLastName, newAdminEmail, newAdminPassword, newAdminMobNo};
         if(Helper.validateRequiredTextFields(submitNewAdminBtn, fields)) {
             if (Helper.emailValidate(newAdminEmail, submitNewAdminBtn)) {
-                formMsg.getStyleClass().removeAll("red-text");
-                formMsg.getStyleClass().add("green-text");
-                formMsg.setText("-  New admin has been added successfully.");
+//                formMsg.getStyleClass().removeAll("red-text");
+//                formMsg.getStyleClass().add("green-text");
+//                formMsg.setText("-  New admin has been added successfully.");
             }
         }
     }
@@ -98,7 +128,21 @@ public class AdminController {
      * @return void
      */
     public void initialize() {
-        if (editAdminBtn != null) editAdminBtn.setDisable(true);
-        if (deleteAdminBtn != null) deleteAdminBtn.setDisable(true);
+        if (newAdminFirstName == null) {
+            DateFormat dateF = new SimpleDateFormat("dd MMM yyyy hh:mm:ss");
+            Serialization serializationHelper = new Serialization();
+            ArrayList<User> allUsers = serializationHelper.deserializeUsers();
+            for (User user: allUsers) {
+                if (user.getUserType().toString() == "ADMIN") {
+                    obAllAdmins.add(user);
+                }
+            }
+            colAdminId.setCellValueFactory(data -> new ReadOnlyObjectWrapper(data.getValue().getUserId()));
+            colCreatedAt.setCellValueFactory(data -> new ReadOnlyObjectWrapper(dateF.format(data.getValue().getCreatedAt())));
+            colName.setCellValueFactory(data -> new ReadOnlyObjectWrapper(data.getValue().getFirstName() +" "+data.getValue().getLastName()));
+            colEmail.setCellValueFactory(data -> new ReadOnlyObjectWrapper(data.getValue().getEmail()));
+            colMobileNo.setCellValueFactory(data -> new ReadOnlyObjectWrapper(data.getValue().getMobNo()));
+            allAdminsTable.setItems(obAllAdmins);
+        }
     }
 }

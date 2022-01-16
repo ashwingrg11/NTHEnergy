@@ -103,7 +103,7 @@
                                                 <Cursor fx:constant="HAND" />
                                             </cursor>
                                         </Button>
-                              <Button fx:id="viewCustomerDetails" layoutX="654.0" layoutY="5.0" mnemonicParsing="false" onMouseClicked="#onClickViewCustomerDetails" text="View Customer Details">
+                              <Button fx:id="viewCustomerDetails" layoutX="654.0" layoutY="5.0" mnemonicParsing="false" onMouseClicked="#onClickViewCustomerDetailsBtn" text="View Customer Details">
                                  <styleClass>
                                     <String fx:value="btn-secondary" />
                                     <String fx:value="light-white-text" />

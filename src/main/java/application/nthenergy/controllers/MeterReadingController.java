@@ -327,8 +327,9 @@ public class MeterReadingController {
         double finalAmount = finalGasAmount + finalElecAmount;
         PaymentStatus paymentStatus = PaymentStatus.PENDING;
         long createdAt = System.currentTimeMillis();
+        long updatedAt = System.currentTimeMillis();
         //
-        Invoice newInvoiceData = new Invoice(invoiceId, customerId, meterReadingId, dateFrom, dateUntil, meterReading.getGasOpening(), meterReading.getGasClosing(), meterReading.getGasKwh(), elecOpening, elecClosing, elecKwh, elecNightOpening, elecNightClosing, elecNightKwh, elecDayOpening, elecDayClosing, elecDayKwh, gasPrice, elecPrice, elecDayPrice, elecNightPrice, elecDayInitialTotal, elecNightInitialTotal, elecInitialTotal, elecInitialTotal, initialGasAmount, elecVatAmount, gasVatAmount, finalElecAmount, finalGasAmount, finalAmount, paymentStatus, createdAt );
+        Invoice newInvoiceData = new Invoice(invoiceId, customerId, meterReadingId, dateFrom, dateUntil, meterReading.getGasOpening(), meterReading.getGasClosing(), meterReading.getGasKwh(), elecOpening, elecClosing, elecKwh, elecNightOpening, elecNightClosing, elecNightKwh, elecDayOpening, elecDayClosing, elecDayKwh, gasPrice, elecPrice, elecDayPrice, elecNightPrice, elecDayInitialTotal, elecNightInitialTotal, elecInitialTotal, elecInitialTotal, initialGasAmount, elecVatAmount, gasVatAmount, finalElecAmount, finalGasAmount, finalAmount, paymentStatus, createdAt, updatedAt);
         System.out.println("new invoice data");
         System.out.println(newInvoiceData.toString());
         return newInvoiceData;

@@ -31,7 +31,7 @@ public class User implements Serializable {
     // getters and setters for the attributes
     /**
      * This method is used to return user id.
-     * @param none
+     * @param
      * @return int userId
      */
     public int getUserId() {
@@ -40,7 +40,7 @@ public class User implements Serializable {
 
     /**
      * This method is used to set user id.
-     * @param int userId
+     * @param userId
      * @return void
      */
     public void setUserId(int userId) {
@@ -49,7 +49,7 @@ public class User implements Serializable {
 
     /**
      * This method is used to return first name.
-     * @param none
+     * @param
      * @return String firstName
      */
     public String getFirstName() {
@@ -58,7 +58,7 @@ public class User implements Serializable {
 
     /**
      * This method is used to set user's first name.
-     * @param String firstName
+     * @param firstName
      * @return void
      */
     public void setFirstName(String firstName) {
@@ -67,7 +67,7 @@ public class User implements Serializable {
 
     /**
      * This method is used to return middle name.
-     * @param none
+     * @param
      * @return String middleName
      */
     public String getMiddleName() {
@@ -76,7 +76,7 @@ public class User implements Serializable {
 
     /**
      * This method is used to set user's middle name.
-     * @param String middleName
+     * @param middleName
      * @return void
      */
     public void setMiddleName(String middleName) {
@@ -85,7 +85,7 @@ public class User implements Serializable {
 
     /**
      * This method is used to return user's last name.
-     * @param none
+     * @param
      * @return String lastName
      */
     public String getLastName() {
@@ -94,7 +94,7 @@ public class User implements Serializable {
 
     /**
      * This method is used to set user's last name.
-     * @param String lastName
+     * @param lastName
      * @return void
      */
     public void setLastName(String lastName) {
@@ -103,7 +103,7 @@ public class User implements Serializable {
 
     /**
      * This method is used to return user type.
-     * @param none
+     * @param
      * @return UserType userType
      */
     public UserType getUserType() {
@@ -112,7 +112,7 @@ public class User implements Serializable {
 
     /**
      * This method is used to set user type.
-     * @param UserType userType
+     * @param userType
      * @return void
      */
     public void setUserType(UserType userType) {
@@ -121,7 +121,7 @@ public class User implements Serializable {
 
     /**
      * This method is used to return user's email.
-     * @param none
+     * @param
      * @return String email
      */
     public String getEmail() {
@@ -130,7 +130,7 @@ public class User implements Serializable {
 
     /**
      * This method is used to set user's email.
-     * @param String email
+     * @param email
      * @return void
      */
     public void setEmail(String email) {
@@ -139,7 +139,7 @@ public class User implements Serializable {
 
     /**
      * This method is used to return username.
-     * @param none
+     * @param
      * @return String username
      */
     public String getUsername() {
@@ -148,7 +148,7 @@ public class User implements Serializable {
 
     /**
      * This method is used to set username.
-     * @param String username
+     * @param username
      * @return void
      */
     public void setUsername(String username) {
@@ -157,7 +157,7 @@ public class User implements Serializable {
 
     /**
      * This method is used to return password.
-     * @param none
+     * @param
      * @return String password
      */
     public String getPassword() {
@@ -166,7 +166,7 @@ public class User implements Serializable {
 
     /**
      * This method is used to set user's password.
-     * @param String password
+     * @param password
      * @return void
      */
     public void setPassword(String password) {
@@ -175,7 +175,7 @@ public class User implements Serializable {
 
     /**
      * This method is used to return user's mobile number.
-     * @param none
+     * @param
      * @return String mobNo
      */
     public String getMobNo() {
@@ -184,7 +184,7 @@ public class User implements Serializable {
 
     /**
      * This method is used to set user's mobile number.
-     * @param String mobNo
+     * @param mobNo
      * @return void
      */
     public void setMobNo(String mobNo) {
@@ -193,7 +193,7 @@ public class User implements Serializable {
 
     /**
      * This method is used to return user's account status.
-     * @param none
+     * @param
      * @return AccountStatus accountStatus
      */
     public AccountStatus getAccountStatus() {
@@ -202,7 +202,7 @@ public class User implements Serializable {
 
     /**
      * This method is used to set user's account status.
-     * @param AccountStatus accountStatus
+     * @param accountStatus
      * @return void
      */
     public void setAccountStatus(AccountStatus accountStatus) {
@@ -211,7 +211,7 @@ public class User implements Serializable {
 
     /**
      * This method is used to return remarks.
-     * @param none
+     * @param
      * @return String remarks
      */
     public String getRemarks() {
@@ -220,7 +220,7 @@ public class User implements Serializable {
 
     /**
      * This method is used to set remarks.
-     * @param String remarks
+     * @param remarks
      * @return void
      */
     public void setRemarks(String remarks) {
@@ -229,7 +229,7 @@ public class User implements Serializable {
 
     /**
      * This method is used to return the timestamp of created at.
-     * @param none
+     * @param
      * @return long createdAt
      */
     public long getCreatedAt() {
@@ -238,7 +238,7 @@ public class User implements Serializable {
 
     /**
      * This method is used to set created at timestamp.
-     * @param long createdAt
+     * @param createdAt
      * @return void
      */
     public void setCreatedAt(long createdAt) {
@@ -246,8 +246,17 @@ public class User implements Serializable {
     }
 
     /**
+     * This method is used to set updated at.
+     * @param updatedAt
+     * @return void
+     */
+    public void setUpdatedAt(long updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    /**
      * This method is used to return the timestamp of updated at.
-     * @param none
+     * @param
      * @return long updatedAt
      */
     public long getUpdatedAt() {
@@ -275,13 +284,6 @@ public class User implements Serializable {
         this.updatedAt = updatedAt;
     }
 
-    /**
-     * This method is used to set updated at.
-     * @param long updatedAt
-     * @return void
-     */
-    public void setUpdatedAt(long updatedAt) {
-        this.updatedAt = updatedAt;
-    }
+
 
 }
