@@ -6,9 +6,13 @@
  */
 package application.nthenergy.models;
 
+import application.nthenergy.core.Serialization;
+
+import java.io.File;
 import java.io.Serializable;
 import java.security.Timestamp;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class CustomerCard implements Serializable {
@@ -23,6 +27,7 @@ public class CustomerCard implements Serializable {
     private String cvv;
     private long createdAt;
     private long updatedAt;
+    private  static  final  long  serialVersionUID = -7760870576612412244L;
 
     // getters and setters for the attributes
     /**
@@ -220,4 +225,26 @@ public class CustomerCard implements Serializable {
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
+
+    /**
+     * This method is used to fetch card info by customer id.
+     * @param id
+     * @return <CustomerCard>
+     */
+    public CustomerCard getByCustomerId(int id) {
+        File f = new File("./data/customer-cards.txt");
+        CustomerCard singleCustomerCard = new CustomerCard();
+        ArrayList<CustomerCard> customerCards = new ArrayList<>();
+        if(f.isFile()) {
+            Serialization serializationHelper = new Serialization();
+            customerCards = serializationHelper.deserializeCustomerCards();
+            for (CustomerCard customerCard: customerCards) {
+                if (customerCard.getCustomerId() == id) {
+                    return customerCard;
+                }
+            }
+        }
+        return singleCustomerCard;
+    }
+
 }

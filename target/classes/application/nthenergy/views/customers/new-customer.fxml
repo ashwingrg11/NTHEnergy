@@ -121,8 +121,6 @@
                               <TextField fx:id="newCustomerEmail" layoutX="76.0" layoutY="45.0" onKeyReleased="#onTextChanged" prefHeight="33.0" prefWidth="162.0" promptText="Customer email" styleClass="primary-input" />
                               <Label layoutX="287.0" layoutY="54.0" styleClass="form-label" text="Username" />
                               <TextField fx:id="newCustomerUsername" layoutX="372.0" layoutY="45.0" prefHeight="33.0" prefWidth="176.0" promptText="Login username" styleClass="primary-input" />
-                              <Label layoutX="596.0" layoutY="54.0" styleClass="form-label" text="Login Psw *" />
-                              <TextField fx:id="newCustomerPassword" layoutX="681.0" layoutY="45.0" onKeyReleased="#onTextChanged" prefHeight="33.0" prefWidth="176.0" promptText="Login password" styleClass="primary-input" />
                               <Label layoutY="100.0" styleClass="form-label" text="Mob No *" />
                               <TextField fx:id="newCustomerMobNo" layoutX="76.0" layoutY="91.0" onKeyReleased="#onTextChanged" prefHeight="33.0" prefWidth="162.0" promptText="Primary mobile number" styleClass="primary-input" />
                               <Label layoutX="287.0" layoutY="101.0" styleClass="form-label" text="Post Code *" />

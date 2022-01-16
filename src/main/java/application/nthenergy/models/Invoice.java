@@ -52,6 +52,7 @@ public class Invoice implements Serializable {
     private double finalAmount;
     private PaymentStatus paymentStatus;
     private long createdAt;
+    private long updatedAt;
 
     public int getInvoiceId() {
         return invoiceId;
@@ -99,6 +100,14 @@ public class Invoice implements Serializable {
 
     public void setMeterReadingId(int meterReadingId) {
         this.meterReadingId = meterReadingId;
+    }
+
+    public long getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(long updatedAt) {
+        this.updatedAt = updatedAt;
     }
 
     public LocalDate getDateFrom() {
@@ -321,7 +330,7 @@ public class Invoice implements Serializable {
 
     }
 
-    public Invoice(int invoiceId, int customerId, int meterReadingId, LocalDate dateFrom, LocalDate dateUntil, double gasOpening, double gasClosing, double gasKwh, double elecOpening, double elecClosing, double elecKwh, double elecNightOpening, double elecNightClosing, double elecNightKwh, double elecDayOpening, double elecDayClosing, double elecDayKwh, double gasPrice, double elecPrice, double elecDayPrice, double elecNightPrice, double elecDayInitialTotal, double elecNightInitialTotal, double elecInitialTotal, double initialElecAmount,  double initialGasAmount, double elecVatAmount, double gasVatAmount, double finalElecAmount, double finalGasAmount, double finalAmount, PaymentStatus paymentStatus, long createdAt) {
+    public Invoice(int invoiceId, int customerId, int meterReadingId, LocalDate dateFrom, LocalDate dateUntil, double gasOpening, double gasClosing, double gasKwh, double elecOpening, double elecClosing, double elecKwh, double elecNightOpening, double elecNightClosing, double elecNightKwh, double elecDayOpening, double elecDayClosing, double elecDayKwh, double gasPrice, double elecPrice, double elecDayPrice, double elecNightPrice, double elecDayInitialTotal, double elecNightInitialTotal, double elecInitialTotal, double initialElecAmount,  double initialGasAmount, double elecVatAmount, double gasVatAmount, double finalElecAmount, double finalGasAmount, double finalAmount, PaymentStatus paymentStatus, long createdAt, long updatedAt) {
         this.invoiceId = invoiceId;
         this.customerId = customerId;
         this.meterReadingId = meterReadingId;
@@ -355,10 +364,11 @@ public class Invoice implements Serializable {
         this.finalAmount = finalAmount;
         this.paymentStatus = paymentStatus;
         this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
     }
 
     /**
-     *
+     * This function is used to return customer object from customer id.
      * @param id
      * @return
      */

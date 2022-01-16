@@ -10,6 +10,8 @@ package application.nthenergy.controllers;
 import application.nthenergy.core.Helper;
 import application.nthenergy.core.Serialization;
 import application.nthenergy.core.enums.AccountStatus;
+import application.nthenergy.core.enums.MeterType;
+import application.nthenergy.core.enums.TariffType;
 import application.nthenergy.core.enums.UserType;
 import application.nthenergy.models.Customer;
 import application.nthenergy.models.CustomerCard;
@@ -45,6 +47,9 @@ public class CustomerController {
 
     @FXML
     private Label formMsg;
+
+    @FXML
+    private Label customerDetailsLabel;
 
     @FXML
     private TextField newCustomerAccountNumber;
@@ -151,8 +156,20 @@ public class CustomerController {
     @FXML
     private TableColumn<Customer, String> colCustomerTariff;
 
+    @FXML
+    private ListView<String> customerDetailsTwo;
+
+    @FXML
+    private ListView<String> customerDetailsOne;
+
+    @FXML
+    private Button viewCustomers;
+
     ObservableList<Customer> obAllCustomers = FXCollections.observableArrayList();
     private ObservableList<String> obAllTariffs = FXCollections.observableArrayList();
+    private static Customer viewDetailsCustomer = null;
+    private ObservableList<String> obCustomerDetailsOne = FXCollections.observableArrayList();
+    private ObservableList<String> obCustomerDetailsTwo = FXCollections.observableArrayList();
 
     @FXML
     void onClickAddCustomer(MouseEvent event) throws IOException {
@@ -170,22 +187,27 @@ public class CustomerController {
      */
     public void initialize() {
         Serialization serializationHelper = new Serialization();
-        if (newCustomerEmail == null) {
-            ArrayList<Customer> allCustomers = serializationHelper.deserializeCustomers();
-            ArrayList<Tariff> availableTariffs = serializationHelper.deserializeTariffs();
-            for (Customer customer: allCustomers) {
-                obAllCustomers.add(customer);
+        if (newCustomerEmail == null || customerDetailsLabel != null) {
+            if (customerDetailsLabel != null) {
+                setCustomerDetails();
             }
-            colCustomerId.setCellValueFactory(data -> new ReadOnlyObjectWrapper(data.getValue().getCustomerId()));
-            colCustomerName.setCellValueFactory(data -> new ReadOnlyObjectWrapper(data.getValue().getName()));
-            colCustomerEmail.setCellValueFactory(data -> new ReadOnlyObjectWrapper(data.getValue().getName()));
-            colCustomerTariff.setCellValueFactory(data -> new ReadOnlyObjectWrapper(data.getValue().getCustomerTariff(data.getValue().getTariffId()).getName()));
-            colCustomerMeter.setCellValueFactory(data -> new ReadOnlyObjectWrapper(data.getValue().getMeterNumber()));
-            colCustomerJoinDate.setCellValueFactory(data -> new ReadOnlyObjectWrapper(data.getValue().getJoinDate()));
-            colCustomerMobNo.setCellValueFactory(data -> new ReadOnlyObjectWrapper(data.getValue().getMobNo()));
-            colCustomerPostCode.setCellValueFactory(data -> new ReadOnlyObjectWrapper(data.getValue().getPostCode()));
-            colCustomerAddressOne.setCellValueFactory(data -> new ReadOnlyObjectWrapper(data.getValue().getAddressOne()));
-            allCustomerTable.setItems(obAllCustomers);
+            else {
+                ArrayList<Customer> allCustomers = serializationHelper.deserializeCustomers();
+                ArrayList<Tariff> availableTariffs = serializationHelper.deserializeTariffs();
+                for (Customer customer: allCustomers) {
+                    obAllCustomers.add(customer);
+                }
+                colCustomerId.setCellValueFactory(data -> new ReadOnlyObjectWrapper(data.getValue().getCustomerId()));
+                colCustomerName.setCellValueFactory(data -> new ReadOnlyObjectWrapper(data.getValue().getName()));
+                colCustomerEmail.setCellValueFactory(data -> new ReadOnlyObjectWrapper(data.getValue().getName()));
+                colCustomerTariff.setCellValueFactory(data -> new ReadOnlyObjectWrapper(data.getValue().getCustomerTariff(data.getValue().getTariffId()).getName()));
+                colCustomerMeter.setCellValueFactory(data -> new ReadOnlyObjectWrapper(data.getValue().getMeterNumber()));
+                colCustomerJoinDate.setCellValueFactory(data -> new ReadOnlyObjectWrapper(data.getValue().getJoinDate()));
+                colCustomerMobNo.setCellValueFactory(data -> new ReadOnlyObjectWrapper(data.getValue().getMobNo()));
+                colCustomerPostCode.setCellValueFactory(data -> new ReadOnlyObjectWrapper(data.getValue().getPostCode()));
+                colCustomerAddressOne.setCellValueFactory(data -> new ReadOnlyObjectWrapper(data.getValue().getAddressOne()));
+                allCustomerTable.setItems(obAllCustomers);
+            }
         }
         else {
             ArrayList<Tariff> allTariffs = serializationHelper.deserializeTariffs();
@@ -197,9 +219,38 @@ public class CustomerController {
         }
     }
 
+    /**
+     * This method is used to set the customer details on lists.
+     */
+    void setCustomerDetails() {
+        Tariff customerTariffObj = new Tariff();
+        Tariff customerTariff = customerTariffObj.getById(viewDetailsCustomer.getTariffId());
+        CustomerCard customerCardObj = new CustomerCard();
+        CustomerCard customerCard = customerCardObj.getByCustomerId(viewDetailsCustomer.getCustomerId());
+        String[] propertiesOne = {"-------------------- Customer Details --------------------", "Customer ID: "+viewDetailsCustomer.getCustomerId(), "Customer Name: "+viewDetailsCustomer.getName(), "Mobile No.: "+viewDetailsCustomer.getMobNo(), "Email: "+viewDetailsCustomer.getEmail(), "Post Code: "+viewDetailsCustomer.getPostCode(), "Address: "+viewDetailsCustomer.getAddressOne(), "Town/City: "+viewDetailsCustomer.getTownCity(), "Joined Date: "+viewDetailsCustomer.getJoinDate(), "Tariff Start Date: "+viewDetailsCustomer.getTariffStartDate(), "Tariff End Date: "+viewDetailsCustomer.getTariffEndDate(), "Meter Number: "+viewDetailsCustomer.getMeterNumber(), "Bank Name: "+customerCard.getBankName(), "Account Number: "+customerCard.getAccountNumber(), "Card Number: "+customerCard.getAccountNumber(), "Name on Card: "+customerCard.getNameOnCard(), "Card Expiry Date: "+customerCard.getExpiryDate(), "CVV: "+customerCard.getCvv()};
+        for (int i = 0; i < propertiesOne.length; i++) {
+            obCustomerDetailsOne.add(propertiesOne[i]);
+        }
+        customerDetailsOne.setItems(obCustomerDetailsOne);
+        if (customerTariff.getTariffType().toString() == "FIXED") {
+            String[] propertiesTwo = {"-------------------- Customer Tariff Details --------------------", "Tariff Name: "+customerTariff.getName(), "Tariff Descriptioin: "+customerTariff.getDescription(), "Tariff Type: "+customerTariff.getTariffType().toString(), "Meter Type: "+customerTariff.getMeterType().toString(), "Standing Fee: "+customerTariff.getStandingFee(), "Exit Fee: "+customerTariff.getExitFee(), "Electricty Fix Rate: "+customerTariff.getElecFixRate(), "Gas Fix Rate: "+customerTariff.getGasFixRate()};
+            for (int i = 0; i < propertiesTwo.length; i++) {
+                obCustomerDetailsTwo.add(propertiesTwo[i]);
+            }
+            customerDetailsTwo.setItems(obCustomerDetailsTwo);
+        }
+        else {
+            String[] propertiesTwo = {"-------------------- Customer Tariff Details --------------------", "Tariff Name: "+customerTariff.getName(), "Tariff Descriptioin: "+customerTariff.getDescription(), "Tariff Type: "+customerTariff.getTariffType().toString(), "Meter Type: "+customerTariff.getMeterType().toString(), "Standing Fee: "+customerTariff.getStandingFee(), "Exit Fee: "+customerTariff.getExitFee(), "Electricity Night Rate: "+customerTariff.getElecNightRate(), "Electricity Day Rate: "+customerTariff.getElecDayRate(), "Gas Variable Rate: "+customerTariff.getGasUnitRate()};
+            for (int i = 0; i < propertiesTwo.length; i++) {
+                obCustomerDetailsTwo.add(propertiesTwo[i]);
+            }
+            customerDetailsTwo.setItems(obCustomerDetailsTwo);
+        }
+    }
+
     @FXML
     void onClickSubmitNewCustomer(MouseEvent event) {
-        TextField[] fields = {newCustomerFirstName, newCustomerLastName, newCustomerEmail, newCustomerPassword, newCustomerMobNo, newCustomerPostCode, newCustomerTownCity, newCustomerMeterNumber, newCustomerAddressLineOne, newCustomerBankName, newCustomerAccountNumber, newCustomerCardNumber, newCustomerNameOnCard, newCustomerCvv};
+        TextField[] fields = {newCustomerFirstName, newCustomerLastName, newCustomerEmail, newCustomerMobNo, newCustomerPostCode, newCustomerTownCity, newCustomerMeterNumber, newCustomerAddressLineOne, newCustomerBankName, newCustomerAccountNumber, newCustomerCardNumber, newCustomerNameOnCard, newCustomerCvv};
         DatePicker[] dates = {newCustomerCardExpiryDate, newCustomerJoinDate, newCustomerTariffStartDate, newCustomerTariffEndDate};
         ComboBox[] cmbFields = {newCustomerTariff};
         // validate date input fields
@@ -283,7 +334,7 @@ public class CustomerController {
         UserType userType = UserType.CUSTOMER;
         String email = newCustomerEmail.getText();
         String username = newCustomerUsername.getText();
-        String password = newCustomerPassword.getText();
+        String password = "";
         String mobNo = newCustomerMobNo.getText();
         AccountStatus accountStatus = AccountStatus.ACTIVE;
         String remarks = "";
@@ -426,5 +477,17 @@ public class CustomerController {
         }
     }
 
+    @FXML
+    void onClickViewCustomerDetailsBtn(MouseEvent event) throws IOException {
+        viewDetailsCustomer = allCustomerTable.getSelectionModel().getSelectedItem();
+        if (viewDetailsCustomer == null) {
+            Alert a = new Alert(Alert.AlertType.ERROR);
+            a.setContentText("Please select a customer to view the details.");
+            a.show();
+        }
+        else {
+            Helper.setScene(event, "views/customers/customer-details.fxml");
+        }
+    }
 
 }

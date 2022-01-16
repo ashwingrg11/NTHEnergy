@@ -201,8 +201,6 @@ public class TariffController {
 
     private static Tariff editTariffObj = null;
 
-
-
     ObservableList<Tariff> obAllTariffs = FXCollections.observableArrayList();
 
     /**
@@ -267,7 +265,6 @@ public class TariffController {
             colExitFee.setCellValueFactory(data -> new ReadOnlyObjectWrapper(data.getValue().getExitFee()));
             allTariffsTable.setItems(obAllTariffs);
         }
-
     }
 
     @FXML

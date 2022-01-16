@@ -117,17 +117,17 @@
                                 <String fx:value="gray-border" />
                             </styleClass>
                         </HBox>
-                        <TableView layoutX="10.0" layoutY="74.0" prefHeight="179.0" prefWidth="880.0" styleClass="md-font">
+                        <TableView fx:id="allAdminsTable" layoutX="10.0" layoutY="74.0" prefHeight="179.0" prefWidth="880.0" styleClass="md-font">
                             <placeholder>
                                 <Label text="There are no records to display." />
                             </placeholder>
                             <columns>
-                                <TableColumn prefWidth="33.0" text="ID" />
-                                <TableColumn prefWidth="214.0" text="Name" />
-                                <TableColumn prefWidth="223.0" text="Email" />
-                                <TableColumn minWidth="0.0" prefWidth="113.0" text="Username" />
-                                <TableColumn prefWidth="160.0" text="Mobile No" />
-                                <TableColumn minWidth="0.0" prefWidth="136.0" text="Remarks" />
+                                <TableColumn fx:id="colAdminId" prefWidth="33.0" text="ID" />
+                                <TableColumn fx:id="colName" prefWidth="214.0" text="Name" />
+                                <TableColumn fx:id="colEmail" prefWidth="223.0" text="Email" />
+                                <TableColumn fx:id="colMobileNo" minWidth="0.0" prefWidth="113.0" text="Mobile No." />
+                                <TableColumn fx:id="colCreatedAt" prefWidth="160.0" text="Created At" />
+                                <TableColumn fx:id="colRemarks" minWidth="0.0" prefWidth="136.0" text="Remarks" />
                             </columns>
                             <cursor>
                                 <Cursor fx:constant="HAND" />
