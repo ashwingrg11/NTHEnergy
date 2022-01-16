@@ -102,8 +102,21 @@ public class InvoiceController {
             a.show();
         }
         else {
-
+            // generate invoice pdf first
+            generatePdfInvoice(selectedInvoice);
         }
+    }
+
+    /**
+     *
+     *
+     * @param invoice
+     */
+    void generatePdfInvoice(Invoice invoice) {
+        System.out.println("inside generate pdf invoice");
+
+
+
     }
 
     @FXML

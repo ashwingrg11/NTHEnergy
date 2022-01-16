@@ -32,7 +32,7 @@ public class CustomerCard implements Serializable {
     // getters and setters for the attributes
     /**
      * This method is used to return customer card id.
-     * @param none
+     * @param
      * @return int customerCardId
      */
     public int getCustomerCardId() {
@@ -41,7 +41,7 @@ public class CustomerCard implements Serializable {
 
     /**
      * This method is used to set customer card id.
-     * @param int customerCardId
+     * @param customerCardId
      * @return void
      */
     public void setCustomerCardId(int customerCardId) {
@@ -50,7 +50,7 @@ public class CustomerCard implements Serializable {
 
     /**
      * This method is used to return customer id.
-     * @param none
+     * @param
      * @return int customerId
      */
     public int getCustomerId() {
@@ -59,7 +59,7 @@ public class CustomerCard implements Serializable {
 
     /**
      * This method is used to set customer id.
-     * @param int customerId
+     * @param customerId
      * @return void
      */
     public void setCustomerId(int customerId) {
@@ -68,7 +68,7 @@ public class CustomerCard implements Serializable {
 
     /**
      * This method is used to return customer card's bank name.
-     * @param none
+     * @param
      * @return String bankName
      */
     public String getBankName() {
@@ -77,7 +77,7 @@ public class CustomerCard implements Serializable {
 
     /**
      * This method is used to set customer's bank name.
-     * @param String bankName
+     * @param bankName
      * @return void
      */
     public void setBankName(String bankName) {
@@ -86,7 +86,7 @@ public class CustomerCard implements Serializable {
 
     /**
      * This method is used to return customer card's account number.
-     * @param none
+     * @param
      * @return String accountNumber
      */
     public String getAccountNumber() {
@@ -95,7 +95,7 @@ public class CustomerCard implements Serializable {
 
     /**
      * This method is used to set customer card's accountNumber.
-     * @param String accountNumber
+     * @param accountNumber
      * @return void
      */
     public void setAccountNumber(String accountNumber) {
@@ -104,7 +104,7 @@ public class CustomerCard implements Serializable {
 
     /**
      * This method is used to return customer card number.
-     * @param none
+     * @param
      * @return String cardNumber
      */
     public String getCardNumber() {
@@ -113,7 +113,7 @@ public class CustomerCard implements Serializable {
 
     /**
      * This method is used to set customer card number.
-     * @param String cardNumber
+     * @param cardNumber
      * @return void
      */
     public void setCardNumber(String cardNumber) {
@@ -122,7 +122,7 @@ public class CustomerCard implements Serializable {
 
     /**
      * This method is used to return customer's name on card.
-     * @param none
+     * @param
      * @return String nameOnCard
      */
     public String getNameOnCard() {
@@ -131,7 +131,7 @@ public class CustomerCard implements Serializable {
 
     /**
      * This method is used to set customer's name on card.
-     * @param String nameOnCard
+     * @param nameOnCard
      * @return void
      */
     public void setNameOnCard(String nameOnCard) {
@@ -140,7 +140,7 @@ public class CustomerCard implements Serializable {
 
     /**
      * This method is used to return customer card's expiry date.
-     * @param none
+     * @param
      * @return LocalDate expiryDate
      */
     public LocalDate getExpiryDate() {
@@ -149,7 +149,7 @@ public class CustomerCard implements Serializable {
 
     /**
      * This method is used to set customer card's expiry date.
-     * @param LocalDate expiryDate
+     * @param expiryDate
      * @return void
      */
     public void setExpiryDate(LocalDate expiryDate) {
@@ -158,7 +158,7 @@ public class CustomerCard implements Serializable {
 
     /**
      * This method is used to return customer card's cvv.
-     * @param none
+     * @param
      * @return String cvv
      */
     public String getCvv() {
@@ -167,7 +167,7 @@ public class CustomerCard implements Serializable {
 
     /**
      * This method is used to set customer card's cvv number.
-     * @param String cvv
+     * @param cvv
      * @return void
      */
     public void setCvv(String cvv) {
@@ -176,7 +176,7 @@ public class CustomerCard implements Serializable {
 
     /**
      * This method is used to return customer card's created at timestamp.
-     * @param none
+     * @param
      * @return long createdAt
      */
     public long getCreatedAt() {
@@ -185,7 +185,7 @@ public class CustomerCard implements Serializable {
 
     /**
      * This method is used to set created at timestamp.
-     * @param long createdAt
+     * @param createdAt
      * @return void
      */
     public void setCreatedAt(long createdAt) {
@@ -194,7 +194,7 @@ public class CustomerCard implements Serializable {
 
     /**
      * This method is used to return customer card's updated at timestamp.
-     * @param none
+     * @param
      * @return String updatedAt
      */
     public long getUpdatedAt() {
@@ -203,7 +203,7 @@ public class CustomerCard implements Serializable {
 
     /**
      * This method is used to set updated at.
-     * @param long updatedAt
+     * @param updatedAt
      * @return void
      */
     public void setUpdatedAt(long updatedAt) {
@@ -213,6 +213,7 @@ public class CustomerCard implements Serializable {
     public CustomerCard() {
 
     }
+
     public CustomerCard(int customerCardId, int customerId, String bankName, String accountNumber, String cardNumber, String nameOnCard, LocalDate expiryDate, String cvv, long createdAt, long updatedAt) {
         this.customerCardId = customerCardId;
         this.customerId = customerId;

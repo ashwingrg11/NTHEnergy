@@ -8,6 +8,8 @@
 package application.nthenergy.controllers;
 
 import application.nthenergy.Dashboard;
+import application.nthenergy.core.Exceptions.ItemNotDeletedException;
+import application.nthenergy.core.Exceptions.NoItemSelectedException;
 import application.nthenergy.core.Helper;
 import application.nthenergy.core.Serialization;
 import application.nthenergy.core.enums.MeterType;
@@ -398,12 +400,10 @@ public class TariffController {
 
 
     @FXML
-    void deleteTariffBtnClick(MouseEvent event) {
+    void deleteTariffBtnClick(MouseEvent event) throws NoItemSelectedException, ItemNotDeletedException {
         Tariff selectedTariff = allTariffsTable.getSelectionModel().getSelectedItem();
         if ( selectedTariff == null) {
-            Alert a = new Alert(Alert.AlertType.ERROR);
-            a.setContentText("Please select a tariff you want to delete.");
-            a.show();
+            throw new NoItemSelectedException("Please select a tariff you want to delete.");
         }
         else {
             Serialization serializationHelper = new Serialization();
@@ -413,11 +413,8 @@ public class TariffController {
             boolean deleteFlag = true;
             for (Customer customer: allCustomers) {
                 if (customer.getTariffId() == deleteId) {
-                    Alert a = new Alert(Alert.AlertType.ERROR);
-                    a.setContentText("This tariff cannot be deleted because it's being used by customers.");
-                    a.show();
                     deleteFlag = false;
-                    break;
+                    throw new ItemNotDeletedException("This tariff cannot be deleted because it's being used by customers.");
                 }
             }
             if (deleteFlag) {
@@ -437,12 +434,10 @@ public class TariffController {
     }
 
     @FXML
-    void onClickEditTariffBtn(MouseEvent event) throws IOException {
+    void onClickEditTariffBtn(MouseEvent event) throws IOException, NoItemSelectedException {
         Tariff selectedTariff = allTariffsTable.getSelectionModel().getSelectedItem();
         if ( selectedTariff == null) {
-            Alert a = new Alert(Alert.AlertType.ERROR);
-            a.setContentText("Please select a tariff you want to edit.");
-            a.show();
+            throw new NoItemSelectedException("Please select a tariff you want to edit.");
         }
         else {
             editTariffObj = selectedTariff;

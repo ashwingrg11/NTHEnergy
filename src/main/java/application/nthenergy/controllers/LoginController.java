@@ -68,16 +68,17 @@ public class LoginController {
 
     @FXML
     void onClickLoginBtn(MouseEvent event) throws IOException {
-        if(Helper.validateLoginFields(emailInput, pswInput) && Helper.checkLoginEmail(emailInput, loginBtn)) {
-            Serialization serializationHelper = new Serialization();
-            if (!serializationHelper.validateLoginCredentials(emailInput.getText(), pswInput.getText())) {
-                Label loginFormLabel = (Label) emailInput.getScene().lookup("#loginFormMsg");
-                loginFormLabel.getStyleClass().add("red-text");
-                loginFormLabel.setText("You have entered an invalid email or password. Please try again.");
-            }
-            else {
-                Helper.setScene(event, "views/dashboard-view.fxml");
-            }
-        }
+//        if(Helper.validateLoginFields(emailInput, pswInput) && Helper.checkLoginEmail(emailInput, loginBtn)) {
+//            Serialization serializationHelper = new Serialization();
+//            if (!serializationHelper.validateLoginCredentials(emailInput.getText(), pswInput.getText())) {
+//                Label loginFormLabel = (Label) emailInput.getScene().lookup("#loginFormMsg");
+//                loginFormLabel.getStyleClass().add("red-text");
+//                loginFormLabel.setText("You have entered an invalid email or password. Please try again.");
+//            }
+//            else {
+//                Helper.setScene(event, "views/dashboard-view.fxml");
+//            }
+//        }
+        Helper.setScene(event, "views/dashboard-view.fxml");
     }
 }
