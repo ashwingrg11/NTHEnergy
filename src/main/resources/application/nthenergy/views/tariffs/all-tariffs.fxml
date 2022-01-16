@@ -79,7 +79,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                                         </Button>
-                                        <Button fx:id="editTariffBtn" layoutX="718.0" layoutY="5.0" mnemonicParsing="false" text="Edit Tariff">
+                                        <Button fx:id="editTariffBtn" layoutX="718.0" layoutY="5.0" mnemonicParsing="false" onMouseClicked="#onClickEditTariffBtn" text="Edit Tariff">
                                             <styleClass>
                                                 <String fx:value="btn-secondary" />
                                                 <String fx:value="light-white-text" />

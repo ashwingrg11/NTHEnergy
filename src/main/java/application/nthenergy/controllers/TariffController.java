@@ -148,6 +148,61 @@ public class TariffController {
     @FXML
     private TableColumn<Tariff, TariffType> colTariffType;
 
+    @FXML
+    private ComboBox<String> editMeterTypeCbx;
+
+    @FXML
+    private TextArea editTariffDescriptionInput;
+
+    @FXML
+    private TextField editTariffElecDayRateInput;
+
+    @FXML
+    private TextField editTariffElecFixRateInput;
+
+    @FXML
+    private TextField editTariffElecNightRateInput;
+
+    @FXML
+    private TextField editTariffExitFeeInput;
+
+    @FXML
+    private TextField editTariffGasFixRateInput;
+
+    @FXML
+    private TextField editTariffGasVariableRateInput;
+
+    @FXML
+    private TextField editTariffNameInput;
+
+    @FXML
+    private TextField editTariffStandingFeeInput;
+
+    @FXML
+    private ComboBox<String> editTariffTypeCbx;
+
+    @FXML
+    private Button submitEditTariffBtn;
+
+    @FXML
+    private Label editTariffElecDayRateLabel;
+
+    @FXML
+    private Label editTariffElecFixRateLabel;
+
+    @FXML
+    private Label editTariffElecNightRateLabel;
+
+    @FXML
+    private Label editTariffGasFixRateLabel;
+
+    @FXML
+    private Label editTariffGasVariableRateLabel;
+
+    private static Tariff editTariffObj = null;
+
+
+
     ObservableList<Tariff> obAllTariffs = FXCollections.observableArrayList();
 
     /**
@@ -155,19 +210,43 @@ public class TariffController {
      * @return void
      */
     public void initialize() {
-//        if (editTariffBtn != null) editTariffBtn.setDisable(true);
-//        if (deleteTariffBtn != null) deleteTariffBtn.setDisable(true);
-        if (tariffTypeCbx != null){
-            tariffTypeCbx.setItems(tariffTypeList);
-            tariffTypeCbx.getSelectionModel().selectFirst();
-            meterTypeCbx.setItems(meterTypeList);
-            meterTypeCbx.getSelectionModel().selectFirst();
-            newTariffGasVariableRateInput.setVisible(false);
-            newTariffElecDayRateInput.setVisible(false);
-            newTariffElecNightRateInput.setVisible(false);
-            newTariffGasVariableRateLabel.setVisible(false);
-            newTariffElecDayRateLabel.setVisible(false);
-            newTariffElecNightRateLabel.setVisible(false);
+        if (tariffTypeCbx != null || submitEditTariffBtn != null){
+            if (submitEditTariffBtn != null) {
+                tariffTypeCbx.setItems(tariffTypeList);
+                meterTypeCbx.setItems(meterTypeList);
+                for (String tariff: tariffTypeList) {
+                    if (tariff.toString().equals(editTariffObj.getTariffType().toString())) {
+                        tariffTypeCbx.getSelectionModel().select(tariff);
+                    }
+                }
+                for (String meter: meterTypeList) {
+                    if (meter.toString().equals(editTariffObj.getMeterType().toString())) {
+                        meterTypeCbx.getSelectionModel().select(meter);
+                    }
+                }
+                showHideEditElements();
+                editTariffNameInput.setText(editTariffObj.getName());
+                editTariffDescriptionInput.setText(editTariffObj.getDescription());
+                editTariffStandingFeeInput.setText(String.valueOf(editTariffObj.getStandingFee()));
+                editTariffExitFeeInput.setText(String.valueOf(editTariffObj.getExitFee()));
+                editTariffElecFixRateInput.setText(String.valueOf(editTariffObj.getElecFixRate()));
+                editTariffGasFixRateInput.setText(String.valueOf(editTariffObj.getGasFixRate()));
+                editTariffElecDayRateInput.setText(String.valueOf(editTariffObj.getElecDayRate()));
+                editTariffElecNightRateInput.setText(String.valueOf(editTariffObj.getElecNightRate()));
+                editTariffGasVariableRateInput.setText(String.valueOf(editTariffObj.getGasUnitRate()));
+            }
+            else {
+                tariffTypeCbx.setItems(tariffTypeList);
+                tariffTypeCbx.getSelectionModel().selectFirst();
+                meterTypeCbx.setItems(meterTypeList);
+                meterTypeCbx.getSelectionModel().selectFirst();
+                newTariffGasVariableRateInput.setVisible(false);
+                newTariffElecDayRateInput.setVisible(false);
+                newTariffElecNightRateInput.setVisible(false);
+                newTariffGasVariableRateLabel.setVisible(false);
+                newTariffElecDayRateLabel.setVisible(false);
+                newTariffElecNightRateLabel.setVisible(false);
+            }
         }
         else {
             Serialization serializationHelper = new Serialization();
@@ -206,15 +285,9 @@ public class TariffController {
     void onClickSubmitNewTariff(MouseEvent event) {
         TextField[] fields = {newTariffNameInput, newTariffStandingFeeInput, newTariffExitFeeInput };
         if(Helper.validateRequiredTextFields(submitNewTariffBtn, fields)) {
-//            Serialization serializationHelper = new Serialization();
-//            ArrayList<Tariff> allTariffs = serializationHelper.deserializeTariffs();
-//            for (Tariff tariff: allTariffs) {
-//                System.out.println(tariff.toString());
-//            }
             Tariff newTariffData = makeNewTariff();
             Serialization serializationHelper = new Serialization();
             serializationHelper.serializeTariff(newTariffData);
-//            ArrayList<Tariff> allTariffs = serializationHelper.deserializeTariffs();
             Label formMsg = (Label) submitNewTariffBtn.getScene().lookup("#formMsg");
             formMsg.getStyleClass().removeAll("red-text");
             formMsg.getStyleClass().add("green-text");
@@ -301,6 +374,31 @@ public class TariffController {
         }
     }
 
+    void showHideEditElements() {
+        // labels and inputs for fixed tariff type
+        Label[] fixedShowLabels = {editTariffGasFixRateLabel, editTariffElecFixRateLabel};
+        TextField[] fixedShowTextFields = {editTariffElecFixRateInput, editTariffGasFixRateInput};
+        Label[] fixedHideLabels = {editTariffGasVariableRateLabel, editTariffElecDayRateLabel, editTariffElecNightRateLabel};
+        TextField[] fixedHideTextFields = {editTariffGasVariableRateInput, editTariffElecDayRateInput, editTariffElecNightRateInput};
+        // labels and inputs for variable tariff type
+        Label[] variableShowLabels = {editTariffGasVariableRateLabel, editTariffElecDayRateLabel, editTariffElecNightRateLabel};
+        TextField[] variableShowTextFields = {editTariffGasVariableRateInput, editTariffElecDayRateInput, editTariffElecNightRateInput};
+        Label[] variableHideLabels = {editTariffElecFixRateLabel, editTariffGasFixRateLabel};
+        TextField[] variableHideTextFields = {editTariffElecFixRateInput, editTariffGasFixRateInput};
+        if (tariffTypeCbx.getValue() == "FIXED") {
+            Helper.showHideLabelElement(fixedShowLabels, true);
+            Helper.showHideTextFieldElement(fixedShowTextFields, true);
+            Helper.showHideLabelElement(fixedHideLabels, false);
+            Helper.showHideTextFieldElement(fixedHideTextFields, false);
+        }
+        else {
+            Helper.showHideLabelElement(variableShowLabels, true);
+            Helper.showHideTextFieldElement(variableShowTextFields, true);
+            Helper.showHideLabelElement(variableHideLabels, false);
+            Helper.showHideTextFieldElement(variableHideTextFields, false);
+        }
+    }
+
 
     @FXML
     void deleteTariffBtnClick(MouseEvent event) {
@@ -339,6 +437,84 @@ public class TariffController {
                 a.show();
             }
         }
+    }
+
+    @FXML
+    void onClickEditTariffBtn(MouseEvent event) throws IOException {
+        Tariff selectedTariff = allTariffsTable.getSelectionModel().getSelectedItem();
+        if ( selectedTariff == null) {
+            Alert a = new Alert(Alert.AlertType.ERROR);
+            a.setContentText("Please select a tariff you want to edit.");
+            a.show();
+        }
+        else {
+            editTariffObj = selectedTariff;
+            Helper.setScene(event, "views/tariffs/edit-tariff.fxml");
+        }
+    }
+
+    @FXML
+    void onHiddenEditTariffType(Event event) {
+        showHideEditElements();
+    }
+
+    @FXML
+    void onClickSaveEditTariff(MouseEvent event) {
+        TextField[] fields = {editTariffNameInput, editTariffStandingFeeInput, editTariffExitFeeInput };
+        if(Helper.validateRequiredTextFields(submitEditTariffBtn, fields)) {
+            Tariff newTariffData = makeNewTariffEdit();
+            Serialization serializationHelper = new Serialization();
+//            serializationHelper.serializeTariff(newTariffData);
+            ArrayList<Tariff> allTariffs = serializationHelper.deserializeTariffs();
+            ArrayList<Tariff> newTariffs = new ArrayList<>();
+            for (Tariff tariff: allTariffs) {
+                if (tariff.getTariffId() == editTariffObj.getTariffId()) {
+                    newTariffs.add(newTariffData);
+                }
+                else {
+                    newTariffs.add(tariff);
+                }
+            }
+            serializationHelper.serializeAllTariffs(newTariffs);
+            Label formMsg = (Label) submitEditTariffBtn.getScene().lookup("#formMsg");
+            formMsg.getStyleClass().removeAll("red-text");
+            formMsg.getStyleClass().add("green-text");
+            formMsg.setText("-  Tariff details has been updated successfully.");
+        }
+    }
+
+    /**
+     * This method is used to create new object of tariff while editing a existing tariff info.
+     *
+     * @return updatedTariffObj
+     */
+    private Tariff makeNewTariffEdit() {
+        int tariffId = editTariffObj.getTariffId();
+        String name = editTariffNameInput.getText();
+        String description = editTariffDescriptionInput.getText();
+        TariffType tariffType = TariffType.valueOf(tariffTypeCbx.getValue());
+        MeterType meterType = MeterType.valueOf(meterTypeCbx.getValue());
+        double exitFee = Double.parseDouble(editTariffExitFeeInput.getText());
+        double standingFee = Double.parseDouble(editTariffStandingFeeInput.getText());
+        double elecFixRate, gasFixRate, elecNightRate, elecDayRate, gasUnitRate;
+        long createdAt = System.currentTimeMillis();
+        long updatedAt = System.currentTimeMillis();
+        if (tariffTypeCbx.getValue() == "FIXED") {
+            elecFixRate = Double.parseDouble(editTariffElecFixRateInput.getText());
+            gasFixRate = Double.parseDouble(editTariffGasFixRateInput.getText());
+            elecNightRate = 0.00;
+            elecDayRate = 0.00;
+            gasUnitRate = 0.00;
+        }
+        else {
+            elecNightRate = Double.parseDouble(editTariffElecNightRateInput.getText());
+            elecDayRate = Double.parseDouble(editTariffElecDayRateInput.getText());
+            gasUnitRate = Double.parseDouble(editTariffGasVariableRateInput.getText());
+            elecFixRate = 0.00;
+            gasFixRate = 0.00;
+        }
+        Tariff updatedTariffObj = new Tariff(tariffId, name, description, tariffType, meterType, elecFixRate, gasFixRate, exitFee, standingFee, elecNightRate, elecDayRate, gasUnitRate, createdAt, updatedAt);
+        return updatedTariffObj;
     }
 
 }
