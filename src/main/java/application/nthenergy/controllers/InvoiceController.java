@@ -122,7 +122,16 @@ public class InvoiceController {
             String[] bccRecipients = {"ashwin.grg11@gmail.com", "gloomy.gurung@gmail.com"};
             String subject = "Invoice from Northampton Energy Supplier";
             String message = "Dear "+customer.getName()+",\n\nPlease find enclosed herewith the invoice of gas & electricity from "+viewDetailsInvoice.getDateFrom()+" to "+viewDetailsInvoice.getDateUntil()+".\n\nPlease email us if you have any queries regarding the invoice.\n\nThank You.\n\nRegards,\n\nNorthampton Energy Supplier\nNorthampto, UK";
-            emailUtil.sendInvoiceEmail(recipients, bccRecipients, subject, message, fileName);
+            if(emailUtil.sendInvoiceEmail(recipients, bccRecipients, subject, message, fileName)) {
+                Alert a = new Alert(Alert.AlertType.INFORMATION);
+                a.setContentText("Email has been sent to the customer.");
+                a.show();
+            }
+            else {
+                Alert a = new Alert(Alert.AlertType.ERROR);
+                a.setContentText("There is an error while sending an email. Please try again later.");
+                a.show();
+            }
         }
     }
 

@@ -6,7 +6,6 @@ import application.nthenergy.models.Tariff;
 import org.junit.Before;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
 import java.io.*;
 import java.util.ArrayList;
 import static org.junit.Assert.*;
