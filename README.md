@@ -113,4 +113,9 @@ This folder contains the JUnit test cases for this project. Currently, there are
 - Click on run tests from the test case classes.
 
 ## Previews
+<img width="797" alt="login" src="https://user-images.githubusercontent.com/89626432/149674043-f7d9e8c1-cca5-4dea-ba58-691ac442c67d.png">
+
+<img width="1103" alt="dashboard" src="https://user-images.githubusercontent.com/89626432/149674038-026caecb-5cb0-402a-9053-7bc8de4c6424.png">
+
+<img width="1099" alt="all-tariffs" src="https://user-images.githubusercontent.com/89626432/149674061-87064945-71e6-435f-854c-1715d3dfbbe1.png">
 
