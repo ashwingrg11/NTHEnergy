@@ -52,8 +52,6 @@ public class LoginController {
     private Label loginFormMsg;
 
     public void initialize() {
-//        emailInput.setFocusTraversable(false);
-//        pswInput.setFocusTraversable(false);
         emailInputError.setVisible(false);
         pswInputError.setVisible(false);
     }
