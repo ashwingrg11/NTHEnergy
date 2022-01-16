@@ -4,6 +4,10 @@ module application.nthenergy {
     requires javafx.web;
 
     requires eu.hansolo.tilesfx;
+    requires itextpdf;
+    requires java.logging;
+    requires java.mail;
+    requires activation;
 
     opens application.nthenergy to javafx.fxml;
     exports application.nthenergy;

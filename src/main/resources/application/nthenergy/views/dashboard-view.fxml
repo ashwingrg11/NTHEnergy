@@ -65,7 +65,7 @@
                         <AnchorPane prefHeight="35.0" prefWidth="880.0">
                            <children>
                               <Label layoutX="-1.0" prefHeight="35.0" text="Quick Actions" />
-                              <Button fx:id="addCustomer" layoutX="425.0" layoutY="5.0" mnemonicParsing="false" onMouseClicked="#onClickAddCustomer" text="Add Customer">
+                              <Button fx:id="addCustomer" layoutX="425.0" layoutY="5.0" mnemonicParsing="false" onMouseClicked="#qaAddCustomer" text="Add Customer">
                                  <styleClass>
                                     <String fx:value="btn-primary" />
                                     <String fx:value="light-white-text" />
@@ -77,7 +77,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
-                              <Button fx:id="viewInvoices" layoutX="651.0" layoutY="5.0" mnemonicParsing="false" onMouseClicked="#onClickViewInvoices" text="View Invoices">
+                              <Button fx:id="viewInvoices" layoutX="651.0" layoutY="5.0" mnemonicParsing="false" onMouseClicked="#qaViewInvoices" text="View Invoices">
                                  <styleClass>
                                     <String fx:value="btn-secondary" />
                                     <String fx:value="light-white-text" />
@@ -89,7 +89,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
-                              <Button fx:id="viewPayments" layoutX="754.0" layoutY="5.0" mnemonicParsing="false" onMouseClicked="#onClickViewPayments" text="View Payments">
+                              <Button fx:id="viewPayments" layoutX="754.0" layoutY="5.0" mnemonicParsing="false" onMouseClicked="#qaViewPayments" text="View Payments">
                                  <styleClass>
                                     <String fx:value="btn-secondary" />
                                     <String fx:value="light-white-text" />
@@ -101,7 +101,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
-                              <Button fx:id="viewCustomers" layoutX="533.0" layoutY="5.0" mnemonicParsing="false" onMouseClicked="#onClickViewCustomers" text="View Customers">
+                              <Button fx:id="viewCustomers" layoutX="533.0" layoutY="5.0" mnemonicParsing="false" onMouseClicked="#qaViewCustomers" text="View Customers">
                                  <styleClass>
                                     <String fx:value="btn-secondary" />
                                     <String fx:value="light-white-text" />
@@ -136,7 +136,57 @@
                         <String fx:value="gray-border" />
                      </styleClass>
                      <children>
-                        <AnchorPane prefHeight="200.0" prefWidth="880.0" />
+                        <AnchorPane prefHeight="200.0" prefWidth="880.0">
+                           <children>
+                              <Label layoutX="41.0" layoutY="28.0" text="  Total  &#10;  Customers">
+                                 <graphic>
+                                    <Label fx:id="countCustomersLabel" text="0" textFill="#047920">
+                                       <font>
+                                          <Font size="55.0" />
+                                       </font>
+                                    </Label>
+                                 </graphic>
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="264.0" layoutY="28.0" text="  Total&#10;  Tariffs">
+                                 <graphic>
+                                    <Label fx:id="countTariffsLabel" text="0" textFill="#047920">
+                                       <font>
+                                          <Font size="55.0" />
+                                       </font>
+                                    </Label>
+                                 </graphic>
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="473.0" layoutY="28.0" text="  Total&#10;  Invoices">
+                                 <graphic>
+                                    <Label fx:id="countInvoicesLabel" text="0" textFill="#047920">
+                                       <font>
+                                          <Font size="55.0" />
+                                       </font>
+                                    </Label>
+                                 </graphic>
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="686.0" layoutY="28.0" text="  Total  &#10;  Admins">
+                                 <graphic>
+                                    <Label fx:id="countAdminsLabel" text="0" textFill="#047920">
+                                       <font>
+                                          <Font size="55.0" />
+                                       </font>
+                                    </Label>
+                                 </graphic>
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                           </children></AnchorPane>
                      </children>
                   </HBox>
                   <HBox layoutX="11.0" layoutY="36.0" prefHeight="35.0" prefWidth="900.0">

@@ -7,7 +7,10 @@
 
 package application.nthenergy.controllers;
 
+import application.nthenergy.core.Exceptions.NoItemSelectedException;
+import application.nthenergy.core.GeneratePdf;
 import application.nthenergy.core.Helper;
+import application.nthenergy.core.SendEmail;
 import application.nthenergy.core.Serialization;
 import application.nthenergy.core.enums.PaymentStatus;
 import application.nthenergy.models.*;
@@ -17,15 +20,21 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
+import org.w3c.dom.Document;
 
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import com.itextpdf.text.*;
+import com.itextpdf.text.pdf.PdfWriter;
+import java.io.File;
 
 public class InvoiceController {
+
 
     @FXML
     private TableView<Invoice> allInvoicesTable;
@@ -76,12 +85,10 @@ public class InvoiceController {
     DateFormat df = new SimpleDateFormat("dd MMM yyyy hh:mm:ss");
     DecimalFormat pf = new DecimalFormat("#.##");
     @FXML
-    void onClickViewInvoiceDetails(MouseEvent event) throws IOException {
+    void onClickViewInvoiceDetails(MouseEvent event) throws IOException, NoItemSelectedException {
         viewDetailsInvoice = allInvoicesTable.getSelectionModel().getSelectedItem();
         if (viewDetailsInvoice == null) {
-            Alert a = new Alert(Alert.AlertType.ERROR);
-            a.setContentText("Please select an invoice to view the details.");
-            a.show();
+            throw new NoItemSelectedException("Please select an invoice to view the details.");
         }
         else {
             Helper.setScene(event, "views/invoices/invoice-details.fxml");
@@ -94,29 +101,29 @@ public class InvoiceController {
     }
 
     @FXML
-    void onClickSendInvoiceEmailBtn(MouseEvent event) {
-        Invoice selectedInvoice = allInvoicesTable.getSelectionModel().getSelectedItem();
-        if (selectedInvoice == null) {
-            Alert a = new Alert(Alert.AlertType.ERROR);
-            a.setContentText("Please select an invoice to send invoice email.");
-            a.show();
+    void onClickSendInvoiceEmailBtn(MouseEvent event) throws NoItemSelectedException {
+        viewDetailsInvoice = allInvoicesTable.getSelectionModel().getSelectedItem();
+        if (viewDetailsInvoice == null) {
+            throw new NoItemSelectedException("Please select an invoice to send invoice email.");
         }
         else {
             // generate invoice pdf first
-            generatePdfInvoice(selectedInvoice);
+            GeneratePdf pdfObj = new GeneratePdf();
+            String fileName = "./invoices/Invoice-"+viewDetailsInvoice.getCustomerId()+"-"+viewDetailsInvoice.getCreatedAt()+".pdf";
+            String[] customerData = getInvoiceData("customer");
+            String[] gasData = getInvoiceData("gas");
+            String[] elecData = getInvoiceData("electricity");
+            pdfObj.generateInvoicePdf(customerData, gasData, elecData, fileName);
+            // send invoice email
+            SendEmail emailUtil = new SendEmail();
+            Customer customerObj = new Customer();
+            Customer customer = customerObj.getCustomerById(viewDetailsInvoice.getCustomerId());
+            String[] recipients = {customer.getEmail()};
+            String[] bccRecipients = {"ashwin.grg11@gmail.com", "gloomy.gurung@gmail.com"};
+            String subject = "Invoice from Northampton Energy Supplier";
+            String message = "Dear "+customer.getName()+",\n\nPlease find enclosed herewith the invoice of gas & electricity from "+viewDetailsInvoice.getDateFrom()+" to "+viewDetailsInvoice.getDateUntil()+".\n\nPlease email us if you have any queries regarding the invoice.\n\nThank You.\n\nRegards,\n\nNorthampton Energy Supplier\nNorthampto, UK";
+            emailUtil.sendInvoiceEmail(recipients, bccRecipients, subject, message, fileName);
         }
-    }
-
-    /**
-     *
-     *
-     * @param invoice
-     */
-    void generatePdfInvoice(Invoice invoice) {
-        System.out.println("inside generate pdf invoice");
-
-
-
     }
 
     @FXML
@@ -166,7 +173,6 @@ public class InvoiceController {
      */
     public void initialize() {
         DecimalFormat df = new DecimalFormat("#.##");
-//        if (viewInvoiceDetailsBtn != null) viewInvoiceDetailsBtn.setDisable(true);
         if (invoiceDetailsLabel == null) {
             Serialization serializationHelper = new Serialization();
             ArrayList<Invoice> allInvoices = serializationHelper.deserializeInvoices();
@@ -191,7 +197,6 @@ public class InvoiceController {
      *
      */
     void setInvoiceDetails() {
-
         Customer customerObj = new Customer();
         Customer customer = customerObj.getCustomerById(viewDetailsInvoice.getCustomerId());
         Tariff customerTariffObj = new Tariff();
@@ -228,6 +233,48 @@ public class InvoiceController {
                 obInvoiceDetailsTwo.add(elecProperties[i]);
             }
             invoiceDetailsTwo.setItems(obInvoiceDetailsTwo);
+        }
+    }
+
+    /**
+     * This function is used to return the data for generating an invoice pdf.
+     *
+     * @param type
+     */
+    String[] getInvoiceData(String type) {
+        Customer customerObj = new Customer();
+        Customer customer = customerObj.getCustomerById(viewDetailsInvoice.getCustomerId());
+        Tariff customerTariffObj = new Tariff();
+        Tariff customerTariff = customerTariffObj.getById(customer.getTariffId());
+        String[] propertiesOne = {"Invoice ID: "+viewDetailsInvoice.getInvoiceId(), "Generated On: "+df.format(viewDetailsInvoice.getCreatedAt()), "Payment Status: "+viewDetailsInvoice.getPaymentStatus(), "------------ Customer Details ------------", "Customer Name: "+customer.getName(), "Customer Email: "+customer.getEmail(), "Customer Mob No.: "+customer.getMobNo(), "Customer Address: "+customer.getAddressOne(), "Customer Post Code: "+customer.getPostCode(), "Joined Date: "+customer.getJoinDate(), "Tariff Name: "+customerTariff.getName(), "Tariff Type: "+customerTariff.getTariffType().toString(), "Meter Type: "+customerTariff.getMeterType().toString(), "Meter Number: "+customer.getName()};
+        if (type == "customer") {
+            return propertiesOne;
+        }
+        else {
+            if (customerTariff.getTariffType().toString() == "FIXED") {
+                double gasUnits = viewDetailsInvoice.getGasClosing()-viewDetailsInvoice.getGasClosing();
+                double mThree = gasUnits * 3;
+                String[] gasProperties = {"------------ Gas Statement ------------", "Period: "+viewDetailsInvoice.getDateFrom()+" - "+viewDetailsInvoice.getDateUntil(), "Opening Read: "+viewDetailsInvoice.getGasOpening(), "Closing Read: "+viewDetailsInvoice.getGasClosing(), "Units: "+gasUnits, "m3: "+mThree, "kWh: "+viewDetailsInvoice.getGasKwh(), "Rate: "+customerTariff.getGasFixRate(), "Price: "+Double.valueOf(pf.format(viewDetailsInvoice.getInitialGasAmount())), "Plus VAT at 5%: "+Double.valueOf(pf.format(viewDetailsInvoice.getGasVatAmount())), "Total Amount for Gas: "+Double.valueOf(pf.format(viewDetailsInvoice.getFinalGasAmount()))};
+                String[] elecProperties = {"------------ Electricity Statement ------------", "Period: "+viewDetailsInvoice.getDateFrom()+" - "+viewDetailsInvoice.getDateUntil(), "Opening Read: "+viewDetailsInvoice.getElecOpening(), "Closing Read: "+viewDetailsInvoice.getElecClosing(), "kWh"+viewDetailsInvoice.getElecKwh(), "Rate: "+viewDetailsInvoice.getElecPrice(), "Price: "+Double.valueOf(pf.format(viewDetailsInvoice.getElecInitialTotal())), "Plus VAT at 5%: "+Double.valueOf(pf.format(viewDetailsInvoice.getElecVatAmount())), "Total Amount for Electricity: "+Double.valueOf(pf.format(viewDetailsInvoice.getFinalElecAmount())), "------- Total Payable Price of Gas & Electricity : "+Double.valueOf(pf.format(viewDetailsInvoice.getFinalAmount()))};
+                if (type == "gas") {
+                    return gasProperties;
+                }
+                else {
+                    return elecProperties;
+                }
+            }
+            else {
+                double gasUnits = viewDetailsInvoice.getGasClosing()-viewDetailsInvoice.getGasClosing();
+                double mThree = gasUnits * 3;
+                String[] gasProperties = {"-------------------- Gas Statement --------------------", "Period: "+viewDetailsInvoice.getDateFrom()+" - "+viewDetailsInvoice.getDateUntil(), "Opening Read: "+viewDetailsInvoice.getGasOpening(), "Closing Read: "+viewDetailsInvoice.getGasClosing(), "Units: "+gasUnits, "m3: "+mThree, "kWh: "+viewDetailsInvoice.getGasKwh(), "Rate: "+customerTariff.getGasUnitRate(), "Price: "+Double.valueOf(pf.format(viewDetailsInvoice.getInitialGasAmount())), "Plus VAT at 5%: "+Double.valueOf(pf.format(viewDetailsInvoice.getGasVatAmount())), "Total Amount for Gas: "+Double.valueOf(pf.format(viewDetailsInvoice.getFinalGasAmount()))};
+                String[] elecProperties = {"-------------------- Electricity Statement --------------------", "Period: "+viewDetailsInvoice.getDateFrom()+" - "+viewDetailsInvoice.getDateUntil(), "Night Opening Read: "+viewDetailsInvoice.getElecNightOpening(), "Night Closing Read: "+viewDetailsInvoice.getElecNightClosing(), "Night kWh"+viewDetailsInvoice.getElecNightKwh(), "Night Rate: "+viewDetailsInvoice.getElecNightPrice(), "Total Night Charge: "+Double.valueOf(pf.format(viewDetailsInvoice.getElecNightInitialTotal())), "Day Opening Read: "+viewDetailsInvoice.getElecDayOpening(), "Day Closing Read: "+viewDetailsInvoice.getElecDayClosing(), "Day kWh"+viewDetailsInvoice.getElecDayKwh(), "Day Rate: "+viewDetailsInvoice.getElecDayPrice(), "Day Price: "+Double.valueOf(pf.format(viewDetailsInvoice.getElecDayInitialTotal())), "Total Day Charge: "+Double.valueOf(pf.format(viewDetailsInvoice.getInitialElecAmount())), "Plus VAT at 5%: "+Double.valueOf(pf.format(viewDetailsInvoice.getElecVatAmount())), "Total Amount for Electricity: "+Double.valueOf(pf.format(viewDetailsInvoice.getFinalElecAmount())), "-------------------- Total Payable Price of Gas & Electricity : "+Double.valueOf(pf.format(viewDetailsInvoice.getFinalAmount()))};
+                if (type == "gas") {
+                    return gasProperties;
+                }
+                else {
+                    return elecProperties;
+                }
+            }
         }
     }
 
