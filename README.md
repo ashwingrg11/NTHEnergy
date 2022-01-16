@@ -102,6 +102,12 @@ The core folder is just a place to locate some utility and helper functions that
 **` Login.java `**\
 This is the index file and starting point of the project, from which this project starts.
 
+**` data/ `**\
+This folder contains text(.txt) files of the serialized objects of all modules. 
+
+**` invoices/ `**\
+This folder contains pdf files(.pdf) of generated invoices for the customer invoices.
+
 **` tests/ `**\
 This folder contains the JUnit test cases for this project. Currently, there are two test cases written, one is for customer card serialization test and another one is for validating the tariff object which is return by the getByTariffId function of Tariff model. This folder also contains resources folder, in which generated/essential data files or resources for the test cases are stored to run the test cases.
 
